@@ -21,10 +21,13 @@
         .card.active { display: block; }
         
         label { display: block; margin-bottom: 6px; font-weight: bold; font-size: 14px; }
-        input, select { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccd0d5; border-radius: 8px; font-size: 16px; }
+        input { width: 100%; padding: 12px; margin-bottom: 12px; border: 1px solid #ccd0d5; border-radius: 8px; font-size: 16px; }
         button.action-btn { width: 100%; padding: 14px; background: #da121a; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; }
         button.action-btn:hover { background: #b80f16; }
         
+        .install-box { background: #e8f5e9; border: 1px solid #078930; padding: 12px; border-radius: 8px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; }
+        .install-btn { background: #078930; color: white; border: none; padding: 8px 12px; border-radius: 6px; font-weight: bold; cursor: pointer; }
+
         .result-box { margin-top: 20px; padding: 15px; background: #e8f5e9; border-left: 5px solid #078930; border-radius: 6px; display: none; }
         .result-item { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 15px; }
         .result-item.total { font-weight: bold; font-size: 18px; color: #078930; border-top: 1px solid #c8e6c9; padding-top: 8px; }
@@ -35,6 +38,12 @@
 <div class="container">
     <h1>🇪🇹 Ethio Smart Tools</h1>
     <p class="subtitle">🔥 አዲሱ የ2026 የደመወዝ ግብር እና የኦቨርታይም ማስያ</p>
+
+    <!-- እንደ አፕሊኬሽን ስልክ ላይ ለመጫን (Install) የሚያስችል አማራጭ -->
+    <div class="install-box" id="installPrompt" style="display:none;">
+        <span>📱 አፕሊኬሽኑን ስልክዎ ላይ ይጫኑት!</span>
+        <button class="install-btn" id="installBtn">ጫን (Install)</button>
+    </div>
 
     <div class="ad-banner" id="ad-top">
         [ የማስታወቂያ ቦታ - Ad Space ]
@@ -49,16 +58,19 @@
         <label for="grossSalary">መሰረታዊ ወርሃዊ ደመወዝ (Basic Salary በብር):</label>
         <input type="number" id="grossSalary" placeholder="ለምሳሌ፡ 10000">
 
-        <label for="otHours">የኦቨርታይም ሰዓት ብዛት (በወር ውስጥ):</label>
-        <input type="number" id="otHours" placeholder="ለምሳሌ፡ 20" value="0">
+        <h3 style="font-size: 15px; color: #078930; margin: 10px 0;">የተለያዩ የትርፍ ሰአት (OT) ሰዓቶችዎን ያስገቡ፦</h3>
 
-        <label for="otType">የኦቨርታይም ዓይነት (የኢትዮጵያ ህግ):</label>
-        <select id="otType">
-            <option value="1.50">ከጠዋቱ 12 እስከ ምሽት 4 ሰዓት (1.5)</option>
-            <option value="1.75">ከምሽቱ 4 እስከ ንጋት 12 ሰዓት /ሌሊት (1.75)</option>
-            <option value="2.00">እሁድ / የእረፍት ቀን (2.0)</option>
-            <option value="2.50">የህዝብ በዓል ቀን (2.5)</option>
-        </select>
+        <label for="ot15">1. ከጠዋቱ 12 እስከ ምሽት 4 ሰዓት (1.5 ሰዓት ብዛት):</label>
+        <input type="number" id="ot15" placeholder="ለምሳሌ፡ 10" value="0">
+
+        <label for="ot175">2. ከምሽቱ 4 እስከ ንጋት 12 ሰዓት /ሌሊት (1.75 ሰዓት ብዛት):</label>
+        <input type="number" id="ot175" placeholder="ለምሳሌ፡ 5" value="0">
+
+        <label for="ot20">3. እሁድ / የእረፍት ቀን (2.0 ሰዓት ብዛት):</label>
+        <input type="number" id="ot20" placeholder="ለምሳሌ፡ 8" value="0">
+
+        <label for="ot25">4. የህዝብ በዓል ቀን (2.5 ሰዓት ብዛት):</label>
+        <input type="number" id="ot25" placeholder="ለምሳሌ፡ 0" value="0">
 
         <label for="allowance">የትራንስፖርት / ሌላ አበል (ከግብር ነጻ ከሆነ):</label>
         <input type="number" id="allowance" placeholder="ለምሳሌ፡ 600" value="0">
@@ -67,7 +79,7 @@
 
         <div class="result-box" id="salaryResult">
             <div class="result-item"><span>መሰረታዊ ደመወዝ:</span> <span id="resBasic">0 ብር</span></div>
-            <div class="result-item"><span>የኦቨርታይም ክፍያ መጠን:</span> <span id="resOtAmount" style="color:#078930;">0 ብር</span></div>
+            <div class="result-item"><span>ጠቅላላ የኦቨርታይም ክፍያ:</span> <span id="resOtAmount" style="color:#078930;">0 ብር</span></div>
             <div class="result-item"><span>ጠቅላላ ገቢ (Gross):</span> <span id="resGross">0 ብር</span></div>
             <div class="result-item"><span>የገቢ ግብር (በአዲሱ ማሻሻያ):</span> <span id="resTax" style="color:#da121a;">0 ብር</span></div>
             <div class="result-item"><span>የጡረታ መዋጮ (7%):</span> <span id="resPension" style="color:#da121a;">0 ብር</span></div>
@@ -104,8 +116,10 @@
 
     function calculateSalary() {
         let basic = parseFloat(document.getElementById('grossSalary').value) || 0;
-        let otHours = parseFloat(document.getElementById('otHours').value) || 0;
-        let otMultiplier = parseFloat(document.getElementById('otType').value) || 1.50;
+        let h15 = parseFloat(document.getElementById('ot15').value) || 0;
+        let h175 = parseFloat(document.getElementById('ot175').value) || 0;
+        let h20 = parseFloat(document.getElementById('ot20').value) || 0;
+        let h25 = parseFloat(document.getElementById('ot25').value) || 0;
         let allowance = parseFloat(document.getElementById('allowance').value) || 0;
         
         if (basic <= 0) {
@@ -114,9 +128,16 @@
         }
 
         let hourlyRate = basic / 240;
-        let otAmount = otHours * hourlyRate * otMultiplier;
         
-        let gross = basic + otAmount;
+        // የሁሉንም የኦቨርታይም አይነቶች ክፍያ በአንድ ላይ ማስላት
+        let otAmount15 = h15 * hourlyRate * 1.50;
+        let otAmount175 = h175 * hourlyRate * 1.75;
+        let otAmount20 = h20 * hourlyRate * 2.00;
+        let otAmount25 = h25 * hourlyRate * 2.50;
+        
+        let totalOtAmount = otAmount15 + otAmount175 + otAmount20 + otAmount25;
+        
+        let gross = basic + totalOtAmount;
         let pension = basic * 0.07; 
         let tax = 0;
 
@@ -139,7 +160,7 @@
         let net = (gross - tax - pension) + allowance;
 
         document.getElementById('resBasic').innerText = basic.toLocaleString(undefined, {maximumFractionDigits: 2}) + " ብር";
-        document.getElementById('resOtAmount').innerText = "+" + otAmount.toLocaleString(undefined, {maximumFractionDigits: 2}) + " ብር";
+        document.getElementById('resOtAmount').innerText = "+" + totalOtAmount.toLocaleString(undefined, {maximumFractionDigits: 2}) + " ብር";
         document.getElementById('resGross').innerText = gross.toLocaleString(undefined, {maximumFractionDigits: 2}) + " ብር";
         document.getElementById('resTax').innerText = "-" + tax.toFixed(2) + " ብር";
         document.getElementById('resPension').innerText = "-" + pension.toFixed(2) + " ብር";
@@ -178,6 +199,25 @@
     
     document.getElementById('gregDate').valueAsDate = new Date();
     convertToEth();
+
+    // ስልክ ላይ እንደ አፕሊኬሽን (PWA) ለመጫን የሚረዳ ስክሪፕት
+    let deferredPrompt;
+    window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        document.getElementById('installPrompt').style.display = 'flex';
+    });
+
+    document.getElementById('installBtn').addEventListener('click', async () => {
+        if (deferredPrompt) {
+            deferredPrompt.prompt();
+            let { outcome } = await deferredPrompt.userChoice;
+            if (outcome === 'accepted') {
+                document.getElementById('installPrompt').style.display = 'none';
+            }
+            deferredPrompt = null;
+        }
+    });
 </script>
 
 </body>
