@@ -33,14 +33,17 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            scroll-behavior: smooth;
         }
-        .top-bar {
+        .top-lang-bar {
             display: flex;
             justify-content: flex-end;
             align-items: center;
             padding: 0.5rem 1rem;
             background: #fff;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            border-bottom: 1px solid #eee;
         }
         select.lang-select {
             padding: 0.3rem 0.5rem;
@@ -52,13 +55,13 @@
         header {
             background-color: var(--primary);
             color: white;
-            padding: 1.2rem 1rem;
+            padding: 1rem;
             text-align: center;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         header h1 {
             margin: 0;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
         }
         .badge {
             display: inline-block;
@@ -66,8 +69,8 @@
             color: white;
             padding: 0.3rem 0.8rem;
             border-radius: 20px;
-            font-size: 0.85rem;
-            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            margin-top: 0.4rem;
             font-weight: bold;
         }
         main {
@@ -90,27 +93,29 @@
         }
         .nav-buttons {
             display: flex;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
+            gap: 0.8rem;
+            margin-bottom: 1.2rem;
         }
         .nav-btn {
             flex: 1;
-            padding: 0.7rem;
+            padding: 0.8rem;
             text-align: center;
-            background: white;
-            border: 1px solid #ddd;
             border-radius: 6px;
             font-weight: bold;
-            color: var(--dark);
             text-decoration: none;
             cursor: pointer;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
             font-size: 0.9rem;
         }
-        .nav-btn.active {
+        .nav-btn.calc {
+            background: #e2e8f0;
+            color: var(--dark);
+            border: 1px solid #cbd5e1;
+        }
+        .nav-btn.feedback {
             background: var(--primary);
             color: white;
-            border-color: var(--primary);
+            border: 1px solid var(--primary);
         }
         .card {
             background: white;
@@ -173,22 +178,22 @@
             padding-top: 0.5rem;
             margin-top: 0.5rem;
         }
-        .install-banner {
+        .install-box {
             background: #fff3cd;
             border: 1px solid #ffeeba;
-            padding: 0.8rem;
-            border-radius: 6px;
+            padding: 1rem;
+            border-radius: 8px;
             text-align: center;
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
             display: none;
         }
-        .install-banner button {
+        .install-box button {
             background: var(--primary);
             color: white;
             border: none;
-            padding: 0.4rem 1rem;
+            padding: 0.5rem 1.2rem;
             border-radius: 4px;
-            margin-top: 0.4rem;
+            margin-top: 0.5rem;
             font-weight: bold;
             cursor: pointer;
         }
@@ -203,7 +208,9 @@
 </head>
 <body>
 
-    <div class="top-bar">
+    <!-- የቋንቋ ምርጫ አቀማመጥ (ልክ እንደጠየቁት በቀኝ በኩል በንጽህና የተደረደረ) -->
+    <div class="top-lang-bar">
+        <span id="lblLangPrompt" style="color: #555;">ቋንቋ / Language:</span>
         <select class="lang-select" id="langSelect" onchange="changeLanguage()">
             <option value="am">አማርኛ</option>
             <option value="om">Afaan Oromoo</option>
@@ -214,15 +221,15 @@
     </div>
 
     <header>
-        <h1 id="siteTitle">🇪🇹 Ethio Smart Tools</h1>
+        <h1 id="siteTitle">🇪🇹 Ethio Salary Pro</h1>
         <div class="badge" id="siteBadge">🔥 አዲሱ የ2026 የደመወዝ ግብር እና የኦቨርታይም ማስያ</div>
     </header>
 
     <main>
-        <!-- PWA Install Prompt Banner -->
-        <div id="installBanner" class="install-banner">
-            <span id="lblInstallText">ይህንን ዌብሳይት እንደ ስልክ አፕ (App) ጭነው ይጠቀሙ!</span><br>
-            <button id="installBtn" onclick="installApp()">አፕሊኬሽኑን ጫን (Install)</button>
+        <!-- PWA Install App Box -->
+        <div id="installBox" class="install-box">
+            <span id="lblInstallText" style="font-weight:600; color:#856404;">📱 ይህንን ዌብሳይት እንደ ስልክ አፕ (App) ጭነው ይጠቀሙ!</span><br>
+            <button id="installBtn" onclick="installApp()">አፕሊኬሽኑን ጫን (Install App)</button>
         </div>
 
         <!-- የማስታወቂያ ቦታ -->
@@ -230,15 +237,15 @@
             [ የማስታወቂያ ቦታ - Ad Space ]
         </div>
 
-        <!-- ናቪጌሽን በተኖች -->
+        <!-- ሁለት ዋና ዋና በተኖች (አንዱ ለደመወዝ፣ አንዱ በቀጥታ ወደ ሀሳብ መስጫ የሚወስድ) -->
         <div class="nav-buttons">
-            <a href="#calcCard" class="nav-btn active" id="navCalc">📊 ደመወዝ & OT</a>
-            <a href="#feedbackCard" class="nav-btn" id="navFeedback">💬 ሐሳብ / ጥያቄ</a>
+            <a href="#calcCard" class="nav-btn calc" id="navCalc">💰 ደመወዝ & OT</a>
+            <a href="#feedbackCard" class="nav-btn feedback" id="navFeedback">💬 ሐሳብ/ጥያቄ</a>
         </div>
 
         <!-- የደመወዝ እና የሁሉም OT ዓይነቶች ማስያ ካርድ -->
         <div class="card" id="calcCard">
-            <h2 id="calcHeader" style="margin-top:0; color:var(--primary); font-size: 1.2rem;">አዲሱ የተሻሻለው የደመወዝ እና የኦቨርታይም ማስያ</h2>
+            <h2 id="calcHeader" style="margin-top:0; color:var(--primary); font-size: 1.15rem;">ደመወዝ እና ኦቨርታይም (OT) ማስያ</h2>
             
             <div class="form-group">
                 <label id="lblBasic" for="basicSalary">መሰረታዊ ደመወዝ (Basic Salary በብር):</label>
@@ -247,7 +254,7 @@
 
             <div class="form-group">
                 <label id="lblOt1" for="ot1">1. ከሰዓት 12 እስከ ምሽት 4 ሰዓት (1.5 ሰዓት በዙ):</label>
-                <input type="number" id="ot1" placeholder="የሰዓታት ብዛት (ለምሳሌ: 10)" value="0">
+                <input type="number" id="ot1" placeholder="የሰዓታት ብዛት" value="0">
             </div>
 
             <div class="form-group">
@@ -330,7 +337,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 Ethio Smart Tools. All rights reserved.</p>
+        <p>&copy; 2026 Ethio Salary Pro. All rights reserved.</p>
     </footer>
 
     <script>
@@ -339,7 +346,7 @@
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
-            document.getElementById('installBanner').style.display = 'block';
+            document.getElementById('installBox').style.display = 'block';
         });
 
         function installApp() {
@@ -347,7 +354,7 @@
                 deferredPrompt.prompt();
                 deferredPrompt.userChoice.then((choiceResult) => {
                     if (choiceResult.outcome === 'accepted') {
-                        document.getElementById('installBanner').style.display = 'none';
+                        document.getElementById('installBox').style.display = 'none';
                     }
                     deferredPrompt = null;
                 });
@@ -367,10 +374,7 @@
                 return;
             }
 
-            // የሰዓት ውመን (Hourly rate based on 240 hours/month)
             const hourlyRate = basic / 240;
-            
-            // የሁሉም OT ዓይነቶች ድምር ክፍያ
             const otPayment = (hourlyRate * 1.5 * h1) + 
                               (hourlyRate * 1.75 * h2) + 
                               (hourlyRate * 2.0 * h3) + 
@@ -378,9 +382,8 @@
 
             const grossSalary = basic + otPayment + allowance;
 
-            // የኢትዮጵያ አዲስ የታክስ ስሌት ማዕቀፍ
             let tax = 0;
-            const taxableIncome = basic + otPayment; // (አበል ከግብር ነጻ ከሆነ)
+            const taxableIncome = basic + otPayment;
             
             if (taxableIncome <= 600) {
                 tax = 0;
@@ -399,13 +402,9 @@
             }
             if (tax < 0) tax = 0;
 
-            // የጡረታ አስተዋጽኦ (7%)
             const pension = basic * 0.07;
-
-            // የተጣራ ደመወዝ (Net Salary)
             const netSalary = grossSalary - tax - pension;
 
-            // ውጤቱን ማሳየት
             document.getElementById('resultCard').style.display = 'block';
             document.getElementById('resBasic').innerText = basic.toFixed(2) + ' ብር';
             document.getElementById('resOt').innerText = '+' + otPayment.toFixed(2) + ' ብር';
@@ -418,9 +417,10 @@
         function changeLanguage() {
             const lang = document.getElementById('langSelect').value;
             if (lang === 'en') {
-                document.getElementById('siteTitle').innerText = "🇪🇹 Ethio Smart Tools";
+                document.getElementById('lblLangPrompt').innerText = "Language:";
+                document.getElementById('siteTitle').innerText = "🇪🇹 Ethio Salary Pro";
                 document.getElementById('siteBadge').innerText = "🔥 New 2026 Salary, Tax & OT Calculator";
-                document.getElementById('calcHeader').innerText = "Revised Salary & Overtime Calculator";
+                document.getElementById('calcHeader').innerText = "Salary & Overtime Calculator";
                 document.getElementById('lblBasic').innerText = "Basic Salary (ETB):";
                 document.getElementById('lblOt1').innerText = "1. Evening 12 to Night 4 (1.5x):";
                 document.getElementById('lblOt2').innerText = "2. Night 4 to Morning 12 / Night (1.75x):";
@@ -434,12 +434,13 @@
                 document.getElementById('lblEmail').innerText = "Your Email (Optional):";
                 document.getElementById('lblMessage').innerText = "Your Message:";
                 document.getElementById('btnSubmit').innerText = "Send Feedback";
-                document.getElementById('navCalc').innerText = "📊 Salary & OT";
+                document.getElementById('navCalc').innerText = "💰 Salary & OT";
                 document.getElementById('navFeedback').innerText = "💬 Feedback";
             } else if (lang === 'om') {
-                document.getElementById('siteTitle').innerText = "🇪🇹 Ethio Smart Tools";
+                document.getElementById('lblLangPrompt').innerText = "Afaan:";
+                document.getElementById('siteTitle').innerText = "🇪🇹 Ethio Salary Pro";
                 document.getElementById('siteBadge').innerText = "🔥 Shallgessa Mindaa fi Gibira 2026";
-                document.getElementById('calcHeader').innerText = "Shallgessa Mindaa fi OT Ammayyaa";
+                document.getElementById('calcHeader').innerText = "Shallgessa Mindaa fi OT";
                 document.getElementById('lblBasic').innerText = "Mindaa Bu'uuraa (ETB):";
                 document.getElementById('lblOt1').innerText = "1. Galgala 12 hanga Halkan 4 (1.5x):";
                 document.getElementById('lblOt2').innerText = "2. Halkan 4 hanga Barii 12 (1.75x):";
@@ -453,12 +454,13 @@
                 document.getElementById('lblEmail').innerText = "Imeelii (Filannoo):";
                 document.getElementById('lblMessage').innerText = "Ergaa Keessan:";
                 document.getElementById('btnSubmit').innerText = "Ergi";
-                document.getElementById('navCalc').innerText = "📊 Mindaa & OT";
+                document.getElementById('navCalc').innerText = "💰 Mindaa & OT";
                 document.getElementById('navFeedback').innerText = "💬 Yaada";
             } else {
-                document.getElementById('siteTitle').innerText = "🇪🇹 Ethio Smart Tools";
+                document.getElementById('lblLangPrompt').innerText = "ቋንቋ / Language:";
+                document.getElementById('siteTitle').innerText = "🇪🇹 Ethio Salary Pro";
                 document.getElementById('siteBadge').innerText = "🔥 አዲሱ የ2026 የደመወዝ ግብር እና የኦቨርታይም ማስያ";
-                document.getElementById('calcHeader').innerText = "አዲሱ የተሻሻለው የደመወዝ እና የኦቨርታይም ማስያ";
+                document.getElementById('calcHeader').innerText = "ደመወዝ እና ኦቨርታይም (OT) ማስያ";
                 document.getElementById('lblBasic').innerText = "መሰረታዊ ደመወዝ (Basic Salary በብር):";
                 document.getElementById('lblOt1').innerText = "1. ከሰዓት 12 እስከ ምሽት 4 ሰዓት (1.5 ሰዓት በዙ):";
                 document.getElementById('lblOt2').innerText = "2. ከምሽት 4 እስከ ንጋት 12 ሰዓት / ሌሊት (1.75 ሰዓት በዙ):";
@@ -467,13 +469,13 @@
                 document.getElementById('lblTransport').innerText = "የትራንስፖርት / ሌላ አበል (ከግብር ነጻ ከሆነ):";
                 document.getElementById('btnCalculate').innerText = "አዲሱን የተጣራ ደመወዝ እና OT አስላ";
                 document.getElementById('feedbackHeader').innerText = "ሐሳብ፣ አስተያየት ወይም ጥያቄ አለዎት?";
-                document.getElementById('feedbackDesc').innerText = "ከታች ባለው ሳጥን ውስጥ ሐሳብዎን በመጻፍ በቀጥታ መላክ ይችላሉ።";
+                document.getElementById('feedbackDesc').innerText = "ከታች ባለው ሳጥን ውስጥ ሐሳብዎን በመጻፍ በቀጥታ ወደ እኛ መላክ ይችላሉ።";
                 document.getElementById('lblName').innerText = "ስምዎ:";
                 document.getElementById('lblEmail').innerText = "ኢሜይልዎ (አማራጭ):";
                 document.getElementById('lblMessage').innerText = "መልእክትዎ ወይም ጥያቄዎ:";
                 document.getElementById('btnSubmit').innerText = "ሐሳብዎን ይላኩ";
-                document.getElementById('navCalc').innerText = "📊 ደመወዝ & OT";
-                document.getElementById('navFeedback').innerText = "💬 ሐሳብ / ጥያቄ";
+                document.getElementById('navCalc').innerText = "💰 ደመወዝ & OT";
+                document.getElementById('navFeedback').innerText = "💬 ሐሳብ/ጥያቄ";
             }
         }
     </script>
