@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ethio Tools - የቀን መቀየሪያ እና የደመወዝ ማስያዣ</title>
+    <title>Ethio Tools - የቀን መቀየሪያ እና የደመወዝ ማሳያ</title>
     <style>
         * { box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body { background-color: #f0f2f5; margin: 0; padding: 15px; color: #1c1e21; }
@@ -11,7 +11,6 @@
         h1 { text-align: center; color: #078930; font-size: 22px; margin-bottom: 5px; }
         p.subtitle { text-align: center; color: #606770; font-size: 13px; margin-top: 0; margin-bottom: 20px; }
         
-        /* የማስታወቂያ ቦታ (ወደፊት Adsterra ኮድ የሚገባበት) */
         .ad-banner { background: #e9ecef; border: 1px dashed #adb5bd; text-align: center; padding: 15px; margin: 15px 0; border-radius: 8px; font-size: 12px; color: #6c757d; }
         
         .tabs { display: flex; gap: 10px; margin-bottom: 20px; }
@@ -35,19 +34,17 @@
 
 <div class="container">
     <h1>🇪🇹 Ethio Smart Tools</h1>
-    <p class="subtitle">የደመወዝ ግብር ማስያዣ እና የቀን መቁጠሪያ</p>
+    <p class="subtitle">የደመወዝ ማሳያ እና ማስያ እንዲሁም የቀን መቁጠሪያ</p>
 
-    <!-- የላይኛው የማስታወቂያ ቦታ -->
     <div class="ad-banner" id="ad-top">
         [ የማስታወቂያ ቦታ - Ad Space ]
     </div>
 
     <div class="tabs">
-        <button class="tab-btn active" onclick="switchTab('salary')">💰 የደመወዝ ማስያዣ</button>
+        <button class="tab-btn active" onclick="switchTab('salary')">💰 የደመወዝ ማሳያ እና ማስያ</button>
         <button class="tab-btn" onclick="switchTab('date')">📅 የቀን መቀየሪያ</button>
     </div>
 
-    <!-- 1. የደመወዝ እና ግብር ማስያዣ -->
     <div id="salary" class="card active">
         <label for="grossSalary">ጠቅላላ የወር ደመወዝ (Gross Salary በብር):</label>
         <input type="number" id="grossSalary" placeholder="ለምሳሌ፡ 10000">
@@ -65,7 +62,6 @@
         </div>
     </div>
 
-    <!-- 2. የቀን መቀየሪያ (Gregorian to Ethiopian) -->
     <div id="date" class="card">
         <label for="gregDate">የፈረንጆችን ቀን ይምረጡ (Gregorian Date):</label>
         <input type="date" id="gregDate">
@@ -80,14 +76,12 @@
         </div>
     </div>
 
-    <!-- የታችኛው የማስታወቂያ ቦታ -->
     <div class="ad-banner" id="ad-bottom">
         [ የማስታወቂያ ቦታ - Ad Space ]
     </div>
 </div>
 
 <script>
-    // ታብ መቀየሪያ
     function switchTab(tabId) {
         document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
         document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -95,7 +89,6 @@
         event.target.classList.add('active');
     }
 
-    // የኢትዮጵያ የደመወዝ ግብር ማስያዣ (በነባሩ የግብር ህግ መሰረት)
     function calculateSalary() {
         let gross = parseFloat(document.getElementById('grossSalary').value) || 0;
         let allowance = parseFloat(document.getElementById('allowance').value) || 0;
@@ -105,7 +98,7 @@
             return;
         }
 
-        let pension = gross * 0.07; // 7% የሰራተኛ ጡረታ
+        let pension = gross * 0.07;
         let tax = 0;
 
         if (gross <= 600) { tax = 0; }
@@ -125,7 +118,6 @@
         document.getElementById('salaryResult').style.display = 'block';
     }
 
-    // የፈረንጆችን ቀን ወደ ኢትዮጵያ መቀየሪያ
     function convertToEth() {
         let inputDate = document.getElementById('gregDate').value;
         if (!inputDate) {
@@ -138,7 +130,6 @@
         let month = date.getMonth() + 1;
         let day = date.getDate();
 
-        // ቀላል የቀን መቀየሪያ ቀመር
         let jdn = Math.floor((1461 * (year + 4800 + Math.floor((month - 14) / 12))) / 4) +
                   Math.floor((367 * (month - 2 - 12 * (Math.floor((month - 14) / 12)))) / 12) -
                   Math.floor((3 * (Math.floor((year + 4900 + Math.floor((month - 14) / 12)) / 100))) / 4) +
@@ -156,7 +147,6 @@
         document.getElementById('dateResult').style.display = 'block';
     }
     
-    // የዛሬን ቀን በራስ-ሰር መሙላት
     document.getElementById('gregDate').valueAsDate = new Date();
 </script>
 
