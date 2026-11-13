@@ -3,7 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ethio Salary & Tax Pro - አዲሱ የደመወዝ፣ ግብር እና ኦቨርታይም ማስያ</title>
+    <title>Ethio Salary & Tax Pro - አዲሱ የ2026 የደመወዝ፣ ግብር እና ኦቨርታይም ማስያ</title>
+    
+    <!-- የሚያምር የሊንክ ሼር ሽፋን (Social Media Meta Tags & Open Graph) -->
+    <meta name="description" content="አዲሱ የኢትዮጵያ የ2026 የደመወዝ ግብር፣ የጡረታ እና የትርፍ ሰዓት (OT) ማስያ። ፍጹም ትክክለኛ እና ዘመናዊ መሣሪያ።">
+    <meta property="og:title" content="Ethio Salary & Tax Pro - 2026 Salary & OT Calculator">
+    <meta property="og:description" content="የደመወዝ ግብር፣ የጡረታ መዋጮ እና የኦቨርታይም ክፍያዎችን በአዲሱ የኢትዮጵያ ህግ መሰረት በአንድ ላይ ያሰሉ!">
+    <meta property="og:image" content="https://wende717-pixel.github.io/icon-512.png">
+    <meta property="og:type" content="website">
+
+    <!-- PWA Web App Manifest Link -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#078930">
+    <link rel="apple-touch-icon" href="icon-192.png">
+
     <style>
         * { box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body { background-color: #f0f2f5; margin: 0; padding: 15px; color: #1c1e21; }
@@ -29,7 +42,7 @@
         button.action-btn { width: 100%; padding: 14px; background: #da121a; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; }
         button.action-btn:hover { background: #b80f16; }
         
-        .install-box { background: #e8f5e9; border: 1px solid #078930; padding: 12px; border-radius: 8px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; }
+        .install-box { background: #e8f5e9; border: 1px solid #078930; padding: 12px; border-radius: 8px; margin-bottom: 15px; display: none; justify-content: space-between; align-items: center; }
         .install-btn { background: #078930; color: white; border: none; padding: 8px 12px; border-radius: 6px; font-weight: bold; cursor: pointer; }
 
         .result-box { margin-top: 20px; padding: 15px; background: #e8f5e9; border-left: 5px solid #078930; border-radius: 6px; display: none; }
@@ -54,8 +67,8 @@
     <h1>🇪🇹 Ethio Salary Pro</h1>
     <p class="subtitle" id="mainTitle">🔥 አዲሱ የ2026 የደመወዝ ግብር እና የኦቨርታይም ማስያ</p>
 
-    <!-- አፕሊኬሽኑን ስልክ ላይ ለመጫን (Install) የሚያስችል ባነር -->
-    <div class="install-box" id="installPrompt" style="display:none;">
+    <!-- አፕሊኬሽኑን ስልክ ላይ ለመጫን (Install) የሚያስችል አውቶማቲክ ባነር -->
+    <div class="install-box" id="installPrompt">
         <span id="installText">📱 አፑን ስልክዎ ላይ ይጫኑት (Install App)!</span>
         <button class="install-btn" id="installBtn">ጫን</button>
     </div>
@@ -103,18 +116,20 @@
         </div>
     </div>
 
-    <!-- የሀሳብ እና ጥያቄ ማቅረቢያ ክፍል -->
+    <!-- የሀሳብ እና ጥያቄ ማቅረቢያ ክፍል (በኢሜይል ወይም በዋትሳፕ በቀጥታ የሚደርስ) -->
     <div id="feedback" class="card">
         <h3 style="color: #078930; font-size: 16px; margin-top:0;" id="fbHeader">ሀሳብ፣ አስተያየት ወይም ጥያቄ አለዎት?</h3>
         <p style="font-size: 13px; color: #555;" id="fbDesc">ከታች ባለው ሳጥን ውስጥ ሀሳብዎን በመጻፍ በቀጥታ መላክ ይችላሉ።</p>
         
-        <label id="lblFbName" for="fbName">ስምዎ:</label>
-        <input type="text" id="fbName" placeholder="ስምዎን ያስገቡ">
+        <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+            <label id="lblFbName" for="fbName">ስምዎ:</label>
+            <input type="text" id="fbName" name="name" placeholder="ስምዎን ያስገቡ" required>
 
-        <label id="lblFbMsg" for="fbMessage">መልእክትዎ ወይም ጥያቄዎ:</label>
-        <textarea id="fbMessage" rows="4" placeholder="ሀሳብዎን እዚህ ይጻፉ..."></textarea>
+            <label id="lblFbMsg" for="fbMessage">መልእክትዎ ወይም ጥያቄዎ:</label>
+            <textarea id="fbMessage" name="message" rows="4" placeholder="ሀሳብዎን እዚህ ይጻፉ..." required></textarea>
 
-        <button class="action-btn" onclick="sendFeedback()" id="btnSendFb">ሀሳብዎን ይላኩ</button>
+            <button type="submit" class="action-btn" id="btnSendFb">ሀሳብዎን ይላኩ</button>
+        </form>
     </div>
 
     <div class="ad-banner" id="ad-bottom">
@@ -169,17 +184,6 @@
         document.getElementById('salaryResult').style.display = 'block';
     }
 
-    function sendFeedback() {
-        let name = document.getElementById('fbName').value;
-        let msg = document.getElementById('fbMessage').value;
-        if(!msg) {
-            alert("እባክዎ ሀሳብዎን ወይም ጥያቄዎን ይጻፉ!");
-            return;
-        }
-        let whatsappUrl = `https://wa.me/?text=ስም: ${encodeURIComponent(name)}%0Aሀሳብ/ጥያቄ: ${encodeURIComponent(msg)}`;
-        window.open(whatsappUrl, '_blank');
-    }
-
     const texts = {
         am: {
             title: "🔥 አዲሱ የ2026 የደመወዝ ግብር እና የኦቨርታይም ማስያ",
@@ -202,7 +206,7 @@
             resPension: "የጡረታ መዋጮ (7%):",
             resNet: "እጅ ላይ የሚደርስ (Net):",
             fbHeader: "ሀሳብ፣ አስተያየት ወይም ጥያቄ አለዎት?",
-            fbDesc: "ከታች ባለው ሳጥን ውስጥ ሀሳብዎን በመጻፍ መላክ ይችላሉ።",
+            fbDesc: "ከታች ባለው ሳጥን ውስጥ ሀሳብዎን በመጻፍ በቀጥታ መላክ ይችላሉ።",
             lblFbName: "ስምዎ:",
             lblFbMsg: "መልእክትዎ ወይም ጥያቄዎ:",
             btnSendFb: "ሀሳብዎን ይላኩ"
@@ -241,7 +245,7 @@
             tabFeedback: "💬 Yaada",
             lblBasic: "Mindaa Bu'uuraa (ETB):",
             lblOtHeader: "Sa'aatii Daboo (OT) galchaa:",
-            lblOt15: "1. Sa'აatii 12 hanga 4 (1.5x):",
+            lblOt15: "1. Sa'aatii 12 hanga 4 (1.5x):",
             lblOt175: "2. Sa'aatii Halkan (1.75x):",
             lblOt20: "3. Dilbata / Guyyaa Boqonnaa (2.0x):",
             lblOt25: "4. Guyyaa Ayyaanaa (2.5x):",
@@ -325,7 +329,7 @@
         document.getElementById('lblBasic').innerText = t.lblBasic;
         document.getElementById('lblOtHeader').innerText = t.lblOtHeader;
         document.getElementById('lblOt15').innerText = t.lblOt15;
-        document.getElementById('lblOt175').innerText = t.lblOt175;
+        document.getElementById('lblOt175').innerText.innerText = t.lblOt175;
         document.getElementById('lblOt20').innerText = t.lblOt20;
         document.getElementById('lblOt25').innerText = t.lblOt25;
         document.getElementById('lblAllowance').innerText = t.lblAllowance;
