@@ -1,370 +1,150 @@
 <!DOCTYPE html>
-<html lang="am">
+<html lang="am" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ethio Salary & Tax Pro - አዲሱ የ2026 የደመወዝ፣ ግብር እና ኦቨርታይም ማስያ</title>
+    <title>Ethio Salary & Tax Pro 2026</title>
     
-    <!-- የሚያምር የሊንክ ሼር ሽፋን (Social Media Meta Tags & Open Graph) -->
-    <meta name="description" content="አዲሱ የኢትዮጵያ የ2026 የደመወዝ ግብር፣ የጡረታ እና የትርፍ ሰዓት (OT) ማስያ። ፍጹም ትክክለኛ እና ዘመናዊ መሣሪያ።">
-    <meta property="og:title" content="Ethio Salary & Tax Pro - 2026 Salary & OT Calculator">
-    <meta property="og:description" content="የደመወዝ ግብር፣ የጡረታ መዋጮ እና የኦቨርታይም ክፍያዎችን በአዲሱ የኢትዮጵያ ህግ መሰረት በአንድ ላይ ያሰሉ!">
-    <meta property="og:image" content="https://wende717-pixel.github.io/icon-512.png">
-    <meta property="og:type" content="website">
-
-    <!-- PWA Web App Manifest Link -->
+    <!-- PWA Manifest & Meta Tags -->
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#078930">
-    <link rel="apple-touch-icon" href="icon-192.png">
+    <meta property="description" content="የኢትዮጵያ የደመወዝ፣ የግብር እና የኦቨርታይም ማስያ ዌብሳይት።">
 
     <style>
-        * { box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: #f0f2f5; margin: 0; padding: 15px; color: #1c1e21; }
-        .container { max-width: 500px; margin: 0 auto; background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-        
-        .top-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-        .lang-select { padding: 6px; border-radius: 6px; border: 1px solid #ccd0d5; font-size: 13px; font-weight: bold; background: #fff; }
-
-        h1 { text-align: center; color: #078930; font-size: 22px; margin-bottom: 5px; }
-        p.subtitle { text-align: center; color: #ffffff; font-size: 14px; font-weight: bold; margin-top: 5px; margin-bottom: 20px; background: #da121a; padding: 8px; border-radius: 6px; }
-        
-        .ad-banner { background: #e9ecef; border: 1px dashed #adb5bd; text-align: center; padding: 15px; margin: 15px 0; border-radius: 8px; font-size: 12px; color: #6c757d; }
-        
-        .tabs { display: flex; gap: 10px; margin-bottom: 20px; }
-        .tab-btn { flex: 1; padding: 12px; border: none; border-radius: 8px; background: #e4e6eb; font-weight: bold; cursor: pointer; font-size: 14px; transition: 0.3s; text-align: center; }
-        .tab-btn.active { background: #078930; color: white; }
-        
-        .card { display: none; }
-        .card.active { display: block; }
-        
-        label { display: block; margin-bottom: 6px; font-weight: bold; font-size: 14px; }
-        input, textarea { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccd0d5; border-radius: 8px; font-size: 16px; }
-        button.action-btn { width: 100%; padding: 14px; background: #da121a; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; }
-        button.action-btn:hover { background: #b80f16; }
-        
-        .install-box { background: #e8f5e9; border: 1px solid #078930; padding: 12px; border-radius: 8px; margin-bottom: 15px; display: none; justify-content: space-between; align-items: center; }
-        .install-btn { background: #078930; color: white; border: none; padding: 8px 12px; border-radius: 6px; font-weight: bold; cursor: pointer; }
-
-        .result-box { margin-top: 20px; padding: 15px; background: #e8f5e9; border-left: 5px solid #078930; border-radius: 6px; display: none; }
-        .result-item { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 15px; }
-        .result-item.total { font-weight: bold; font-size: 18px; color: #078930; border-top: 1px solid #c8e6c9; padding-top: 8px; }
+        :root {
+            --primary: #078930;
+            --secondary: #fcd116;
+            --dark: #1a1a1a;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        main {
+            flex: 1;
+            max-width: 600px;
+            width: 100%;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            box-sizing: border-box;
+        }
+        .card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 1.5rem;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+        }
+        button:hover {
+            opacity: 0.9;
+        }
+        .ad-container {
+            text-align: center;
+            margin: 1.5rem 0;
+            background: #e9ecef;
+            padding: 1rem;
+            border-radius: 6px;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: var(--dark);
+            color: white;
+            font-size: 0.85rem;
+        }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <div class="top-bar">
-        <span style="font-size: 12px; font-weight: bold; color: #555;">ቋንቋ / Language:</span>
-        <select class="lang-select" id="langSelector" onchange="changeLanguage()">
-            <option value="am">አማርኛ</option>
-            <option value="en">English</option>
-            <option value="om">Afaan Oromoo</option>
-            <option value="ti">ትግርኛ</option>
-            <option value="so">Soomaali</option>
-        </select>
-    </div>
+    <header>
+        <h1>🇪🇹 Ethio Salary & Tax Calculator</h1>
+        <p>የኢትዮጵያ አዲስ የደመወዝ እና ግብር ማስያ</p>
+    </header>
 
-    <h1>🇪🇹 Ethio Salary Pro</h1>
-    <p class="subtitle" id="mainTitle">🔥 አዲሱ የ2026 የደመወዝ ግብር እና የኦቨርታይም ማስያ</p>
-
-    <!-- አፕሊኬሽኑን ስልክ ላይ ለመጫን (Install) የሚያስችል አውቶማቲክ ባነር -->
-    <div class="install-box" id="installPrompt">
-        <span id="installText">📱 አፑን ስልክዎ ላይ ይጫኑት (Install App)!</span>
-        <button class="install-btn" id="installBtn">ጫን</button>
-    </div>
-
-    <div class="ad-banner" id="ad-top">
-        [ የማስታወቂያ ቦታ - Ad Space ]
-    </div>
-
-    <div class="tabs">
-        <button class="tab-btn active" onclick="switchTab('salary', event)" id="tabSalary">💰 ደመወዝ & ኦቨርታይም</button>
-        <button class="tab-btn" onclick="switchTab('feedback', event)" id="tabFeedback">💬 ሀሳብ/ጥያቄ</button>
-    </div>
-
-    <!-- የደመወዝ እና ኦቨርታይም ክፍል -->
-    <div id="salary" class="card active">
-        <label id="lblBasic" for="grossSalary">መሰረታዊ ወርሃዊ ደመወዝ (Basic Salary በብር):</label>
-        <input type="number" id="grossSalary" placeholder="ለምሳሌ፡ 10000">
-
-        <h3 style="font-size: 15px; color: #078930; margin: 10px 0;" id="lblOtHeader">የተለያዩ የትርፍ ሰአት (OT) ሰዓቶችዎን ያስገቡ፦</h3>
-
-        <label id="lblOt15">1. ከጠዋቱ 12 እስከ ምሽት 4 ሰዓት (1.5x):</label>
-        <input type="number" id="ot15" placeholder="0" value="0">
-
-        <label id="lblOt175">2. ከምሽቱ 4 እስከ ንጋት 12 ሰዓት /ሌሊት (1.75x):</label>
-        <input type="number" id="ot175" placeholder="0" value="0">
-
-        <label id="lblOt20">3. እሁድ / የእረፍት ቀን (2.0x):</label>
-        <input type="number" id="ot20" placeholder="0" value="0">
-
-        <label id="lblOt25">4. የህዝብ በዓል ቀን (2.5x):</label>
-        <input type="number" id="ot25" placeholder="0" value="0">
-
-        <label id="lblAllowance">የትራንስፖርት / ሌላ አበል (ከግብር ነጻ ከሆነ):</label>
-        <input type="number" id="allowance" placeholder="0" value="0">
-
-        <button class="action-btn" onclick="calculateSalary()" id="btnCalc">አዲሱን የተጣራ ደመወዝ እና ኦቨርታይም አስላ</button>
-
-        <div class="result-box" id="salaryResult">
-            <div class="result-item"><span id="resLblBasic">መሰረታዊ ደመወዝ:</span> <span id="resBasic">0 ብር</span></div>
-            <div class="result-item"><span id="resLblOt">ጠቅላላ የኦቨርታይም ክፍያ:</span> <span id="resOtAmount" style="color:#078930;">0 ብር</span></div>
-            <div class="result-item"><span id="resLblGross">ጠቅላላ ገቢ (Gross):</span> <span id="resGross">0 ብር</span></div>
-            <div class="result-item"><span id="resLblTax">የገቢ ግብር (በአዲሱ ማሻሻያ):</span> <span id="resTax" style="color:#da121a;">0 ብር</span></div>
-            <div class="result-item"><span id="resLblPension">የጡረታ መዋጮ (7%):</span> <span id="resPension" style="color:#da121a;">0 ብር</span></div>
-            <div class="result-item total"><span id="resLblNet">እጅ ላይ የሚደርስ (Net):</span> <span id="resNet">0 ብር</span></div>
+    <main>
+        <!-- የላይኛው የማስታወቂያ ቦታ (Adsterra Banner Ad እዚህ ይገባል) -->
+        <div class="ad-container">
+            [ የማስታወቂያ ቦታ - Ad Space ]
+            <!-- የ Adsterra ኮድዎን ሲኖሮት ከዚህ በታች መተካት ይችላሉ -->
         </div>
-    </div>
 
-    <!-- የሀሳብ እና ጥያቄ ማቅረቢያ ክፍል (በኢሜይል ወይም በዋትሳፕ በቀጥታ የሚደርስ) -->
-    <div id="feedback" class="card">
-        <h3 style="color: #078930; font-size: 16px; margin-top:0;" id="fbHeader">ሀሳብ፣ አስተያየት ወይም ጥያቄ አለዎት?</h3>
-        <p style="font-size: 13px; color: #555;" id="fbDesc">ከታች ባለው ሳጥን ውስጥ ሀሳብዎን በመጻፍ በቀጥታ መላክ ይችላሉ።</p>
-        
-        <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
-            <label id="lblFbName" for="fbName">ስምዎ:</label>
-            <input type="text" id="fbName" name="name" placeholder="ስምዎን ያስገቡ" required>
+        <div class="card">
+            <h2>ደመወዝ ማስያ</h2>
+            <div class="form-group">
+                <label for="salary">ቀጣሪ ደመወዝ (ብር):</label>
+                <input type="number" id="salary" placeholder="ለምሳሌ: 5000">
+            </div>
+            <button onclick="alert('ካልኩሌተር ስራ ላይ ነው!')">አስላ (Calculate)</button>
+        </div>
 
-            <label id="lblFbMsg" for="fbMessage">መልእክትዎ ወይም ጥያቄዎ:</label>
-            <textarea id="fbMessage" name="message" rows="4" placeholder="ሀሳብዎን እዚህ ይጻፉ..." required></textarea>
+        <!-- የሐሳብ እና አስተያየት መስጫ ክፍል (በ Formspree የተገናኘ) -->
+        <div class="card">
+            <h3>ሀሳብዎ ወይም ጥያቄዎ አለ?</h3>
+            <form action="https://formspree.io/f/xdegagqk" method="POST">
+                <div class="form-group">
+                    <label for="email">ኢሜይልዎ (አማራጭ):</label>
+                    <input type="email" id="email" name="email" placeholder="example@gmail.com">
+                </div>
+                <div class="form-group">
+                    <label for="message">መልእክትዎ:</label>
+                    <textarea id="message" name="message" rows="4" placeholder="ሀሳብዎን እዚህ ይጻፉ..." required></textarea>
+                </div>
+                <button type="submit">ሀሳብዎን ይላኩ</button>
+            </form>
+        </div>
 
-            <button type="submit" class="action-btn" id="btnSendFb">ሀሳብዎን ይላኩ</button>
-        </form>
-    </div>
+        <!-- የታችኛው የማስታወቂያ ቦታ -->
+        <div class="ad-container">
+            [ የማስታወቂያ ቦታ - Ad Space ]
+        </div>
+    </main>
 
-    <div class="ad-banner" id="ad-bottom">
-        [ የማስታወቂያ ቦታ - Ad Space ]
-    </div>
-</div>
-
-<script>
-    function switchTab(tabId, event) {
-        document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
-        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        document.getElementById(tabId).classList.add('active');
-        event.currentTarget.classList.add('active');
-    }
-
-    function calculateSalary() {
-        let basic = parseFloat(document.getElementById('grossSalary').value) || 0;
-        let h15 = parseFloat(document.getElementById('ot15').value) || 0;
-        let h175 = parseFloat(document.getElementById('ot175').value) || 0;
-        let h20 = parseFloat(document.getElementById('ot20').value) || 0;
-        let h25 = parseFloat(document.getElementById('ot25').value) || 0;
-        let allowance = parseFloat(document.getElementById('allowance').value) || 0;
-        
-        if (basic <= 0) {
-            alert("እባክዎ ትክክለኛ መሰረታዊ ደመወዝ ያስገቡ!");
-            return;
-        }
-
-        let hourlyRate = basic / 240;
-        let totalOtAmount = (h15 * hourlyRate * 1.50) + (h175 * hourlyRate * 1.75) + (h20 * hourlyRate * 2.00) + (h25 * hourlyRate * 2.50);
-        
-        let gross = basic + totalOtAmount;
-        let pension = basic * 0.07; 
-        let tax = 0;
-
-        if (gross <= 1250) { tax = 0; } 
-        else if (gross <= 3200) { tax = (gross * 0.10) - 125; } 
-        else if (gross <= 5250) { tax = (gross * 0.15) - 285; } 
-        else if (gross <= 7800) { tax = (gross * 0.20) - 547.50; } 
-        else if (gross <= 10900) { tax = (gross * 0.25) - 937.50; } 
-        else if (gross <= 13500) { tax = (gross * 0.30) - 1482.50; } 
-        else { tax = (gross * 0.35) - 2157.50; }
-
-        let net = (gross - tax - pension) + allowance;
-
-        document.getElementById('resBasic').innerText = basic.toLocaleString(undefined, {maximumFractionDigits: 2}) + " ብር";
-        document.getElementById('resOtAmount').innerText = "+" + totalOtAmount.toLocaleString(undefined, {maximumFractionDigits: 2}) + " ብር";
-        document.getElementById('resGross').innerText = gross.toLocaleString(undefined, {maximumFractionDigits: 2}) + " ብር";
-        document.getElementById('resTax').innerText = "-" + tax.toFixed(2) + " ብር";
-        document.getElementById('resPension').innerText = "-" + pension.toFixed(2) + " ብር";
-        document.getElementById('resNet').innerText = net.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2}) + " ብር";
-        document.getElementById('salaryResult').style.display = 'block';
-    }
-
-    const texts = {
-        am: {
-            title: "🔥 አዲሱ የ2026 የደመወዝ ግብር እና የኦቨርታይም ማስያ",
-            installText: "📱 አፑን ስልክዎ ላይ ይጫኑት (Install App)!",
-            installBtn: "ጫን",
-            tabSalary: "💰 ደመወዝ & ኦቨርታይም",
-            tabFeedback: "💬 ሀሳብ/ጥያቄ",
-            lblBasic: "መሰረታዊ ወርሃዊ ደመወዝ (Basic Salary በብር):",
-            lblOtHeader: "የተለያዩ የትርፍ ሰአት (OT) ሰዓቶችዎን ያስገቡ፦",
-            lblOt15: "1. ከጠዋቱ 12 እስከ ምሽት 4 ሰዓት (1.5x):",
-            lblOt175: "2. ከምሽቱ 4 እስከ ንጋት 12 ሰዓት /ሌሊት (1.75x):",
-            lblOt20: "3. እሁድ / የእረፍት ቀን (2.0x):",
-            lblOt25: "4. የህዝብ በዓል ቀን (2.5x):",
-            lblAllowance: "የትራንስፖርት / ሌላ አበል (ከግብር ነጻ ከሆነ):",
-            btnCalc: "አዲሱን የተጣራ ደመወዝ እና ኦቨርታይም አስላ",
-            resBasic: "መሰረታዊ ደመወዝ:",
-            resOt: "ጠቅላላ የኦቨርታይም ክፍያ:",
-            resGross: "ጠቅላላ ገቢ (Gross):",
-            resTax: "የገቢ ግብር (በአዲሱ ማሻሻያ):",
-            resPension: "የጡረታ መዋጮ (7%):",
-            resNet: "እጅ ላይ የሚደርስ (Net):",
-            fbHeader: "ሀሳብ፣ አስተያየት ወይም ጥያቄ አለዎት?",
-            fbDesc: "ከታች ባለው ሳጥን ውስጥ ሀሳብዎን በመጻፍ በቀጥታ መላክ ይችላሉ።",
-            lblFbName: "ስምዎ:",
-            lblFbMsg: "መልእክትዎ ወይም ጥያቄዎ:",
-            btnSendFb: "ሀሳብዎን ይላኩ"
-        },
-        en: {
-            title: "🔥 New 2026 Salary Tax & Overtime Calculator",
-            installText: "📱 Install App on your phone!",
-            installBtn: "Install",
-            tabSalary: "💰 Salary & OT",
-            tabFeedback: "💬 Feedback",
-            lblBasic: "Basic Monthly Salary (ETB):",
-            lblOtHeader: "Enter your Overtime (OT) hours:",
-            lblOt15: "1. Day Overtime 12 to 4 (1.5x):",
-            lblOt175: "2. Night Overtime 4 to 12 (1.75x):",
-            lblOt20: "3. Sunday / Rest Day (2.0x):",
-            lblOt25: "4. Public Holiday (2.5x):",
-            lblAllowance: "Transport / Tax-Free Allowance:",
-            btnCalc: "Calculate Net Salary & OT",
-            resBasic: "Basic Salary:",
-            resOt: "Total OT Amount:",
-            resGross: "Gross Income:",
-            resTax: "Income Tax (New Rule):",
-            resPension: "Pension (7%):",
-            resNet: "Net Salary:",
-            fbHeader: "Have feedback or questions?",
-            fbDesc: "Type your message below and send it to us easily.",
-            lblFbName: "Your Name:",
-            lblFbMsg: "Your Message/Question:",
-            btnSendFb: "Send Feedback"
-        },
-        om: {
-            title: "🔥 Shallwwii Gibira Mindaa fi Overtime Haaraa 2026",
-            installText: "📱 Appii kana Simbiraa keessatti Fe'aa!",
-            installBtn: "Fe'i",
-            tabSalary: "💰 Mindaa & OT",
-            tabFeedback: "💬 Yaada",
-            lblBasic: "Mindaa Bu'uuraa (ETB):",
-            lblOtHeader: "Sa'aatii Daboo (OT) galchaa:",
-            lblOt15: "1. Sa'aatii 12 hanga 4 (1.5x):",
-            lblOt175: "2. Sa'aatii Halkan (1.75x):",
-            lblOt20: "3. Dilbata / Guyyaa Boqonnaa (2.0x):",
-            lblOt25: "4. Guyyaa Ayyaanaa (2.5x):",
-            lblAllowance: "Mindaa Geejjibaa Bilisaa:",
-            btnCalc: "Mindaa Qulqulluu Herregi",
-            resBasic: "Mindaa Bu'uuraa:",
-            resOt: "Ida'ama OT:",
-            resGross: "Galii Waliigalaa (Gross):",
-            resTax: "Gibira Mindaa:",
-            resPension: "Pensiyoona (7%):",
-            resNet: "Mindaa Harka Irra Ga'u (Net):",
-            fbHeader: "Yaada yookiin Gaaffii qabduu?",
-            fbDesc: "Ergaa keessan nuuf barreessaa.",
-            lblFbName: "Maqakeessan:",
-            lblFbMsg: "Ergaa Keessan:",
-            btnSendFb: "Ergi"
-        },
-        ti: {
-            title: "🔥 እዋህሉ መደብ ግብሪ መሃመትን ኦቨርታይምን 2026",
-            installText: "📱 ኣፕልኬሽን ኣብ ሞባይልካ ጽዓኖ!",
-            installBtn: "ጽዓን",
-            tabSalary: "💰 መሃመት & OT",
-            tabFeedback: "💬 ርእይቶ",
-            lblBasic: "መሰረታዊ መሃመት ( ብር ):",
-            lblOtHeader: "ናይ ትርፊ ሰዓታት (OT) ኣእቱ፦",
-            lblOt15: "1. ካብ 12 ክሳብ 4 (1.5x):",
-            lblOt175: "2. ለይቲ ሰዓት (1.75x):",
-            lblOt20: "3. ሰንበት / ዕረፍቲ (2.0x):",
-            lblOt25: "4. በዓል (2.5x):",
-            lblAllowance: "ናይ መጓዓዝያ Allowance:",
-            btnCalc: "ንጹር መሃመት ሕሳብ ግበር",
-            resBasic: "መሰረታዊ መሃመት:",
-            resOt: "ጠቕላላ OT:",
-            resGross: "ጠቕላላ ኣታዊ (Gross):",
-            resTax: "ግብሪ ኣታዊ:",
-            resPension: "ፔንሽን (7%):",
-            resNet: "ናብ ኢድ ዝኣቱ (Net):",
-            fbHeader: "ርእይቶ ወይ ሕቶ ኣለካዶ?",
-            fbDesc: "መልእኽትኹም ኣብ ታሕቲ ብምጽሓፍ ክትልእኩ ትኽእሉ ኢኹም።",
-            lblFbName: "ሽምካ:",
-            lblFbMsg: "መልእኽቲ ወይ ሕቶ:",
-            btnSendFb: "ልአኽ"
-        },
-        so: {
-            title: "🔥 Xisaabiyaha Mushaharka iyo Cashuurta Cusub 2026",
-            installText: "📱 App-ka ku rakib taleefankaaga!",
-            installBtn: "Rakib",
-            tabSalary: "💰 Mushahar & OT",
-            tabFeedback: "💬 Talobixin",
-            lblBasic: "Mushaharka Aasaasiga ah (ETB):",
-            lblOtHeader: "Geli saacadaha dheeraadka ah (OT):",
-            lblOt15: "1. Saacadaha 12 ilaa 4 (1.5x):",
-            lblOt175: "2. Saacadaha Habeenka (1.75x):",
-            lblOt20: "3. Axada / Maalinta Nasashada (2.0x):",
-            lblOt25: "4. Maalmaha Ciidaha (2.5x):",
-            lblAllowance: "Gunnada Gaadiidka:",
-            btnCalc: "Xisaabi Mushaharka Saafi ah",
-            resBasic: "Mushaharka Aasaasiga:",
-            resOt: "Wadarta OT:",
-            resGross: "Wadarta Dakhliga (Gross):",
-            resTax: "Cashuurta Dakhliga:",
-            resPension: "Foomka Gabowga (7%):",
-            resNet: "Lacagta gacantaada soo gashaysa (Net):",
-            fbHeader: "Ma qabtaa talo ama su'aal?",
-            fbDesc: "Fariintaada halkan ku qor oo noogu soo dir.",
-            lblFbName: "Magacaaga:",
-            lblFbMsg: "Fariintaada / Su'aashaada:",
-            btnSendFb: "Dir Fariinta"
-        }
-    };
-
-    function changeLanguage() {
-        let lang = document.getElementById('langSelector').value;
-        let t = texts[lang];
-        
-        document.getElementById('mainTitle').innerText = t.title;
-        document.getElementById('installText').innerText = t.installText;
-        document.getElementById('installBtn').innerText = t.installBtn;
-        document.getElementById('tabSalary').innerText = t.tabSalary;
-        document.getElementById('tabFeedback').innerText = t.tabFeedback;
-        document.getElementById('lblBasic').innerText = t.lblBasic;
-        document.getElementById('lblOtHeader').innerText = t.lblOtHeader;
-        document.getElementById('lblOt15').innerText = t.lblOt15;
-        document.getElementById('lblOt175').innerText.innerText = t.lblOt175;
-        document.getElementById('lblOt20').innerText = t.lblOt20;
-        document.getElementById('lblOt25').innerText = t.lblOt25;
-        document.getElementById('lblAllowance').innerText = t.lblAllowance;
-        document.getElementById('btnCalc').innerText = t.btnCalc;
-        document.getElementById('resLblBasic').innerText = t.resBasic;
-        document.getElementById('resLblOt').innerText = t.resOt;
-        document.getElementById('resLblGross').innerText = t.resGross;
-        document.getElementById('resLblTax').innerText = t.resTax;
-        document.getElementById('resLblPension').innerText = t.resPension;
-        document.getElementById('resLblNet').innerText = t.resNet;
-        document.getElementById('fbHeader').innerText = t.fbHeader;
-        document.getElementById('fbDesc').innerText = t.fbDesc;
-        document.getElementById('lblFbName').innerText = t.lblFbName;
-        document.getElementById('lblFbMsg').innerText = t.lblFbMsg;
-        document.getElementById('btnSendFb').innerText = t.btnSendFb;
-    }
-
-    let deferredPrompt;
-    window.addEventListener('beforeinstallprompt', (e) => {
-        e.preventDefault();
-        deferredPrompt = e;
-        document.getElementById('installPrompt').style.display = 'flex';
-    });
-
-    document.getElementById('installBtn').addEventListener('click', async () => {
-        if (deferredPrompt) {
-            deferredPrompt.prompt();
-            let { outcome } = await deferredPrompt.userChoice;
-            if (outcome === 'accepted') {
-                document.getElementById('installPrompt').style.display = 'none';
-            }
-            deferredPrompt = null;
-        }
-    });
-</script>
+    <footer>
+        <p>&copy; 2026 Ethio Tools. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
