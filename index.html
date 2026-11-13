@@ -82,15 +82,21 @@
             padding: 0 1rem;
             box-sizing: border-box;
         }
-        /* እንደ ቤቲንግ ሳይቶች ከላይ በቋሚነት የሚታይ የ Install ባነር */
+
+        @keyframes pulseGlow {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(252, 209, 22, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(252, 209, 22, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(252, 209, 22, 0); }
+        }
+
         .install-popup-banner {
-            background: linear-gradient(135deg, #1e293b, #0f172a);
+            background: linear-gradient(135deg, #0056b3, #003366);
             color: white;
-            padding: 0.8rem 1rem;
+            padding: 0.9rem 1rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -102,33 +108,36 @@
         }
         .install-popup-banner .title {
             font-weight: bold;
-            font-size: 0.95rem;
+            font-size: 1rem;
+            color: #fff;
         }
         .install-popup-banner .desc {
             font-size: 0.8rem;
-            color: #cbd5e1;
+            color: #e2e8f0;
         }
         .install-popup-banner .action-btns {
             display: flex;
             gap: 0.5rem;
+            align-items: center;
         }
         .install-popup-banner button.install-now {
-            background-color: var(--accent);
-            color: white;
+            background-color: var(--secondary);
+            color: #000;
             border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            font-weight: bold;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            font-weight: 900;
             cursor: pointer;
-            font-size: 0.85rem;
+            font-size: 0.95rem;
+            animation: pulseGlow 1.5s infinite;
         }
         .install-popup-banner button.close-banner {
             background: transparent;
-            color: #94a3b8;
+            color: #cbd5e1;
             border: none;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             cursor: pointer;
-            padding: 0 0.3rem;
+            padding: 0 0.4rem;
         }
 
         .ad-container {
@@ -258,7 +267,7 @@
 </head>
 <body>
 
-    <!-- እንደ ቤቲንግ ሳይቶች ከላይ በቋሚነት የሚታይ የ Install ባነር -->
+    <!-- በደማቅ ሰማያዊ ባክግራውንድ እና ብልጭ ድርግም የሚል Install ባነር -->
     <div id="installPopup" class="install-popup-banner">
         <div class="info">
             <span class="title" id="bannerTitle">📱 Ethio Salary Pro አፕሊኬሽን</span>
@@ -487,12 +496,13 @@
             const pension = basic * 0.07;
             const netSalary = grossSalary - tax - pension;
 
-            // ቋንቋውን መሰረት በማድረግ የገንዘብ መለኪያን በትክክል መቀየር
+            // እያንዳንዱ ቋንቋ የራሱ የሆነ ትክክለኛ የገንዘብ መለኪያ ቃል እንዲኖረው ተደረገ
             const lang = document.getElementById('langSelect').value;
             let currencyUnit = ' ብር';
-            if (lang === 'en' || lang === 'om') {
-                currencyUnit = ' ETB';
-            }
+            if (lang === 'en') currencyUnit = ' ETB';
+            else if (lang === 'om') currencyUnit = ' Birr';
+            else if (lang === 'ti') currencyUnit = ' ቅርሺ';
+            else if (lang === 'so') currencyUnit = ' Shilin';
 
             document.getElementById('resultCard').style.display = 'block';
             document.getElementById('resBasic').innerText = basic.toFixed(2) + currencyUnit;
@@ -535,7 +545,7 @@
             } else if (lang === 'om') {
                 document.getElementById('siteBadge').innerText = "🔥 Shallgessa Mindaa, Gibira fi OT Haaraa 2026";
                 document.getElementById('calcHeader').innerText = "Shallgessa Mindaa fi OT";
-                document.getElementById('lblBasic').innerText = "Mindaa Bu'uuraa (ETB):";
+                document.getElementById('lblBasic').innerText = "Mindaa Bu'uuraa (Birr):";
                 document.getElementById('lblOt1').innerText = "1. Galgala 12 hanga Halkan 4 (1.5x):";
                 document.getElementById('lblOt2').innerText = "2. Halkan 4 hanga Barii 12 (1.75x):";
                 document.getElementById('lblOt3').innerText = "3. Guyyaa Boqonnaa (2.0x):";
@@ -589,7 +599,7 @@
             } else if (lang === 'so') {
                 document.getElementById('siteBadge').innerText = "🔥 Xisaabiyaha Mushaharka, Canshuurta iyo OT 2026";
                 document.getElementById('calcHeader').innerText = "Xisaabiyaha Mushaharka iyo OT";
-                document.getElementById('lblBasic').innerText = "Mushaharka Aasaasiga ah (ETB):";
+                document.getElementById('lblBasic').innerText = "Mushaharka Aasaasiga ah (Shilin):";
                 document.getElementById('lblOt1').innerText = "1. Fiidkii 12 ilaa Habeenka 4 (1.5x):";
                 document.getElementById('lblOt2').innerText = "2. Habeenka 4 ilaa Subaxda 12 (1.75x):";
                 document.getElementById('lblOt3').innerText = "3. Maalinta Nasashada (2.0x):";
