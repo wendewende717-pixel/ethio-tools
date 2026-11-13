@@ -427,7 +427,7 @@
             }
         }
 
-        // PWA Install Prompt Logic
+        // PWA Direct Install Prompt Logic
         let deferredPrompt;
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
@@ -445,7 +445,8 @@
                     deferredPrompt = null;
                 });
             } else {
-                alert('መተግበሪያውን ስልክዎ ላይ ለመጫን እባክዎ የብሮውዘርዎን ምናሌ (Menu - ከላይ በቀኝ በኩል ያሉትን 3 ነጥብ ነክተው) "Add to Home screen" ወይም "Install app" የሚለውን ይጫኑ።');
+                // ብሮውዘሩ አውቶማቲክ ፕሮምፕት ካላመጣ የሚሰጥ ቀጥተኛ መመሪያ
+                alert('መተግበሪያውን በቀጥታ ለመጫን ከላይ በቀኝ በኩል የሚገኙትን የሶስት ነጥብ (Menu) በመንካት "Add to Home screen" ወይም "Install app" የሚለውን ይጫኑ።');
             }
         }
 
@@ -497,7 +498,7 @@
             const pension = basic * 0.07;
             const netSalary = grossSalary - tax - pension;
 
-            // የተመረጠውን ቋንቋ መሰረት በማድረግ ትክክለኛውን የገንዘብ መለኪያ ቃል ማምጣት
+            // እያንዳንዱ ቋንቋ የራሱ ትክክለኛ የገንዘብ መለኪያ ቃል እንዲኖረው ማድረግ
             const lang = document.getElementById('langSelect').value;
             let currencyUnit = ' ብር';
             if (lang === 'en') currencyUnit = ' ETB';
