@@ -40,12 +40,10 @@
             align-items: center;
             padding: 0.4rem 1rem;
             background: #fff;
-            gap: 0.4rem;
-            font-size: 0.8rem;
             border-bottom: 1px solid #eee;
         }
         select.lang-select {
-            padding: 0.25rem 0.4rem;
+            padding: 0.3rem 0.6rem;
             border-radius: 4px;
             border: 1px solid #ccc;
             font-size: 0.85rem;
@@ -53,17 +51,19 @@
             cursor: pointer;
         }
         header {
-            background-color: var(--primary);
+            background: linear-gradient(135deg, #078930 0%, #fcd116 50%, #b30000 100%);
             color: white;
-            padding: 1.2rem 1rem;
+            padding: 1.5rem 1rem;
             text-align: center;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         header h1 {
             margin: 0;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: 800;
-            line-height: 1.3;
+            line-height: 1.4;
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
         main {
             flex: 1;
@@ -150,7 +150,7 @@
             font-size: 1rem;
         }
         button.action-btn {
-            background-color: var(--primary);
+            background-color: var(--accent);
             color: white;
             border: none;
             padding: 0.8rem 1.5rem;
@@ -215,9 +215,8 @@
 </head>
 <body>
 
-    <!-- ቋንቋ መቀየሪያ በቀኝ በኩል -->
+    <!-- ቋንቋ መቀየሪያ በስተቀኝ በኩል ብቻ -->
     <div class="top-lang-bar">
-        <span id="lblLangPrompt" style="color: #555;">ቋንቋ:</span>
         <select class="lang-select" id="langSelect" onchange="changeLanguage()">
             <option value="am">አማርኛ</option>
             <option value="om">Afaan Oromoo</option>
@@ -249,7 +248,7 @@
             <button id="btnTabFeedback" class="nav-btn feedback-tab" onclick="switchTab('feedback')">💬 ሐሳብ / ጥያቄ</button>
         </div>
 
-        <!-- የደመወዝ እና የሁሉም OT ዓይነቶች ማስያ ካርድ (በነባሪ የሚታይ) -->
+        <!-- የደመወዝ እና የሁሉም OT ዓይነቶች ማስያ ካርድ -->
         <div class="card active" id="calcCard">
             <h2 id="calcHeader" style="margin-top:0; color:var(--primary); font-size: 1.15rem;">ደመወዝ እና ኦቨርታይም (OT) ማስያ</h2>
             
@@ -443,7 +442,6 @@
         function changeLanguage() {
             const lang = document.getElementById('langSelect').value;
             if (lang === 'en') {
-                document.getElementById('lblLangPrompt').innerText = "Language:";
                 document.getElementById('siteTitle').innerText = "New Revised 2026 Salary, Tax & Overtime Calculator";
                 document.getElementById('calcHeader').innerText = "Salary & Overtime Calculator";
                 document.getElementById('lblBasic').innerText = "Basic Salary (ETB):";
@@ -462,7 +460,6 @@
                 document.getElementById('btnTabCalc').innerText = "💰 Salary & OT";
                 document.getElementById('btnTabFeedback').innerText = "💬 Feedback";
             } else if (lang === 'om') {
-                document.getElementById('lblLangPrompt').innerText = "Afaan:";
                 document.getElementById('siteTitle').innerText = "Shallgessa Mindaa, Gibira fi OT Haaraa 2026";
                 document.getElementById('calcHeader').innerText = "Shallgessa Mindaa fi OT";
                 document.getElementById('lblBasic').innerText = "Mindaa Bu'uuraa (ETB):";
@@ -481,7 +478,6 @@
                 document.getElementById('btnTabCalc').innerText = "💰 Mindaa & OT";
                 document.getElementById('btnTabFeedback').innerText = "💬 Yaada";
             } else if (lang === 'ti') {
-                document.getElementById('lblLangPrompt').innerText = "ቋንቋ:";
                 document.getElementById('siteTitle').innerText = "ሓዲሽ ዝተሻሻለ መደብ ዓስቢ፣ ግብርን ኦቨርታይምን 2026";
                 document.getElementById('calcHeader').innerText = "ዓስቢ እና ኦቨርታይም መለኪዒ";
                 document.getElementById('lblBasic').innerText = "መሰረታዊ ዓስቢ (ብብር):";
@@ -500,7 +496,6 @@
                 document.getElementById('btnTabCalc').innerText = "💰 ዓስቢ & OT";
                 document.getElementById('btnTabFeedback').innerText = "💬 ሐሳብ/ሕቶ";
             } else if (lang === 'so') {
-                document.getElementById('lblLangPrompt').innerText = "Luqadda:";
                 document.getElementById('siteTitle').innerText = "Xisaabiyaha Mushaharka, Canshuurta iyo OT 2026";
                 document.getElementById('calcHeader').innerText = "Xisaabiyaha Mushaharka iyo OT";
                 document.getElementById('lblBasic').innerText = "Mushaharka Aasaasiga ah (ETB):";
@@ -519,7 +514,6 @@
                 document.getElementById('btnTabCalc').innerText = "💰 Mushahar & OT";
                 document.getElementById('btnTabFeedback').innerText = "💬 Talo / Su'aal";
             } else {
-                document.getElementById('lblLangPrompt').innerText = "ቋንቋ:";
                 document.getElementById('siteTitle').innerText = "አዲሱ የተሻሻለው የ2026 የደሞዝ ግብር እና የኦቨርታይም ማስያ";
                 document.getElementById('calcHeader').innerText = "ደመወዝ እና ኦቨርታይም (OT) ማስያ";
                 document.getElementById('lblBasic').innerText = "መሰረታዊ ደመወዝ (Basic Salary በብር):";
