@@ -38,7 +38,7 @@
             display: flex;
             justify-content: flex-end;
             align-items: center;
-            padding: 0.4rem 1rem;
+            padding: 0.5rem 1rem;
             background: #fff;
             border-bottom: 1px solid #eee;
         }
@@ -51,9 +51,9 @@
             cursor: pointer;
         }
         header {
-            background: linear-gradient(135deg, #078930 0%, #fcd116 50%, #b30000 100%);
+            background-color: var(--primary);
             color: white;
-            padding: 1.5rem 1rem;
+            padding: 1.8rem 1rem;
             text-align: center;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
@@ -63,7 +63,6 @@
             font-weight: 800;
             line-height: 1.4;
             color: #ffffff;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
         main {
             flex: 1;
@@ -149,6 +148,10 @@
             box-sizing: border-box;
             font-size: 1rem;
         }
+        input::placeholder {
+            color: #adb5bd;
+            opacity: 1;
+        }
         button.action-btn {
             background-color: var(--accent);
             color: white;
@@ -192,17 +195,17 @@
             border-radius: 8px;
             text-align: center;
             margin-bottom: 1.2rem;
-            display: none;
         }
         .install-box button {
             background: var(--primary);
             color: white;
             border: none;
-            padding: 0.5rem 1.2rem;
+            padding: 0.6rem 1.5rem;
             border-radius: 4px;
-            margin-top: 0.5rem;
+            margin-top: 0.6rem;
             font-weight: bold;
             cursor: pointer;
+            font-size: 1rem;
         }
         footer {
             text-align: center;
@@ -215,7 +218,7 @@
 </head>
 <body>
 
-    <!-- ቋንቋ መቀየሪያ በስተቀኝ በኩል ብቻ -->
+    <!-- ቋንቋ መቀየሪያ በስተቀኝ በኩል ብቻ (እንደ telebirr) -->
     <div class="top-lang-bar">
         <select class="lang-select" id="langSelect" onchange="changeLanguage()">
             <option value="am">አማርኛ</option>
@@ -226,6 +229,7 @@
         </select>
     </div>
 
+    <!-- ንጹህ አረንጓዴ ባክግራውንድ እና ጎላ ያለ ርዕስ -->
     <header>
         <h1 id="siteTitle">አዲሱ የተሻሻለው የ2026 የደሞዝ ግብር እና የኦቨርታይም ማስያ</h1>
     </header>
@@ -234,7 +238,7 @@
         <!-- PWA Install App Box -->
         <div id="installBox" class="install-box">
             <span id="lblInstallText" style="font-weight:600; color:#856404;">📱 ይህንን ዌብሳይት እንደ ስልክ አፕ (App) ጭነው ይጠቀሙ!</span><br>
-            <button id="installBtn" onclick="installApp()">አፕሊኬሽኑን ጫን (Install)</button>
+            <button id="installBtn" onclick="installApp()">አፕሊኬሽኑን ጫን (Install App)</button>
         </div>
 
         <!-- የማስታወቂያ ቦታ -->
@@ -242,7 +246,7 @@
             [ የማስታወቂያ ቦታ - Ad Space ]
         </div>
 
-        <!-- የተናጠል ማቀያየሪያ በተኖች (አረንጓዴ የጤና ከለር) -->
+        <!-- የተናጠል ማቀያየሪያ በተኖች -->
         <div class="nav-buttons">
             <button id="btnTabCalc" class="nav-btn calc-tab active" onclick="switchTab('calc')">💰 ደመወዝ & OT</button>
             <button id="btnTabFeedback" class="nav-btn feedback-tab" onclick="switchTab('feedback')">💬 ሐሳብ / ጥያቄ</button>
@@ -254,32 +258,32 @@
             
             <div class="form-group">
                 <label id="lblBasic" for="basicSalary">መሰረታዊ ደመወዝ (Basic Salary በብር):</label>
-                <input type="number" id="basicSalary" placeholder="ለምሳሌ: 8000">
+                <input type="number" id="basicSalary" placeholder="0">
             </div>
 
             <div class="form-group">
                 <label id="lblOt1" for="ot1">1. ከሰዓት 12 እስከ ምሽት 4 ሰዓት (1.5x):</label>
-                <input type="number" id="ot1" placeholder="የሰዓታት ብዛት" value="0">
+                <input type="number" id="ot1" placeholder="0">
             </div>
 
             <div class="form-group">
                 <label id="lblOt2" for="ot2">2. ከምሽት 4 እስከ ንጋት 12 ሰዓት / ሌሊት (1.75x):</label>
-                <input type="number" id="ot2" placeholder="የሰዓታት ብዛት" value="0">
+                <input type="number" id="ot2" placeholder="0">
             </div>
 
             <div class="form-group">
                 <label id="lblOt3" for="ot3">3. እረፍት / የእረፍት ቀን (2.0x):</label>
-                <input type="number" id="ot3" placeholder="የሰዓታት ብዛት" value="0">
+                <input type="number" id="ot3" placeholder="0">
             </div>
 
             <div class="form-group">
                 <label id="lblOt4" for="ot4">4. የህዝብ በዓል ቀን (2.5x):</label>
-                <input type="number" id="ot4" placeholder="የሰዓታት ብዛት" value="0">
+                <input type="number" id="ot4" placeholder="0">
             </div>
 
             <div class="form-group">
                 <label id="lblTransport" for="transport">የትራንስፖርት / ሌላ አበል (ከግብር ነጻ ከሆነ):</label>
-                <input type="number" id="transport" placeholder="0" value="0">
+                <input type="number" id="transport" placeholder="0">
             </div>
 
             <button onclick="calculateAll()" class="action-btn" id="btnCalculate">አዲሱን የተጣራ ደመወዝ እና OT አስላ</button>
@@ -383,6 +387,8 @@
                     }
                     deferredPrompt = null;
                 });
+            } else {
+                alert('መተግበሪያውን ከብሮውዘርዎ ምናሌ (Menu) ውስጥ "Add to Home screen" በመጫን መጫን ይችላሉ።');
             }
         }
 
