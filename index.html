@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ethio Salary & Tax Pro - አዲሱ የተሻሻለ የደመወዝ ማሳያ እና ማስያ</title>
+    <title>Ethio Salary & Tax Pro - አዲሱ የተሻሻለ የደመወዝ እና የኦቨርታይም ማስያ</title>
     <style>
         * { box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body { background-color: #f0f2f5; margin: 0; padding: 15px; color: #1c1e21; }
@@ -34,28 +34,40 @@
 
 <div class="container">
     <h1>🇪🇹 Ethio Smart Tools</h1>
-    <p class="subtitle">🔥 አዲሱ የ2026 የደመወዝ ግብር ማሻሻያ ህግ ማሳያ እና ማስያ</p>
+    <p class="subtitle">🔥 አዲሱ የ2026 የደመወዝ ግብር እና የኦቨርታይም ማስያ</p>
 
     <div class="ad-banner" id="ad-top">
         [ የማስታወቂያ ቦታ - Ad Space ]
     </div>
 
     <div class="tabs">
-        <button class="tab-btn active" onclick="switchTab('salary')">💰 አዲሱ የደመወዝ ማስያ</button>
+        <button class="tab-btn active" onclick="switchTab('salary')">💰 ደመወዝ እና ኦቨርታይም</button>
         <button class="tab-btn" onclick="switchTab('date')">📅 የቀን መቀየሪያ</button>
     </div>
 
     <div id="salary" class="card active">
-        <label for="grossSalary">ጠቅላላ የወር ደመወዝ (Gross Salary በብር):</label>
+        <label for="grossSalary">መሰረታዊ ወርሃዊ ደመወዝ (Basic Salary በብር):</label>
         <input type="number" id="grossSalary" placeholder="ለምሳሌ፡ 10000">
+
+        <label for="otHours">የኦቨርታይም ሰዓት ብዛት (በወር ውስጥ):</label>
+        <input type="number" id="otHours" placeholder="ለምሳሌ፡ 20" value="0">
+
+        <label for="otType">የኦቨርታይም ዓይነት (መቶኛ):</label>
+        <select id="otType">
+            <option value="1.25">መደበኛ የሥራ ሰዓት ውጪ (125% - 1.25)</option>
+            <option value="1.50">የሌሊት ሥራ ሰዓት (150% - 1.50)</option>
+            <option value="2.50">የእረፍት ቀን / በዓል ሥራ (250% - 2.50)</option>
+        </select>
 
         <label for="allowance">የትራንስፖርት / ሌላ አበል (ከግብር ነጻ ከሆነ):</label>
         <input type="number" id="allowance" placeholder="ለምሳሌ፡ 600" value="0">
 
-        <button class="action-btn" onclick="calculateSalary()">አዲሱን የተጣራ ደመወዝ አስላ</button>
+        <button class="action-btn" onclick="calculateSalary()">አዲሱን የተጣራ ደመወዝ እና ኦቨርታይም አስላ</button>
 
         <div class="result-box" id="salaryResult">
-            <div class="result-item"><span>ጠቅላላ ደመወዝ:</span> <span id="resGross">0 ብር</span></div>
+            <div class="result-item"><span>መሰረታዊ ደመወዝ:</span> <span id="resBasic">0 ብር</span></div>
+            <div class="result-item"><span>የኦቨርታይም ክፍያ መጠን:</span> <span id="resOtAmount" style="color:#078930;">0 ብር</span></div>
+            <div class="result-item"><span>ጠቅላላ ገቢ (Gross):</span> <span id="resGross">0 ብር</span></div>
             <div class="result-item"><span>የገቢ ግብር (በአዲሱ ማሻሻያ):</span> <span id="resTax" style="color:#da121a;">0 ብር</span></div>
             <div class="result-item"><span>የጡረታ መዋጮ (7%):</span> <span id="resPension" style="color:#da121a;">0 ብር</span></div>
             <div class="result-item total"><span>እጅ ላይ የሚደርስ (Net):</span> <span id="resNet">0 ብር</span></div>
@@ -90,17 +102,25 @@
     }
 
     function calculateSalary() {
-        let gross = parseFloat(document.getElementById('grossSalary').value) || 0;
+        let basic = parseFloat(document.getElementById('grossSalary').value) || 0;
+        let otHours = parseFloat(document.getElementById('otHours').value) || 0;
+        let otMultiplier = parseFloat(document.getElementById('otType').value) || 1.25;
         let allowance = parseFloat(document.getElementById('allowance').value) || 0;
         
-        if (gross <= 0) {
-            alert("እባክዎ ትክክለኛ ደመወዝ ያስገቡ!");
+        if (basic <= 0) {
+            alert("እባክዎ ትክክለኛ መሰረታዊ ደመወዝ ያስገቡ!");
             return;
         }
 
-        let pension = gross * 0.07;
+        // በኢትዮጵያ ህግ መሰረት የአንድ ሰዓት ዋጋ የሚሰላው በወር ከሚሰራበት ርዕሰ ሰዓት (በአማካይ 240 ሰዓት) በመክፈል ነው
+        let hourlyRate = basic / 240;
+        let otAmount = otHours * hourlyRate * otMultiplier;
+        
+        let gross = basic + otAmount;
+        let pension = basic * 0.07; // የጡረታ መዋጮ የሚቆረጠው ከመሰረታዊ ደመወዝ ላይ ነው።
         let tax = 0;
 
+        // አዲሱ የግብር ስሌት (Updated Tax Brackets)
         if (gross <= 1250) { 
             tax = 0; 
         } else if (gross <= 3200) { 
@@ -119,7 +139,9 @@
 
         let net = (gross - tax - pension) + allowance;
 
-        document.getElementById('resGross').innerText = gross.toLocaleString() + " ብር";
+        document.getElementById('resBasic').innerText = basic.toLocaleString(undefined, {maximumFractionDigits: 2}) + " ብር";
+        document.getElementById('resOtAmount').innerText = "+" + otAmount.toLocaleString(undefined, {maximumFractionDigits: 2}) + " ብር";
+        document.getElementById('resGross').innerText = gross.toLocaleString(undefined, {maximumFractionDigits: 2}) + " ብር";
         document.getElementById('resTax').innerText = "-" + tax.toFixed(2) + " ብር";
         document.getElementById('resPension').innerText = "-" + pension.toFixed(2) + " ብር";
         document.getElementById('resNet').innerText = net.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2}) + " ብር";
