@@ -52,11 +52,12 @@
         <label for="otHours">የኦቨርታይም ሰዓት ብዛት (በወር ውስጥ):</label>
         <input type="number" id="otHours" placeholder="ለምሳሌ፡ 20" value="0">
 
-        <label for="otType">የኦቨርታይም ዓይነት (መቶኛ):</label>
+        <label for="otType">የኦቨርታይም ዓይነት (የትርፍ ሰዓት ሰንጠረዥ):</label>
         <select id="otType">
-            <option value="1.25">መደበኛ የሥራ ሰዓት ውጪ (125% - 1.25)</option>
-            <option value="1.50">የሌሊት ሥራ ሰዓት (150% - 1.50)</option>
-            <option value="2.50">የእረፍት ቀን / በዓል ሥራ (250% - 2.50)</option>
+            <option value="1.50">ከጠዋቱ 12 እስከ ምሽት 4 ሰዓት (1.5 - 150%)</option>
+            <option value="1.75">ከምሽቱ 4 እስከ ንጋት 12 ሰዓት /ሌሊት (1.75 - 175%)</option>
+            <option value="2.00">የእረፍት ቀን / እሁድ ሥራ (2.0 - 200%)</option>
+            <option value="2.50">የህዝብ በዓል ቀን ሥራ (2.5 - 250%)</option>
         </select>
 
         <label for="allowance">የትራንስፖርት / ሌላ አበል (ከግብር ነጻ ከሆነ):</label>
@@ -75,7 +76,7 @@
     </div>
 
     <div id="date" class="card">
-        <label for="gregDate">የፈረንጆችን ቀን ይምረጡ (Gregorian Date):</label>
+        <label for="gregDate">የፈረንጆችን ቀን ይምረጡ (የዛሬው ቀን በራሱ ተመርጧል):</label>
         <input type="date" id="gregDate">
 
         <button class="action-btn" onclick="convertToEth()">ወደ ኢትዮጵያ ቀን ቀይር</button>
@@ -104,7 +105,7 @@
     function calculateSalary() {
         let basic = parseFloat(document.getElementById('grossSalary').value) || 0;
         let otHours = parseFloat(document.getElementById('otHours').value) || 0;
-        let otMultiplier = parseFloat(document.getElementById('otType').value) || 1.25;
+        let otMultiplier = parseFloat(document.getElementById('otType').value) || 1.50;
         let allowance = parseFloat(document.getElementById('allowance').value) || 0;
         
         if (basic <= 0) {
@@ -112,12 +113,12 @@
             return;
         }
 
-        // በኢትዮጵያ ህግ መሰረት የአንድ ሰዓት ዋጋ የሚሰላው በወር ከሚሰራበት ርዕሰ ሰዓት (በአማካይ 240 ሰዓት) በመክፈል ነው
+        // በወር አማካይ 240 ሰዓት መሰረት የአንድ ሰዓት ዋጋ ይሰላል
         let hourlyRate = basic / 240;
         let otAmount = otHours * hourlyRate * otMultiplier;
         
         let gross = basic + otAmount;
-        let pension = basic * 0.07; // የጡረታ መዋጮ የሚቆረጠው ከመሰረታዊ ደመወዝ ላይ ነው።
+        let pension = basic * 0.07; // የጡረታ መዋጮ ከመሰረታዊ ደመወዝ ላይ ይሰላል
         let tax = 0;
 
         // አዲሱ የግብር ስሌት (Updated Tax Brackets)
@@ -177,7 +178,10 @@
         document.getElementById('dateResult').style.display = 'block';
     }
     
+    // ዌብሳይቱ ሲከፈት በራስ-ሰር የዛሬውን ቀን ይሞላል
     document.getElementById('gregDate').valueAsDate = new Date();
+    // ገጹ ሲከፈት ወዲያውኑ የዛሬውን ቀን ወደ ኢትዮጵያ ቀን ቀይሮ ያሳያል
+    convertToEth();
 </script>
 
 </body>
