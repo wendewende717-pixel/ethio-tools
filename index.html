@@ -89,6 +89,7 @@
             100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(252, 209, 22, 0); }
         }
 
+        /* በደማቅ ሰማያዊ ባክግራውንድ እና ብልጭ ድርግም የሚል Install ባነር */
         .install-popup-banner {
             background: linear-gradient(135deg, #0056b3, #003366);
             color: white;
@@ -274,7 +275,7 @@
             <span class="desc" id="bannerDesc">ፈጣን አገልግሎት ለማግኘት ስልክዎ ላይ ይጫኑት!</span>
         </div>
         <div class="action-btns">
-            <button class="install-now" id="installBtn" onclick="installApp()">Install</button>
+            <button class="install-now" id="installBtn" onclick="installApp()">📥 ጫን (Install)</button>
             <button class="close-banner" onclick="closeInstallBanner()">✕</button>
         </div>
     </div>
@@ -444,7 +445,7 @@
                     deferredPrompt = null;
                 });
             } else {
-                alert('መተግበሪያውን ከብሮውዘርዎ ምናሌ (Menu - 3 dots) ውስጥ "Add to Home screen" በመጫን በቀላሉ መጫን ይችላሉ።');
+                alert('መተግበሪያውን ስልክዎ ላይ ለመጫን እባክዎ የብሮውዘርዎን ምናሌ (Menu - ከላይ በቀኝ በኩል ያሉትን 3 ነጥብ ነክተው) "Add to Home screen" ወይም "Install app" የሚለውን ይጫኑ።');
             }
         }
 
@@ -496,7 +497,7 @@
             const pension = basic * 0.07;
             const netSalary = grossSalary - tax - pension;
 
-            // እያንዳንዱ ቋንቋ የራሱ የሆነ ትክክለኛ የገንዘብ መለኪያ ቃል እንዲኖረው ተደረገ
+            // የተመረጠውን ቋንቋ መሰረት በማድረግ ትክክለኛውን የገንዘብ መለኪያ ቃል ማምጣት
             const lang = document.getElementById('langSelect').value;
             let currencyUnit = ' ብር';
             if (lang === 'en') currencyUnit = ' ETB';
@@ -518,7 +519,7 @@
             if (lang === 'en') {
                 document.getElementById('siteBadge').innerText = "🔥 New Revised 2026 Salary, Tax & Overtime Calculator";
                 document.getElementById('calcHeader').innerText = "Salary & Overtime Calculator";
-                document.getElementById('lblBasic').innerText = "Basic Salary (ETB):";
+                document.getElementById('lblBasic').innerText = "Basic Salary (Birr):";
                 document.getElementById('lblOt1').innerText = "1. Evening 12 to Night 4 (1.5x):";
                 document.getElementById('lblOt2').innerText = "2. Night 4 to Morning 12 / Night (1.75x):";
                 document.getElementById('lblOt3').innerText = "3. Rest Day / Weekend (2.0x):";
@@ -541,7 +542,7 @@
                 document.getElementById('resNetTitle').innerText = "Net Salary (Take Home):";
                 document.getElementById('bannerTitle').innerText = "📱 Ethio Salary Pro App";
                 document.getElementById('bannerDesc').innerText = "Install on your phone for fast access!";
-                document.getElementById('installBtn').innerText = "Install";
+                document.getElementById('installBtn').innerText = "📥 Install";
             } else if (lang === 'om') {
                 document.getElementById('siteBadge').innerText = "🔥 Shallgessa Mindaa, Gibira fi OT Haaraa 2026";
                 document.getElementById('calcHeader').innerText = "Shallgessa Mindaa fi OT";
@@ -568,7 +569,7 @@
                 document.getElementById('resNetTitle').innerText = "Mindaa Qulqulluu (Net):";
                 document.getElementById('bannerTitle').innerText = "📱 Appii Ethio Salary Pro";
                 document.getElementById('bannerDesc').innerText = "Bilbila keessan irratti fe'adhaa!";
-                document.getElementById('installBtn').innerText = "Install";
+                document.getElementById('installBtn').innerText = "📥 Install";
             } else if (lang === 'ti') {
                 document.getElementById('siteBadge').innerText = "🔥 ሓዲሽ ዝተሻሻለ መደብ ዓስቢ፣ ግብርን ኦቨርታይምን 2026";
                 document.getElementById('calcHeader').innerText = "ዓስቢ እና ኦቨርታይም መለኪዒ";
@@ -595,7 +596,7 @@
                 document.getElementById('resNetTitle').innerText = "ንጹህ ዓስቢ (Net):";
                 document.getElementById('bannerTitle').innerText = "📱 ኣፕሊኬሽን Ethio Salary Pro";
                 document.getElementById('bannerDesc').innerText = "ኣብ ስልኪ ኣጽዒንካ ተጠቀመሉ!";
-                document.getElementById('installBtn').innerText = "Install";
+                document.getElementById('installBtn').innerText = "📥 Install";
             } else if (lang === 'so') {
                 document.getElementById('siteBadge').innerText = "🔥 Xisaabiyaha Mushaharka, Canshuurta iyo OT 2026";
                 document.getElementById('calcHeader').innerText = "Xisaabiyaha Mushaharka iyo OT";
@@ -622,7 +623,7 @@
                 document.getElementById('resNetTitle').innerText = "Mushaharka Saafi ah (Net):";
                 document.getElementById('bannerTitle').innerText = "📱 Barnaamijka Ethio Salary Pro";
                 document.getElementById('bannerDesc').innerText = "Kala soo deg taleefankaaga!";
-                document.getElementById('installBtn').innerText = "Install";
+                document.getElementById('installBtn').innerText = "📥 Install";
             } else {
                 document.getElementById('siteBadge').innerText = "🔥 አዲሱ የተሻሻለው የ2026 የደሞዝ ግብር እና የኦቨርታይም ማስያ";
                 document.getElementById('calcHeader').innerText = "ደመወዝ እና ኦቨርታይም (OT) ማስያ";
@@ -649,8 +650,13 @@
                 document.getElementById('resNetTitle').innerText = "እጅ ላይ የሚደርስ (Net):";
                 document.getElementById('bannerTitle').innerText = "📱 Ethio Salary Pro አፕሊኬሽን";
                 document.getElementById('bannerDesc').innerText = "ፈጣን አገልግሎት ለማግኘት ስልክዎ ላይ ይጫኑት!";
-                document.getElementById('installBtn').innerText = "Install";
+                document.getElementById('installBtn').innerText = "📥 ጫን (Install)";
             }
+        }
+
+        // ገጹ ሲከፈት የቋንቋውን ነባሪ ሁኔታ ማስተካከል
+        window.onload = function() {
+            changeLanguage();
         }
     </script>
 </body>
