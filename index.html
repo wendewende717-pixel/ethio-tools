@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ethio Smart Tools - አዲሱ የደመወዝ፣ ግብር እና ኦቨርታይም ማስያ</title>
+    <title>Ethio Salary & Tax Pro - አዲሱ የደመወዝ፣ ግብር እና ኦቨርታይም ማስያ</title>
     <style>
         * { box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body { background-color: #f0f2f5; margin: 0; padding: 15px; color: #1c1e21; }
@@ -17,15 +17,15 @@
         
         .ad-banner { background: #e9ecef; border: 1px dashed #adb5bd; text-align: center; padding: 15px; margin: 15px 0; border-radius: 8px; font-size: 12px; color: #6c757d; }
         
-        .tabs { display: flex; gap: 5px; margin-bottom: 20px; }
-        .tab-btn { flex: 1; padding: 10px 5px; border: none; border-radius: 8px; background: #e4e6eb; font-weight: bold; cursor: pointer; font-size: 13px; transition: 0.3s; text-align: center; }
+        .tabs { display: flex; gap: 10px; margin-bottom: 20px; }
+        .tab-btn { flex: 1; padding: 12px; border: none; border-radius: 8px; background: #e4e6eb; font-weight: bold; cursor: pointer; font-size: 14px; transition: 0.3s; text-align: center; }
         .tab-btn.active { background: #078930; color: white; }
         
         .card { display: none; }
         .card.active { display: block; }
         
         label { display: block; margin-bottom: 6px; font-weight: bold; font-size: 14px; }
-        input, select, textarea { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccd0d5; border-radius: 8px; font-size: 16px; }
+        input, textarea { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccd0d5; border-radius: 8px; font-size: 16px; }
         button.action-btn { width: 100%; padding: 14px; background: #da121a; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; }
         button.action-btn:hover { background: #b80f16; }
         
@@ -51,13 +51,13 @@
         </select>
     </div>
 
-    <h1>🇪🇹 Ethio Smart Tools</h1>
+    <h1>🇪🇹 Ethio Salary Pro</h1>
     <p class="subtitle" id="mainTitle">🔥 አዲሱ የ2026 የደመወዝ ግብር እና የኦቨርታይም ማስያ</p>
 
     <!-- አፕሊኬሽኑን ስልክ ላይ ለመጫን (Install) የሚያስችል ባነር -->
-    <div class="install-box" id="installPrompt">
+    <div class="install-box" id="installPrompt" style="display:none;">
         <span id="installText">📱 አፑን ስልክዎ ላይ ይጫኑት (Install App)!</span>
-        <button class="install-btn" id="installBtn">ጫን (Install)</button>
+        <button class="install-btn" id="installBtn">ጫን</button>
     </div>
 
     <div class="ad-banner" id="ad-top">
@@ -65,8 +65,7 @@
     </div>
 
     <div class="tabs">
-        <button class="tab-btn active" onclick="switchTab('salary', event)" id="tabSalary">💰 ደመወዝ</button>
-        <button class="tab-btn" onclick="switchTab('date', event)" id="tabDate">📅 ቀናት</button>
+        <button class="tab-btn active" onclick="switchTab('salary', event)" id="tabSalary">💰 ደመወዝ & ኦቨርታይም</button>
         <button class="tab-btn" onclick="switchTab('feedback', event)" id="tabFeedback">💬 ሀሳብ/ጥያቄ</button>
     </div>
 
@@ -77,16 +76,16 @@
 
         <h3 style="font-size: 15px; color: #078930; margin: 10px 0;" id="lblOtHeader">የተለያዩ የትርፍ ሰአት (OT) ሰዓቶችዎን ያስገቡ፦</h3>
 
-        <label id="lblOt15">1. ከጠዋቱ 12 እስከ ምሽት 4 ሰዓት (1.5 ሰዓት):</label>
+        <label id="lblOt15">1. ከጠዋቱ 12 እስከ ምሽት 4 ሰዓት (1.5x):</label>
         <input type="number" id="ot15" placeholder="0" value="0">
 
-        <label id="lblOt175">2. ከምሽቱ 4 እስከ ንጋት 12 ሰዓት /ሌሊት (1.75 ሰዓት):</label>
+        <label id="lblOt175">2. ከምሽቱ 4 እስከ ንጋት 12 ሰዓት /ሌሊት (1.75x):</label>
         <input type="number" id="ot175" placeholder="0" value="0">
 
-        <label id="lblOt20">3. እሁድ / የእረፍት ቀን (2.0 ሰዓት):</label>
+        <label id="lblOt20">3. እሁድ / የእረፍት ቀን (2.0x):</label>
         <input type="number" id="ot20" placeholder="0" value="0">
 
-        <label id="lblOt25">4. የህዝብ በዓል ቀን (2.5 ሰዓት):</label>
+        <label id="lblOt25">4. የህዝብ በዓል ቀን (2.5x):</label>
         <input type="number" id="ot25" placeholder="0" value="0">
 
         <label id="lblAllowance">የትራንስፖርት / ሌላ አበል (ከግብር ነጻ ከሆነ):</label>
@@ -104,25 +103,10 @@
         </div>
     </div>
 
-    <!-- የቀን መቀየሪያ ክፍል -->
-    <div id="date" class="card">
-        <label id="lblDateInput" for="gregDate">የፈረንጆችን ቀን ይምረጡ (የዛሬው ቀን በራሱ ተመርጧል):</label>
-        <input type="date" id="gregDate">
-
-        <button class="action-btn" onclick="convertToEth()" id="btnConvert">ወደ ኢትዮጵያ ቀን ቀይር</button>
-
-        <div class="result-box" id="dateResult">
-            <div class="result-item total" style="border:none; padding:0;">
-                <span id="resLblEthDate">የኢትዮጵያ ቀን:</span> 
-                <span id="ethDateText">---</span>
-            </div>
-        </div>
-    </div>
-
     <!-- የሀሳብ እና ጥያቄ ማቅረቢያ ክፍል -->
     <div id="feedback" class="card">
         <h3 style="color: #078930; font-size: 16px; margin-top:0;" id="fbHeader">ሀሳብ፣ አስተያየት ወይም ጥያቄ አለዎት?</h3>
-        <p style="font-size: 13px; color: #555;" id="fbDesc">ከታች ባለው ሳጥን ውስጥ ሀሳብዎን በመጻፍ በቀጥታ ወደ እኛ መላክ ይችላሉ።</p>
+        <p style="font-size: 13px; color: #555;" id="fbDesc">ከታች ባለው ሳጥን ውስጥ ሀሳብዎን በመጻፍ በቀጥታ መላክ ይችላሉ።</p>
         
         <label id="lblFbName" for="fbName">ስምዎ:</label>
         <input type="text" id="fbName" placeholder="ስምዎን ያስገቡ">
@@ -185,36 +169,6 @@
         document.getElementById('salaryResult').style.display = 'block';
     }
 
-    function convertToEth() {
-        let inputDate = document.getElementById('gregDate').value;
-        if (!inputDate) {
-            alert("እባክዎ መጀመሪያ ቀን ይምረጡ!");
-            return;
-        }
-
-        let date = new Date(inputDate);
-        let year = date.getFullYear();
-        let month = date.getMonth() + 1;
-        let day = date.getDate();
-
-        let jdn = Math.floor((1461 * (year + 4800 + Math.floor((month - 14) / 12))) / 4) +
-                  Math.floor((367 * (month - 2 - 12 * (Math.floor((month - 14) / 12)))) / 12) -
-                  Math.floor((3 * (Math.floor((year + 4900 + Math.floor((month - 14) / 12)) / 100))) / 4) +
-                  day - 32075;
-
-        let r = (jdn - 1723856) % 1461;
-        let n = (r % 365) + 365 * Math.floor(r / 1460);
-        let ethYear = 4 * Math.floor((jdn - 1723856) / 1461) + Math.floor(r / 365) - Math.floor(r / 1460);
-        let ethMonth = Math.floor(n / 30) + 1;
-        let ethDay = (n % 30) + 1;
-
-        const ethMonths = ["መስከረም", "ጥቅምት", "ህዳር", "ታህሳስ", "ጥር", "የካቲት", "መጋቢት", "ሚያዝያ", "ግንቦት", "ሰኔ", "ሐምሌ", "ነሐሴ", "ጳጉሜ"];
-        
-        document.getElementById('ethDateText').innerText = `${ethMonths[ethMonth - 1]} ${ethDay}፣ ${ethYear} ዓ.ም`;
-        document.getElementById('dateResult').style.display = 'block';
-    }
-
-    // የሀሳብ ማስተላለፊያ (ወደ ዋትሳፕ ወይም ቴሌግራም/ኢሜል የሚያስር)
     function sendFeedback() {
         let name = document.getElementById('fbName').value;
         let msg = document.getElementById('fbMessage').value;
@@ -222,26 +176,23 @@
             alert("እባክዎ ሀሳብዎን ወይም ጥያቄዎን ይጻፉ!");
             return;
         }
-        // ተጠቃሚው የጻፈው ሀሳብ በቀጥታ ወደ እርስዎ እንዲደርስ በዋትሳፕ/ቴሌግራም ሊንክ ይዘጋጃል
         let whatsappUrl = `https://wa.me/?text=ስም: ${encodeURIComponent(name)}%0Aሀሳብ/ጥያቄ: ${encodeURIComponent(msg)}`;
         window.open(whatsappUrl, '_blank');
     }
 
-    // ባለብዙ ቋንቋ መዝገበ ቃላት
     const texts = {
         am: {
             title: "🔥 አዲሱ የ2026 የደመወዝ ግብር እና የኦቨርታይም ማስያ",
             installText: "📱 አፑን ስልክዎ ላይ ይጫኑት (Install App)!",
             installBtn: "ጫን",
-            tabSalary: "💰 ደመወዝ",
-            tabDate: "📅 ቀናት",
+            tabSalary: "💰 ደመወዝ & ኦቨርታይም",
             tabFeedback: "💬 ሀሳብ/ጥያቄ",
             lblBasic: "መሰረታዊ ወርሃዊ ደመወዝ (Basic Salary በብር):",
             lblOtHeader: "የተለያዩ የትርፍ ሰአት (OT) ሰዓቶችዎን ያስገቡ፦",
-            lblOt15: "1. ከጠዋቱ 12 እስከ ምሽት 4 ሰዓት (1.5 ሰዓት):",
-            lblOt175: "2. ከምሽቱ 4 እስከ ንጋት 12 ሰዓት /ሌሊት (1.75 ሰዓት):",
-            lblOt20: "3. እሁድ / የእረፍት ቀን (2.0 ሰዓት):",
-            lblOt25: "4. የህዝብ በዓል ቀን (2.5 ሰዓት):",
+            lblOt15: "1. ከጠዋቱ 12 እስከ ምሽት 4 ሰዓት (1.5x):",
+            lblOt175: "2. ከምሽቱ 4 እስከ ንጋት 12 ሰዓት /ሌሊት (1.75x):",
+            lblOt20: "3. እሁድ / የእረፍት ቀን (2.0x):",
+            lblOt25: "4. የህዝብ በዓል ቀን (2.5x):",
             lblAllowance: "የትራንስፖርት / ሌላ አበል (ከግብር ነጻ ከሆነ):",
             btnCalc: "አዲሱን የተጣራ ደመወዝ እና ኦቨርታይም አስላ",
             resBasic: "መሰረታዊ ደመወዝ:",
@@ -250,9 +201,6 @@
             resTax: "የገቢ ግብር (በአዲሱ ማሻሻያ):",
             resPension: "የጡረታ መዋጮ (7%):",
             resNet: "እጅ ላይ የሚደርስ (Net):",
-            lblDateInput: "የፈረንጆችን ቀን ይምረጡ (የዛሬው ቀን ተመርጧል):",
-            btnConvert: "ወደ ኢትዮጵያ ቀን ቀይር",
-            resEthDate: "የኢትዮጵያ ቀን:",
             fbHeader: "ሀሳብ፣ አስተያየት ወይም ጥያቄ አለዎት?",
             fbDesc: "ከታች ባለው ሳጥን ውስጥ ሀሳብዎን በመጻፍ መላክ ይችላሉ።",
             lblFbName: "ስምዎ:",
@@ -263,13 +211,12 @@
             title: "🔥 New 2026 Salary Tax & Overtime Calculator",
             installText: "📱 Install App on your phone!",
             installBtn: "Install",
-            tabSalary: "💰 Salary",
-            tabDate: "📅 Dates",
+            tabSalary: "💰 Salary & OT",
             tabFeedback: "💬 Feedback",
             lblBasic: "Basic Monthly Salary (ETB):",
             lblOtHeader: "Enter your Overtime (OT) hours:",
-            lblOt15: "1. Day Overtime 12 AM/PM to 4 PM (1.5x):",
-            lblOt175: "2. Night Overtime 4 PM to 12 AM (1.75x):",
+            lblOt15: "1. Day Overtime 12 to 4 (1.5x):",
+            lblOt175: "2. Night Overtime 4 to 12 (1.75x):",
             lblOt20: "3. Sunday / Rest Day (2.0x):",
             lblOt25: "4. Public Holiday (2.5x):",
             lblAllowance: "Transport / Tax-Free Allowance:",
@@ -280,9 +227,6 @@
             resTax: "Income Tax (New Rule):",
             resPension: "Pension (7%):",
             resNet: "Net Salary:",
-            lblDateInput: "Select Gregorian Date (Today selected):",
-            btnConvert: "Convert to Ethiopian Date",
-            resEthDate: "Ethiopian Date:",
             fbHeader: "Have feedback or questions?",
             fbDesc: "Type your message below and send it to us easily.",
             lblFbName: "Your Name:",
@@ -293,12 +237,11 @@
             title: "🔥 Shallwwii Gibira Mindaa fi Overtime Haaraa 2026",
             installText: "📱 Appii kana Simbiraa keessatti Fe'aa!",
             installBtn: "Fe'i",
-            tabSalary: "💰 Mindaa",
-            tabDate: "📅 Guyyaa",
+            tabSalary: "💰 Mindaa & OT",
             tabFeedback: "💬 Yaada",
             lblBasic: "Mindaa Bu'uuraa (ETB):",
             lblOtHeader: "Sa'aatii Daboo (OT) galchaa:",
-            lblOt15: "1. Sa'aatii 12 hanga 10 (1.5x):",
+            lblOt15: "1. Sa'აatii 12 hanga 4 (1.5x):",
             lblOt175: "2. Sa'aatii Halkan (1.75x):",
             lblOt20: "3. Dilbata / Guyyaa Boqonnaa (2.0x):",
             lblOt25: "4. Guyyaa Ayyaanaa (2.5x):",
@@ -310,9 +253,6 @@
             resTax: "Gibira Mindaa:",
             resPension: "Pensiyoona (7%):",
             resNet: "Mindaa Harka Irra Ga'u (Net):",
-            lblDateInput: "Guyyaa Filadhu:",
-            btnConvert: "Gara Guyyaa Itoophiyaatti Jijjiiri",
-            resEthDate: "Guyyaa Itoophiyaa:",
             fbHeader: "Yaada yookiin Gaaffii qabduu?",
             fbDesc: "Ergaa keessan nuuf barreessaa.",
             lblFbName: "Maqakeessan:",
@@ -323,12 +263,11 @@
             title: "🔥 እዋህሉ መደብ ግብሪ መሃመትን ኦቨርታይምን 2026",
             installText: "📱 ኣፕልኬሽን ኣብ ሞባይልካ ጽዓኖ!",
             installBtn: "ጽዓን",
-            tabSalary: "💰 መሃመት",
-            tabDate: "📅 ዕለት",
+            tabSalary: "💰 መሃመት & OT",
             tabFeedback: "💬 ርእይቶ",
             lblBasic: "መሰረታዊ መሃመት ( ብር ):",
             lblOtHeader: "ናይ ትርፊ ሰዓታት (OT) ኣእቱ፦",
-            lblOt15: "1. ካብ ንጉሆ 12 ክሳብ ምሸት 4 (1.5x):",
+            lblOt15: "1. ካብ 12 ክሳብ 4 (1.5x):",
             lblOt175: "2. ለይቲ ሰዓት (1.75x):",
             lblOt20: "3. ሰንበት / ዕረፍቲ (2.0x):",
             lblOt25: "4. በዓል (2.5x):",
@@ -340,9 +279,6 @@
             resTax: "ግብሪ ኣታዊ:",
             resPension: "ፔንሽን (7%):",
             resNet: "ናብ ኢድ ዝኣቱ (Net):",
-            lblDateInput: "ዕለት ምረጽ:",
-            btnConvert: "ናብ ኢትዮጵያ ዕለት ቅየሮ",
-            resEthDate: "ናይ ኢትዮጵያ ዕለት:",
             fbHeader: "ርእይቶ ወይ ሕቶ ኣለካዶ?",
             fbDesc: "መልእኽትኹም ኣብ ታሕቲ ብምጽሓፍ ክትልእኩ ትኽእሉ ኢኹም።",
             lblFbName: "ሽምካ:",
@@ -353,8 +289,7 @@
             title: "🔥 Xisaabiyaha Mushaharka iyo Cashuurta Cusub 2026",
             installText: "📱 App-ka ku rakib taleefankaaga!",
             installBtn: "Rakib",
-            tabSalary: "💰 Mushahar",
-            tabDate: "📅 Taariikh",
+            tabSalary: "💰 Mushahar & OT",
             tabFeedback: "💬 Talobixin",
             lblBasic: "Mushaharka Aasaasiga ah (ETB):",
             lblOtHeader: "Geli saacadaha dheeraadka ah (OT):",
@@ -370,9 +305,6 @@
             resTax: "Cashuurta Dakhliga:",
             resPension: "Foomka Gabowga (7%):",
             resNet: "Lacagta gacantaada soo gashaysa (Net):",
-            lblDateInput: "Dooro Taariikhda:",
-            btnConvert: "U beddel Taariikhda Itoobiya",
-            resEthDate: "Taariikhda Itoobiya:",
             fbHeader: "Ma qabtaa talo ama su'aal?",
             fbDesc: "Fariintaada halkan ku qor oo noogu soo dir.",
             lblFbName: "Magacaaga:",
@@ -389,7 +321,6 @@
         document.getElementById('installText').innerText = t.installText;
         document.getElementById('installBtn').innerText = t.installBtn;
         document.getElementById('tabSalary').innerText = t.tabSalary;
-        document.getElementById('tabDate').innerText = t.tabDate;
         document.getElementById('tabFeedback').innerText = t.tabFeedback;
         document.getElementById('lblBasic').innerText = t.lblBasic;
         document.getElementById('lblOtHeader').innerText = t.lblOtHeader;
@@ -405,9 +336,6 @@
         document.getElementById('resLblTax').innerText = t.resTax;
         document.getElementById('resLblPension').innerText = t.resPension;
         document.getElementById('resLblNet').innerText = t.resNet;
-        document.getElementById('lblDateInput').innerText = t.lblDateInput;
-        document.getElementById('btnConvert').innerText = t.btnConvert;
-        document.getElementById('resLblEthDate').innerText = t.resEthDate;
         document.getElementById('fbHeader').innerText = t.fbHeader;
         document.getElementById('fbDesc').innerText = t.fbDesc;
         document.getElementById('lblFbName').innerText = t.lblFbName;
@@ -415,10 +343,6 @@
         document.getElementById('btnSendFb').innerText = t.btnSendFb;
     }
 
-    document.getElementById('gregDate').valueAsDate = new Date();
-    convertToEth();
-
-    // PWA Install Prompt Logic (ሰውየው ሊንኩን ሲከፍት እንዲመጣ የተደረገ)
     let deferredPrompt;
     window.addEventListener('beforeinstallprompt', (e) => {
         e.preventDefault();
