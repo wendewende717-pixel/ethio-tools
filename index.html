@@ -82,7 +82,7 @@
             padding: 0 1rem;
             box-sizing: border-box;
         }
-        /* እንደ ቤቲንግ ሳይቶች ከላይ ብቅ የሚል የ Install ማስታወቂያ ባነር */
+        /* እንደ ቤቲንግ ሳይቶች ከላይ በቋሚነት የሚታይ የ Install ባነር */
         .install-popup-banner {
             background: linear-gradient(135deg, #1e293b, #0f172a);
             color: white;
@@ -95,7 +95,6 @@
             top: 0;
             z-index: 1000;
             border-bottom: 3px solid var(--secondary);
-            display: none; /* እስኪጠራ ድረስ ተደብቆ ይቆያል */
         }
         .install-popup-banner .info {
             display: flex;
@@ -259,7 +258,7 @@
 </head>
 <body>
 
-    <!-- እንደ ቤቲንግ ሳይቶች ከላይ ብቅ የሚል የ Install ማስታወቂያ ባነር -->
+    <!-- እንደ ቤቲንግ ሳይቶች ከላይ በቋሚነት የሚታይ የ Install ባነር -->
     <div id="installPopup" class="install-popup-banner">
         <div class="info">
             <span class="title" id="bannerTitle">📱 Ethio Salary Pro አፕሊኬሽን</span>
@@ -418,12 +417,11 @@
             }
         }
 
-        // PWA Install Popup Banner Logic (እንደ ቤቲንግ ሳይቶች)
+        // PWA Install Prompt Logic
         let deferredPrompt;
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
-            // ባነሩን በስክሪኑ ላይ ማሳየት
             document.getElementById('installPopup').style.display = 'flex';
         });
 
@@ -489,7 +487,12 @@
             const pension = basic * 0.07;
             const netSalary = grossSalary - tax - pension;
 
-            const currencyUnit = (document.getElementById('langSelect').value === 'en') ? ' ETB' : ' ብር';
+            // ቋንቋውን መሰረት በማድረግ የገንዘብ መለኪያን በትክክል መቀየር
+            const lang = document.getElementById('langSelect').value;
+            let currencyUnit = ' ብር';
+            if (lang === 'en' || lang === 'om') {
+                currencyUnit = ' ETB';
+            }
 
             document.getElementById('resultCard').style.display = 'block';
             document.getElementById('resBasic').innerText = basic.toFixed(2) + currencyUnit;
@@ -635,7 +638,7 @@
                 document.getElementById('resPensionTitle').innerText = "የጡረታ አስተዋጽኦ (7%):";
                 document.getElementById('resNetTitle').innerText = "እጅ ላይ የሚደርስ (Net):";
                 document.getElementById('bannerTitle').innerText = "📱 Ethio Salary Pro አፕሊኬሽን";
-                document.getElementById('bannerDesc').innerText = "ፈጣር አገልግሎት ለማግኘት ስልክዎ ላይ ይጫኑት!";
+                document.getElementById('bannerDesc').innerText = "ፈጣን አገልግሎት ለማግኘት ስልክዎ ላይ ይጫኑት!";
                 document.getElementById('installBtn').innerText = "Install";
             }
         }
