@@ -508,9 +508,9 @@
             document.documentElement.lang = lang;
             if (userInitiated) localStorage.setItem('ethio_salary_lang', lang);
 
-            const nameInput = document.getElementById('name');
-            const emailInput = document.getElementById('email');
-            const msgInput = document.getElementById('message');
+            const nameField = document.getElementById('name');
+            const emailField = document.getElementById('email');
+            const msgField = document.getElementById('message');
 
             if (lang === 'en') {
                 document.title = "Ethio Salary Pro | 2026 Ethiopian Salary, Tax & OT Calculator";
@@ -533,11 +533,11 @@
                 document.getElementById('feedbackHeader').innerText = "💬 Have any feedback or questions?";
                 document.getElementById('feedbackDesc').innerText = "Send your message directly using the form below.";
                 document.getElementById('lblName').innerText = "Your Name:";
-                nameInput.placeholder = "Enter your name";
+                nameField.placeholder = "Enter your name";
                 document.getElementById('lblEmail').innerText = "Your Email (Optional):";
-                emailInput.placeholder = "example@gmail.com";
+                emailField.placeholder = "example@gmail.com";
                 document.getElementById('lblMessage').innerText = "Your Message:";
-                msgInput.placeholder = "Type your message here...";
+                msgField.placeholder = "Type your message here...";
                 document.getElementById('btnSubmit').innerText = "Send Feedback";
                 document.getElementById('btnTabCalc').innerText = "💰 Salary & OT";
                 document.getElementById('btnTabFeedback').innerText = "💬 Feedback";
@@ -568,11 +568,11 @@
                 document.getElementById('feedbackHeader').innerText = "💬 Yaada yookiin gaaffii qabdu?";
                 document.getElementById('feedbackDesc').innerText = "Ergaa keessan karaa kanaan nuuf ergaa.";
                 document.getElementById('lblName').innerText = "Maqaa Keessan:";
-                nameInput.placeholder = "Maqaa keessan galchaa";
+                nameField.placeholder = "Maqaa keessan galchaa";
                 document.getElementById('lblEmail').innerText = "Imeelii (Filannoo):";
-                emailInput.placeholder = "example@gmail.com";
+                emailField.placeholder = "example@gmail.com";
                 document.getElementById('lblMessage').innerText = "Ergaa Keessan:";
-                msgInput.placeholder = "Yaada keessan achitti barreessaa...";
+                msgField.placeholder = "Yaada keessan achitti barreessaa...";
                 document.getElementById('btnSubmit').innerText = "Ergi";
                 document.getElementById('btnTabCalc').innerText = "💰 Mindaa & OT";
                 document.getElementById('btnTabFeedback').innerText = "💬 Yaada";
@@ -603,11 +603,11 @@
                 document.getElementById('feedbackHeader').innerText = "💬 ሐሳብ ወይ ሕቶ አለካካ?";
                 document.getElementById('feedbackDesc').innerText = "መልእኽትኹ ብቐጥታ ንሰዶ።";
                 document.getElementById('lblName').innerText = "ሽምካ:";
-                nameInput.placeholder = "ሽምካ ኣእቱ";
+                nameField.placeholder = "ሽምካ ኣእቱ";
                 document.getElementById('lblEmail').innerText = "ኢመይልካ:";
-                emailInput.placeholder = "example@gmail.com";
+                emailField.placeholder = "example@gmail.com";
                 document.getElementById('lblMessage').innerText = "መልእኽቲ:";
-                msgInput.placeholder = "ሐሳብካ ኣብዚ ጸሓፍ...";
+                msgField.placeholder = "ሐሳብካ ኣብዚ ጸሓፍ...";
                 document.getElementById('btnSubmit').innerText = "መልእኽቲ ሰዶ";
                 document.getElementById('btnTabCalc').innerText = "💰 ዓስቢ & OT";
                 document.getElementById('btnTabFeedback').innerText = "💬 ሐሳብ/ሕቶ";
@@ -638,11 +638,11 @@
                 document.getElementById('feedbackHeader').innerText = "💬 Ma qabtaa talo ama su'aal?";
                 document.getElementById('feedbackDesc').innerText = "Fariintaada halkan ku soo dir.";
                 document.getElementById('lblName').innerText = "Magacaaga:";
-                nameInput.placeholder = "Gali magacaaga";
+                nameField.placeholder = "Gali magacaaga";
                 document.getElementById('lblEmail').innerText = "Iimeylkaaga:";
-                emailInput.placeholder = "example@gmail.com";
+                emailField.placeholder = "example@gmail.com";
                 document.getElementById('lblMessage').innerText = "Fariintaada:";
-                msgInput.placeholder = "Halkan ku qor fariintaada...";
+                msgField.placeholder = "Halkan ku qor fariintaada...";
                 document.getElementById('btnSubmit').innerText = "Dir Fariinta";
                 document.getElementById('btnTabCalc').innerText = "💰 Mushahar & OT";
                 document.getElementById('btnTabFeedback').innerText = "💬 Talo / Su'aal";
@@ -673,11 +673,11 @@
                 document.getElementById('feedbackHeader').innerText = "💬 ሐሳብ፣ አስተያየት ወይም ጥያቄ አለዎት?";
                 document.getElementById('feedbackDesc').innerText = "ከታች ባለው ሳጥን ውስጥ ሐሳብዎን በመጻፍ በቀጥታ ወደ እኛ መላክ ይችላሉ።";
                 document.getElementById('lblName').innerText = "ስምዎ:";
-                nameInput.placeholder = "ስምዎን ያስገቡ";
+                nameField.placeholder = "ስምዎን ያስገቡ";
                 document.getElementById('lblEmail').innerText = "ኢሜይልዎ (አማራጭ):";
-                emailInput.placeholder = "example@gmail.com";
+                emailField.placeholder = "example@gmail.com";
                 document.getElementById('lblMessage').innerText = "መልእክትዎ ወይም ጥያቄዎ:";
-                msgInput.placeholder = "ሐሳብዎን እዚህ ይጻፉ...";
+                msgField.placeholder = "ሐሳብዎን እዚህ ይጻፉ...";
                 document.getElementById('btnSubmit').innerText = "ሐሳብዎን ይላኩ";
                 document.getElementById('btnTabCalc').innerText = "💰 ደመወዝ & OT";
                 document.getElementById('btnTabFeedback').innerText = "💬 ሐሳብ / ጥያቄ";
