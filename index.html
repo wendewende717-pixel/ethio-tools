@@ -159,7 +159,7 @@
         }
         .nav-btn.active { background: var(--primary); color: white; box-shadow: 0 3px 8px rgba(7, 137, 48, 0.25); }
 
-        /* Professional Ad Space / Banner */
+        /* Professional Ad / Promo Banner */
         .pro-ad-banner {
             background: linear-gradient(135deg, #1e293b, #0f172a);
             color: #ffffff; padding: 1rem; border-radius: 12px; text-align: center;
@@ -662,38 +662,4 @@
                 document.getElementById('lblOt1').innerText = "1. ከሰዓት 12 እስከ ምሽት 4 ሰዓት (1.5x):";
                 document.getElementById('lblOt2').innerText = "2. ከምሽት 4 እስከ ንጋት 12 ሰዓት / ሌሊት (1.75x):";
                 document.getElementById('lblOt3').innerText = "3. እረፍት / የእረፍት ቀን (2.0x):";
-                document.getElementById('lblOt4').innerText = "4. የህዝብ በዓል ቀን (2.5x):";
-                document.getElementById('lblTransport').innerText = "የትራንስፖርት / ሌላ አበል (ከግብር ነጻ ከሆነ):";
-                document.getElementById('btnCalculate').innerText = "አዲሱን የተጣራ ደመወዝ እና OT አስላ";
-                document.getElementById('btnShare').innerText = "📤 ለጓደኞችዎ ሼር ያድርጉ (Share App)";
-                document.getElementById('adTitleText').innerText = "💡 Ethio Salary Pro - 2026";
-                document.getElementById('adDescText').innerText = "ለኢትዮጵያ ሰራተኞች የተዘጋጀ ቀልጣፋ እና ትክክለኛ የደመወዝ መለኪያዎች";
-                document.getElementById('feedbackHeader').innerText = "💬 ሐሳብ፣ አስተያየት ወይም ጥያቄ አለዎት?";
-                document.getElementById('feedbackDesc').innerText = "ከታች ባለው ሳጥን ውስጥ ሐሳብዎን በመጻፍ በቀጥታ ወደ እኛ መላክ ይችላሉ።";
-                document.getElementById('lblName').innerText = "ስምዎ:";
-                document.getElementById('lblEmail').innerText = "ኢሜይልዎ (አማራጭ):";
-                document.getElementById('lblMessage').innerText = "መልእክትዎ ወይም ጥያቄዎ:";
-                document.getElementById('btnSubmit').innerText = "ሐሳብዎን ይላኩ";
-                document.getElementById('btnTabCalc').innerText = "💰 ደመወዝ & OT";
-                document.getElementById('btnTabFeedback').innerText = "💬 ሐሳብ / ጥያቄ";
-                document.getElementById('resBasicTitle').innerText = "መሰረታዊ ደመወዝ:";
-                document.getElementById('resOtTitle').innerText = "ጠቅላላ የኦቨርታይም ክፍያ:";
-                document.getElementById('resGrossTitle').innerText = "ጠቅላላ ገቢ (Gross):";
-                document.getElementById('resTaxTitle').innerText = "የግብር ቅናሽ (Tax):";
-                document.getElementById('resPensionTitle').innerText = "የጡረታ አስተዋጽኦ (7%):";
-                document.getElementById('resNetTitle').innerText = "እጅ ላይ የሚደርስ (Net):";
-            }
-
-            if (document.getElementById('resultCard').style.display === 'block') {
-                calculateAll(false);
-            }
-        }
-
-        window.onload = function() {
-            const initialLang = detectInitialLanguage();
-            document.getElementById('langSelect').value = initialLang;
-            changeLanguage(false);
-        };
-    </script>
-</body>
-</html>
+                document.getElementById('lblOt4').innerText
