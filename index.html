@@ -9,8 +9,8 @@
 
     <!-- Google Multi-Language SEO & Ranking Meta Tags -->
     <title>Ethio Salary Pro | የ2026 የኢትዮጵያ የደሞዝ ግብር እና ኦቨርታይም (OT) ማስያ</title>
-    <meta name="description" content="አዲሱ የተሻሻለው የ2026 የኢትዮጵያ የደመወዝ፣ የግብር/ታክስ፣ የጡረታ (7%) እና የኦቨርታይም (OT) ማስያ። Ethiopian Salary, Income Tax & Overtime Calculator.">
-    <meta name="keywords" content="Ethiopian salary calculator 2026, Ethio tax calculator, overtime calculator Ethiopia, የደሞዝ ግብር ማስያ, የኦቨርታይም ማስያ, Shallgessa Mindaa, ዓስቢ እና ኦቨርታይም">
+    <meta name="description" content="አዲሱ የተሻሻለው የ2026 የኢትዮጵያ የደመወዝ፣ የግብር/ታክስ፣ የጡረታ (7%) እና የኦቨርታይም (OT) ማስያ። Shallgessa Mindaa fi OT 2026. Ethiopian Salary, Income Tax & Overtime Calculator.">
+    <meta name="keywords" content="Ethiopian salary calculator 2026, Ethio tax calculator, overtime calculator Ethiopia, የደሞዝ ግብር ማስያ, የኦቨርታይም ማስያ, Shallgessa Mindaa, ዓስቢ እና ኦቨርታይም, Xisaabiyaha Mushaharka">
     <meta name="robots" content="index, follow">
     
     <!-- Hreflang Tags for Multi-language Google Indexing -->
@@ -223,7 +223,8 @@
         <div class="splash-sub">2026 የደሞዝ፣ ግብር እና OT ማስያ</div>
     </div>
 
-    <div id="installPopup" class="install-popup-banner">
+    <!-- Install Banner -->
+    <div id="installPopup" class="install-popup-banner" style="display:none;">
         <div class="info">
             <span class="title" id="bannerTitle">📱 Ethio Salary Pro አፕሊኬሽን</span>
             <span class="desc" id="bannerDesc">ፈጣን አገልግሎት ለማግኘት ስልክዎ ላይ ይጫኑት!</span>
@@ -511,6 +512,9 @@
             const nameField = document.getElementById('name');
             const emailField = document.getElementById('email');
             const msgField = document.getElementById('message');
+            const bannerTitle = document.getElementById('bannerTitle');
+            const bannerDesc = document.getElementById('bannerDesc');
+            const installBtn = document.getElementById('installBtn');
 
             if (lang === 'en') {
                 document.title = "Ethio Salary Pro | 2026 Ethiopian Salary, Tax & OT Calculator";
@@ -547,6 +551,9 @@
                 document.getElementById('resTaxTitle').innerText = "Tax Deduction:";
                 document.getElementById('resPensionTitle').innerText = "Pension Contribution (7%):";
                 document.getElementById('resNetTitle').innerText = "Net Salary (Take Home):";
+                bannerTitle.innerText = "📱 Ethio Salary Pro App";
+                bannerDesc.innerText = "Install on your phone for quick access!";
+                installBtn.innerText = "📥 Install";
             } else if (lang === 'om') {
                 document.title = "Ethio Salary Pro | Shallgessa Mindaa, Gibira fi OT 2026";
                 document.getElementById('siteBadge').innerText = "🔥 Shallgessa Mindaa, Gibira fi OT Haaraa 2026";
@@ -582,6 +589,9 @@
                 document.getElementById('resTaxTitle').innerText = "Hir'isa Gibiraa (Tax):";
                 document.getElementById('resPensionTitle').innerText = "Buusii Pensiyoonaa (7%):";
                 document.getElementById('resNetTitle').innerText = "Mindaa Qulqulluu (Net):";
+                bannerTitle.innerText = "📱 Appii Ethio Salary Pro";
+                bannerDesc.innerText = "Tajaajila saffisaaf bilbila keessan irratti fe'adhaa!";
+                installBtn.innerText = "📥 Fe'i (Install)";
             } else if (lang === 'ti') {
                 document.title = "Ethio Salary Pro | መለኪዒ ዓስቢ፣ ግብርን ኦቨርታይምን 2026";
                 document.getElementById('siteBadge').innerText = "🔥 ሓዲሽ ዝተሻሻለ መደብ ዓስቢ፣ ግብርን ኦቨርታይምን 2026";
@@ -617,6 +627,9 @@
                 document.getElementById('resTaxTitle').innerText = "ቅናሽ ግብር (Tax):";
                 document.getElementById('resPensionTitle').innerText = "ቁጠባ ስንክልና/ጡረታ (7%):";
                 document.getElementById('resNetTitle').innerText = "ንጹህ ዓስቢ (Net):";
+                bannerTitle.innerText = "📱 ኣፕሊኬሽን Ethio Salary Pro";
+                bannerDesc.innerText = "ቅልጡፍ ኣገልግሎት ንምርካብ ኣብ ስልኪኹም ሓርሙዎ!";
+                installBtn.innerText = "📥 ኣእቱ (Install)";
             } else if (lang === 'so') {
                 document.title = "Ethio Salary Pro | Xisaabiyaha Mushaharka iyo OT 2026";
                 document.getElementById('siteBadge').innerText = "🔥 Xisaabiyaha Mushaharka, Canshuurta iyo OT 2026";
@@ -652,6 +665,9 @@
                 document.getElementById('resTaxTitle').innerText = "Dhimista Canshuurta (Tax):";
                 document.getElementById('resPensionTitle').innerText = "Qeybta Howlgabka (7%):";
                 document.getElementById('resNetTitle').innerText = "Mushaharka Saafi ah (Net):";
+                bannerTitle.innerText = "📱 App-ka Ethio Salary Pro";
+                bannerDesc.innerText = "Ku rakib taleefankaaga adeeg degdeg ah!";
+                installBtn.innerText = "📥 Ku rakib";
             } else {
                 document.title = "Ethio Salary Pro | የ2026 የደሞዝ ግብር እና ኦቨርታይም (OT) ማስያ";
                 document.getElementById('siteBadge').innerText = "🔥 አዲሱ የተሻሻለው የ2026 የደሞዝ ግብር እና የኦቨርታይም ማስያ";
@@ -687,6 +703,9 @@
                 document.getElementById('resTaxTitle').innerText = "የግብር ቅናሽ (Tax):";
                 document.getElementById('resPensionTitle').innerText = "የጡረታ አስተዋጽኦ (7%):";
                 document.getElementById('resNetTitle').innerText = "እጅ ላይ የሚደርስ (Net):";
+                bannerTitle.innerText = "📱 Ethio Salary Pro አፕሊኬሽን";
+                bannerDesc.innerText = "ፈጣን አገልግሎት ለማግኘት ስልክዎ ላይ ይጫኑት!";
+                installBtn.innerText = "📥 Install";
             }
 
             if (document.getElementById('resultCard').style.display === 'block') {
