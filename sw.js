@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ethio-salary-pro-v3';
+const CACHE_NAME = 'ethio-salary-pro-v4';
 const ASSETS = [
   './',
   './index.html',
