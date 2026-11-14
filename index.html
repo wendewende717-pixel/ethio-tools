@@ -21,16 +21,14 @@
     <link rel="alternate" hreflang="en" href="https://wende717-pixel.github.io/?lang=en" />
     <link rel="alternate" hreflang="x-default" href="https://wende717-pixel.github.io/" />
 
-    <!-- Professional Social Media Share Banner (Telegram, Facebook, WhatsApp) -->
+    <!-- Professional Social Media Share Banner -->
     <meta property="og:site_name" content="Ethio Salary Pro">
     <meta property="og:title" content="🇪🇹 Ethio Salary Pro | የ2026 የደሞዝ ግብር እና የኦቨርታይም (OT) ማስያ">
-    <meta property="og:description" content="የተጣራ ደመወዝዎን (Net Salary)፣ የግብር ቅናሽ፣ ጡረታ እና የኦቨርታይም ክፍያዎን (26/22/30 ቀናት) በ5 ቋንቋዎች በትክክል እና በፍጥነት ያስሉ!">
+    <meta property="og:description" content="የተጣራ ደመወዝዎን (Net Salary)፣ የግብር ቅናሽ፣ ጡረታ እና የኦቨርታይም ክፍያዎን በ5 ቋንቋዎች በትክክል እና በፍጥነት ያስሉ!">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://wende717-pixel.github.io/">
     <meta property="og:image" content="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1200&h=630&q=85">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="🇪🇹 Ethio Salary Pro | የ2026 የደሞዝ ግብር እና OT ማስያ">
-    <meta name="twitter:description" content="የተጣራ ደመወዝዎን እና የኦቨርታይም ክፍያዎን በ5 ቋንቋዎች በቀላሉ ያስሉ።">
 
     <!-- PWA Manifest & App Icons -->
     <link rel="manifest" href="manifest.json">
@@ -55,8 +53,7 @@
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "ETB"
-      },
-      "description": "Ethiopian Salary, Income Tax, Pension, and Overtime (OT) Calculator supporting 26-day, 22-day, and 30-day work schedules in 5 languages."
+      }
     }
     </script>
 
@@ -81,7 +78,6 @@
             display: flex; flex-direction: column; min-height: 100vh;
         }
 
-        /* Splash Screen */
         #appSplash {
             position: fixed; inset: 0;
             background: linear-gradient(145deg, #078930 0%, #044d1b 100%);
@@ -103,7 +99,6 @@
             100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(252, 209, 22, 0); }
         }
 
-        /* Install Banner */
         .install-popup-banner {
             background: linear-gradient(135deg, #0056b3, #002b5c); color: white;
             padding: 0.8rem 1rem; display: flex; justify-content: space-between; align-items: center;
@@ -123,7 +118,6 @@
             background: transparent; color: #cbd5e1; border: none; font-size: 1.25rem; cursor: pointer; padding: 0 0.3rem;
         }
 
-        /* Top Bar */
         .top-lang-bar {
             display: flex; justify-content: space-between; align-items: center;
             padding: 0.55rem 1rem; background: #ffffff; border-bottom: 1px solid var(--border);
@@ -134,7 +128,6 @@
             font-size: 0.85rem; background: #f8fafc; color: var(--dark); cursor: pointer; font-weight: 700;
         }
 
-        /* Header */
         header {
             background: linear-gradient(160deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: white; padding: 1.4rem 1rem 1.8rem 1rem; text-align: center;
@@ -150,7 +143,6 @@
 
         main { flex: 1; max-width: 560px; width: 100%; margin: -0.8rem auto 1.5rem auto; padding: 0 1rem; }
 
-        /* Navigation Tabs */
         .nav-buttons {
             display: flex; gap: 0.6rem; background: #ffffff; padding: 0.45rem;
             border-radius: 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); margin-bottom: 1.1rem;
@@ -162,7 +154,6 @@
         }
         .nav-btn.active { background: var(--primary); color: white; box-shadow: 0 3px 8px rgba(7, 137, 48, 0.25); }
 
-        /* Professional Ad / Promo Banner */
         .pro-ad-banner {
             background: linear-gradient(135deg, #1e293b, #0f172a);
             color: #ffffff; padding: 1rem; border-radius: 12px; text-align: center;
@@ -171,7 +162,6 @@
         .pro-ad-banner .ad-title { font-size: 0.95rem; font-weight: bold; color: var(--secondary); margin-bottom: 0.3rem; }
         .pro-ad-banner .ad-desc { font-size: 0.8rem; color: #cbd5e1; }
 
-        /* Card */
         .card {
             background: var(--card-bg); padding: 1.4rem; border-radius: 16px;
             box-shadow: 0 6px 20px rgba(0,0,0,0.05); margin-bottom: 1.2rem; display: none;
@@ -227,14 +217,12 @@
 </head>
 <body>
 
-    <!-- Splash Screen -->
     <div id="appSplash">
         <div class="splash-logo">🇪🇹</div>
         <div class="splash-title">Ethio Salary Pro</div>
         <div class="splash-sub">2026 የደሞዝ፣ ግብር እና OT ማስያ</div>
     </div>
 
-    <!-- Install Banner -->
     <div id="installPopup" class="install-popup-banner">
         <div class="info">
             <span class="title" id="bannerTitle">📱 Ethio Salary Pro አፕሊኬሽን</span>
@@ -246,7 +234,6 @@
         </div>
     </div>
 
-    <!-- Language Bar -->
     <div class="top-lang-bar">
         <span class="brand-mini">🌐 ቋንቋ / Language</span>
         <select class="lang-select" id="langSelect" onchange="changeLanguage(true)">
@@ -258,7 +245,6 @@
         </select>
     </div>
 
-    <!-- Header -->
     <header>
         <h1>🇪🇹 Ethio Salary Pro</h1>
         <div class="badge" id="siteBadge">🔥 አዲሱ የተሻሻለው የ2026 የደሞዝ ግብር እና የኦቨርታይም ማስያ</div>
@@ -270,7 +256,6 @@
             <button id="btnTabFeedback" class="nav-btn" onclick="switchTab('feedback')">💬 ሐሳብ / ጥያቄ</button>
         </div>
 
-        <!-- Professional Ad / Promo Banner -->
         <div class="pro-ad-banner">
             <div class="ad-title" id="adTitleText">💡 Ethio Salary Pro - 2026</div>
             <div class="ad-desc" id="adDescText">ለኢትዮጵያ ሰራተኞች የተዘጋጀ ቀልጣፋ እና ትክክለኛ የደመወዝ መለኪያዎች</div>
@@ -321,7 +306,6 @@
 
             <button onclick="calculateAll(true)" class="action-btn" id="btnCalculate">አዲሱን የተጣራ ደመወዝ እና OT አስላ</button>
 
-            <!-- Results -->
             <div id="resultCard" class="result-box" style="display:none;">
                 <div class="result-item">
                     <span id="resBasicTitle">መሰረታዊ ደመወዝ:</span>
@@ -349,7 +333,6 @@
                 </div>
             </div>
 
-            <!-- Share App Button -->
             <div class="share-bar">
                 <button class="share-btn" id="btnShare" onclick="shareApp()">📤 ለጓደኞችዎ ሼር ያድርጉ (Share App)</button>
             </div>
@@ -525,6 +508,10 @@
             document.documentElement.lang = lang;
             if (userInitiated) localStorage.setItem('ethio_salary_lang', lang);
 
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const msgInput = document.getElementById('message');
+
             if (lang === 'en') {
                 document.title = "Ethio Salary Pro | 2026 Ethiopian Salary, Tax & OT Calculator";
                 document.getElementById('siteBadge').innerText = "🔥 New Revised 2026 Salary, Tax & Overtime Calculator";
@@ -546,11 +533,11 @@
                 document.getElementById('feedbackHeader').innerText = "💬 Have any feedback or questions?";
                 document.getElementById('feedbackDesc').innerText = "Send your message directly using the form below.";
                 document.getElementById('lblName').innerText = "Your Name:";
-                document.getElementById('name').placeholder = "Enter your name";
+                nameInput.placeholder = "Enter your name";
                 document.getElementById('lblEmail').innerText = "Your Email (Optional):";
-                document.getElementById('email').placeholder = "example@gmail.com";
+                emailInput.placeholder = "example@gmail.com";
                 document.getElementById('lblMessage').innerText = "Your Message:";
-                document.getElementById('message').placeholder = "Type your message here...";
+                msgInput.placeholder = "Type your message here...";
                 document.getElementById('btnSubmit').innerText = "Send Feedback";
                 document.getElementById('btnTabCalc').innerText = "💰 Salary & OT";
                 document.getElementById('btnTabFeedback').innerText = "💬 Feedback";
@@ -581,11 +568,11 @@
                 document.getElementById('feedbackHeader').innerText = "💬 Yaada yookiin gaaffii qabdu?";
                 document.getElementById('feedbackDesc').innerText = "Ergaa keessan karaa kanaan nuuf ergaa.";
                 document.getElementById('lblName').innerText = "Maqaa Keessan:";
-                document.getElementById('name').placeholder = "Maqaa keessan galchaa";
+                nameInput.placeholder = "Maqaa keessan galchaa";
                 document.getElementById('lblEmail').innerText = "Imeelii (Filannoo):";
-                document.getElementById('email').placeholder = "example@gmail.com";
+                emailInput.placeholder = "example@gmail.com";
                 document.getElementById('lblMessage').innerText = "Ergaa Keessan:";
-                document.getElementById('message').placeholder = "Yaada keessan achitti barreessaa...";
+                msgInput.placeholder = "Yaada keessan achitti barreessaa...";
                 document.getElementById('btnSubmit').innerText = "Ergi";
                 document.getElementById('btnTabCalc').innerText = "💰 Mindaa & OT";
                 document.getElementById('btnTabFeedback').innerText = "💬 Yaada";
@@ -616,11 +603,11 @@
                 document.getElementById('feedbackHeader').innerText = "💬 ሐሳብ ወይ ሕቶ አለካካ?";
                 document.getElementById('feedbackDesc').innerText = "መልእኽትኹ ብቐጥታ ንሰዶ።";
                 document.getElementById('lblName').innerText = "ሽምካ:";
-                document.getElementById('name').placeholder = "ሽምካ ኣእቱ";
+                nameInput.placeholder = "ሽምካ ኣእቱ";
                 document.getElementById('lblEmail').innerText = "ኢመይልካ:";
-                document.getElementById('email').placeholder = "example@gmail.com";
+                emailInput.placeholder = "example@gmail.com";
                 document.getElementById('lblMessage').innerText = "መልእኽቲ:";
-                document.getElementById('message').placeholder = "ሐሳብካ ኣብዚ ጸሓፍ...";
+                msgInput.placeholder = "ሐሳብካ ኣብዚ ጸሓፍ...";
                 document.getElementById('btnSubmit').innerText = "መልእኽቲ ሰዶ";
                 document.getElementById('btnTabCalc').innerText = "💰 ዓስቢ & OT";
                 document.getElementById('btnTabFeedback').innerText = "💬 ሐሳብ/ሕቶ";
@@ -651,11 +638,11 @@
                 document.getElementById('feedbackHeader').innerText = "💬 Ma qabtaa talo ama su'aal?";
                 document.getElementById('feedbackDesc').innerText = "Fariintaada halkan ku soo dir.";
                 document.getElementById('lblName').innerText = "Magacaaga:";
-                document.getElementById('name').placeholder = "Gali magacaaga";
+                nameInput.placeholder = "Gali magacaaga";
                 document.getElementById('lblEmail').innerText = "Iimeylkaaga:";
-                document.getElementById('email').placeholder = "example@gmail.com";
+                emailInput.placeholder = "example@gmail.com";
                 document.getElementById('lblMessage').innerText = "Fariintaada:";
-                document.getElementById('message').placeholder = "Halkan ku qor fariintaada...";
+                msgInput.placeholder = "Halkan ku qor fariintaada...";
                 document.getElementById('btnSubmit').innerText = "Dir Fariinta";
                 document.getElementById('btnTabCalc').innerText = "💰 Mushahar & OT";
                 document.getElementById('btnTabFeedback').innerText = "💬 Talo / Su'aal";
@@ -686,11 +673,11 @@
                 document.getElementById('feedbackHeader').innerText = "💬 ሐሳብ፣ አስተያየት ወይም ጥያቄ አለዎት?";
                 document.getElementById('feedbackDesc').innerText = "ከታች ባለው ሳጥን ውስጥ ሐሳብዎን በመጻፍ በቀጥታ ወደ እኛ መላክ ይችላሉ።";
                 document.getElementById('lblName').innerText = "ስምዎ:";
-                document.getElementById('name').placeholder = "ስምዎን ያስገቡ";
+                nameInput.placeholder = "ስምዎን ያስገቡ";
                 document.getElementById('lblEmail').innerText = "ኢሜይልዎ (አማራጭ):";
-                document.getElementById('email').placeholder = "example@gmail.com";
+                emailInput.placeholder = "example@gmail.com";
                 document.getElementById('lblMessage').innerText = "መልእክትዎ ወይም ጥያቄዎ:";
-                document.getElementById('message').placeholder = "ሐሳብዎን እዚህ ይጻፉ...";
+                msgInput.placeholder = "ሐሳብዎን እዚህ ይጻፉ...";
                 document.getElementById('btnSubmit').innerText = "ሐሳብዎን ይላኩ";
                 document.getElementById('btnTabCalc').innerText = "💰 ደመወዝ & OT";
                 document.getElementById('btnTabFeedback').innerText = "💬 ሐሳብ / ጥያቄ";
