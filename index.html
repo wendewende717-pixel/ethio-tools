@@ -3,17 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>አዲሱ የተሻሻለው የ2026 የደሞዝ ግብር እና የኦቨርታይም ማስያ</title>
+    <title>Ethio Salary Pro - የደሞዝ ግብር እና ኦቨርታይም ማስያ</title>
     
-    <!-- SEO & Social Share Meta Tags -->
-    <meta name="description" content="አዲሱ የተሻሻለው የኢትዮጵያ የደመወዝ፣ የግብር/ታክስ እና የኦቨርታይም (OT) ማስያ። የተጣራ ደመወዝዎን እና የኦቨርታይም ክፍያዎን በቀላሉ ያሉ።">
-    <meta property="og:title" content="አዲሱ የተሻሻለው የ2026 የደሞዝ ግብር እና የኦቨርታይም ማስያ">
-    <meta property="og:description" content="የተሻሻለው የኢትዮጵያ የደመወዝ አሰላል፣ የግብር ቅናሽ እና የኦቨርታይም ማስያ በስልክዎ በቀላሉ ይጠቀሙ።">
-    <meta property="og:type" content="website">
-
-    <!-- PWA Manifest & Meta Tags -->
+    <meta name="description" content="አዲሱ የተሻሻለው የኢትዮጵያ የደመወዝ፣ የግብር እና የኦቨርታይም (OT) ማስያ።">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#078930">
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/2344/2344132.png">
 
     <style>
         :root {
@@ -34,6 +29,66 @@
             flex-direction: column;
             min-height: 100vh;
         }
+
+        @keyframes pulseGlow {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(252, 209, 22, 0.8); }
+            70% { transform: scale(1.06); box-shadow: 0 0 0 10px rgba(252, 209, 22, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(252, 209, 22, 0); }
+        }
+
+        .install-popup-banner {
+            background: linear-gradient(135deg, #0056b3, #002b5c);
+            color: white;
+            padding: 0.85rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--secondary);
+        }
+        .install-popup-banner .info {
+            display: flex;
+            flex-direction: column;
+            padding-right: 0.5rem;
+        }
+        .install-popup-banner .title {
+            font-weight: bold;
+            font-size: 0.95rem;
+            color: #fff;
+        }
+        .install-popup-banner .desc {
+            font-size: 0.78rem;
+            color: #e2e8f0;
+        }
+        .install-popup-banner .action-btns {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            flex-shrink: 0;
+        }
+        .install-popup-banner button.install-now {
+            background-color: var(--secondary);
+            color: #000000;
+            border: none;
+            padding: 0.55rem 1.1rem;
+            border-radius: 6px;
+            font-weight: 900;
+            cursor: pointer;
+            font-size: 0.9rem;
+            animation: pulseGlow 1.5s infinite;
+        }
+        .install-popup-banner button.close-banner {
+            background: transparent;
+            color: #cbd5e1;
+            border: none;
+            font-size: 1.3rem;
+            cursor: pointer;
+            padding: 0 0.3rem;
+        }
+
         .top-lang-bar {
             display: flex;
             justify-content: flex-end;
@@ -43,12 +98,13 @@
             border-bottom: 1px solid #eee;
         }
         select.lang-select {
-            padding: 0.3rem 0.6rem;
+            padding: 0.35rem 0.7rem;
             border-radius: 4px;
             border: 1px solid #ccc;
             font-size: 0.85rem;
             background: #fff;
             cursor: pointer;
+            font-weight: 600;
         }
         header {
             background-color: var(--primary);
@@ -69,7 +125,7 @@
             color: white;
             padding: 0.4rem 1rem;
             border-radius: 20px;
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             margin-top: 0.6rem;
             font-weight: bold;
             box-shadow: 0 2px 4px rgba(0,0,0,0.2);
@@ -82,65 +138,6 @@
             padding: 0 1rem;
             box-sizing: border-box;
         }
-
-        @keyframes pulseGlow {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(252, 209, 22, 0.7); }
-            70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(252, 209, 22, 0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(252, 209, 22, 0); }
-        }
-
-        /* በደማቅ ሰማያዊ ባክግራውንድ እና ብልጭ ድርግም የሚል Install ባነር */
-        .install-popup-banner {
-            background: linear-gradient(135deg, #0056b3, #003366);
-            color: white;
-            padding: 0.9rem 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 3px solid var(--secondary);
-        }
-        .install-popup-banner .info {
-            display: flex;
-            flex-direction: column;
-        }
-        .install-popup-banner .title {
-            font-weight: bold;
-            font-size: 1rem;
-            color: #fff;
-        }
-        .install-popup-banner .desc {
-            font-size: 0.8rem;
-            color: #e2e8f0;
-        }
-        .install-popup-banner .action-btns {
-            display: flex;
-            gap: 0.5rem;
-            align-items: center;
-        }
-        .install-popup-banner button.install-now {
-            background-color: var(--secondary);
-            color: #000;
-            border: none;
-            padding: 0.6rem 1.2rem;
-            border-radius: 6px;
-            font-weight: 900;
-            cursor: pointer;
-            font-size: 0.95rem;
-            animation: pulseGlow 1.5s infinite;
-        }
-        .install-popup-banner button.close-banner {
-            background: transparent;
-            color: #cbd5e1;
-            border: none;
-            font-size: 1.3rem;
-            cursor: pointer;
-            padding: 0 0.4rem;
-        }
-
         .ad-container {
             text-align: center;
             margin: 1rem 0;
@@ -165,25 +162,12 @@
             cursor: pointer;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
             font-size: 0.95rem;
-            border: none;
+            border: 1px solid #cbd5e1;
+            background: #e2e8f0;
+            color: var(--dark);
             transition: all 0.2s;
         }
-        .nav-btn.calc-tab {
-            background: #e2e8f0;
-            color: var(--dark);
-            border: 1px solid #cbd5e1;
-        }
-        .nav-btn.calc-tab.active {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-        .nav-btn.feedback-tab {
-            background: #e2e8f0;
-            color: var(--dark);
-            border: 1px solid #cbd5e1;
-        }
-        .nav-btn.feedback-tab.active {
+        .nav-btn.active {
             background: var(--primary);
             color: white;
             border-color: var(--primary);
@@ -225,7 +209,7 @@
             background-color: var(--accent);
             color: white;
             border: none;
-            padding: 0.8rem 1.5rem;
+            padding: 0.85rem 1.5rem;
             border-radius: 4px;
             font-size: 1rem;
             cursor: pointer;
@@ -234,7 +218,7 @@
             margin-top: 0.5rem;
         }
         button.action-btn:hover {
-            opacity: 0.9;
+            opacity: 0.92;
         }
         .result-box {
             margin-top: 1.2rem;
@@ -268,19 +252,17 @@
 </head>
 <body>
 
-    <!-- በደማቅ ሰማያዊ ባክግራውንድ እና ብልጭ ድርግም የሚል Install ባነር -->
     <div id="installPopup" class="install-popup-banner">
         <div class="info">
             <span class="title" id="bannerTitle">📱 Ethio Salary Pro አፕሊኬሽን</span>
             <span class="desc" id="bannerDesc">ፈጣን አገልግሎት ለማግኘት ስልክዎ ላይ ይጫኑት!</span>
         </div>
         <div class="action-btns">
-            <button class="install-now" id="installBtn" onclick="installApp()">📥 ጫን (Install)</button>
+            <button class="install-now" id="installBtn" onclick="installApp()">📥 Install</button>
             <button class="close-banner" onclick="closeInstallBanner()">✕</button>
         </div>
     </div>
 
-    <!-- ቋንቋ መቀየሪያ በስተቀኝ በኩል -->
     <div class="top-lang-bar">
         <select class="lang-select" id="langSelect" onchange="changeLanguage()">
             <option value="am">አማርኛ</option>
@@ -291,25 +273,21 @@
         </select>
     </div>
 
-    <!-- ርዕስ -->
     <header>
         <h1>🇪🇹 Ethio Salary Pro</h1>
         <div class="badge" id="siteBadge">🔥 አዲሱ የተሻሻለው የ2026 የደሞዝ ግብር እና የኦቨርታይም ማስያ</div>
     </header>
 
     <main>
-        <!-- የማስታወቂያ ቦታ -->
         <div class="ad-container">
             [ የማስታወቂያ ቦታ - Ad Space ]
         </div>
 
-        <!-- የተናጠል ማቀያየሪያ በተኖች -->
         <div class="nav-buttons">
-            <button id="btnTabCalc" class="nav-btn calc-tab active" onclick="switchTab('calc')">💰 ደመወዝ & OT</button>
-            <button id="btnTabFeedback" class="nav-btn feedback-tab" onclick="switchTab('feedback')">💬 ሐሳብ / ጥያቄ</button>
+            <button id="btnTabCalc" class="nav-btn active" onclick="switchTab('calc')">💰 ደመወዝ & OT</button>
+            <button id="btnTabFeedback" class="nav-btn" onclick="switchTab('feedback')">💬 ሐሳብ / ጥያቄ</button>
         </div>
 
-        <!-- የደመወዝ እና የሁሉም OT ዓይነቶች ማስያ ካርድ -->
         <div class="card active" id="calcCard">
             <h2 id="calcHeader" style="margin-top:0; color:var(--primary); font-size: 1.15rem;">ደመወዝ እና ኦቨርታይም (OT) ማስያ</h2>
             
@@ -343,9 +321,8 @@
                 <input type="number" id="transport" placeholder="0">
             </div>
 
-            <button onclick="calculateAll()" class="action-btn" id="btnCalculate">አዲሱን የተጣራ ደመወዝ እና OT አስላ</button>
+            <button onclick="calculateAll(true)" class="action-btn" id="btnCalculate">አዲሱን የተጣራ ደመወዝ እና OT አስላ</button>
 
-            <!-- የስሌት ውጤት ማሳያ -->
             <div id="resultCard" class="result-box" style="display:none;">
                 <div class="result-item">
                     <span id="resBasicTitle">መሰረታዊ ደመወዝ:</span>
@@ -374,7 +351,6 @@
             </div>
         </div>
 
-        <!-- የሐሳብ እና ጥያቄ ማቅረቢያ ካርድ -->
         <div class="card" id="feedbackCard">
             <h3 id="feedbackHeader" style="margin-top:0; color:var(--primary);">ሐሳብ፣ አስተያየት ወይም ጥያቄ አለዎት?</h3>
             <p id="feedbackDesc" style="font-size: 0.9rem; color: #666;">ከታች ባለው ሳጥን ውስጥ ሐሳብዎን በመጻፍ በቀጥታ ወደ እኛ መላክ ይችላሉ።</p>
@@ -396,7 +372,6 @@
             </form>
         </div>
 
-        <!-- የታችኛው የማስታወቂያ ቦታ -->
         <div class="ad-container">
             [ የማስታወቂያ ቦታ - Ad Space ]
         </div>
@@ -407,7 +382,15 @@
     </footer>
 
     <script>
-        // Tab Switching Logic
+        // Service Worker መመዝገብ (ለቀጥታ PWA Install አስፈላጊ ነው)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(reg => console.log('SW registered'))
+                    .catch(err => console.log('SW registration failed', err));
+            });
+        }
+
         function switchTab(tab) {
             const calcCard = document.getElementById('calcCard');
             const feedbackCard = document.getElementById('feedbackCard');
@@ -427,7 +410,6 @@
             }
         }
 
-        // PWA Direct Install Prompt Logic
         let deferredPrompt;
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
@@ -435,18 +417,26 @@
             document.getElementById('installPopup').style.display = 'flex';
         });
 
-        function installApp() {
+        window.addEventListener('appinstalled', () => {
+            document.getElementById('installPopup').style.display = 'none';
+            deferredPrompt = null;
+        });
+
+        async function installApp() {
             if (deferredPrompt) {
                 deferredPrompt.prompt();
-                deferredPrompt.userChoice.then((choiceResult) => {
-                    if (choiceResult.outcome === 'accepted') {
-                        document.getElementById('installPopup').style.display = 'none';
-                    }
-                    deferredPrompt = null;
-                });
+                const { outcome } = await deferredPrompt.userChoice;
+                if (outcome === 'accepted') {
+                    document.getElementById('installPopup').style.display = 'none';
+                }
+                deferredPrompt = null;
             } else {
-                // ብሮውዘሩ አውቶማቲክ ፕሮምፕት ካላመጣ የሚሰጥ ቀጥተኛ መመሪያ
-                alert('መተግበሪያውን በቀጥታ ለመጫን ከላይ በቀኝ በኩል የሚገኙትን የሶስት ነጥብ (Menu) በመንካት "Add to Home screen" ወይም "Install app" የሚለውን ይጫኑ።');
+                const lang = document.getElementById('langSelect').value;
+                if (lang === 'en') alert('Tap the browser menu (⋮) at the top right and select "Install app" or "Add to Home screen".');
+                else if (lang === 'om') alert('Menu browser (⋮) gubbaa mirgaa tuquun "Install app" ykn "Add to Home screen" filadhaa.');
+                else if (lang === 'ti') alert('ኣብ ላዕሊ የማን ዘሎ ናይ ብሮውዘር ምልክት (⋮) ብምንካእ "Install app" ወይ "Add to Home screen" ይምረጹ።');
+                else if (lang === 'so') alert('Guji menu-ga browser-ka (⋮) ee kore midig ka dibna dooro "Install app" ama "Add to Home screen".');
+                else alert('አፑን ለመጫን ከላይ በቀኝ በኩል ያሉትን ሶስት ነጥቦች (⋮) ነክተው "Install app" ወይም "Add to Home screen" የሚለውን ይጫኑ።');
             }
         }
 
@@ -454,16 +444,31 @@
             document.getElementById('installPopup').style.display = 'none';
         }
 
-        function calculateAll() {
+        function getCurrencyUnit(lang) {
+            if (lang === 'en') return ' ETB';
+            if (lang === 'om') return ' Birr';
+            if (lang === 'ti') return ' ቅርሺ';
+            if (lang === 'so') return ' Shilin';
+            return ' ብር';
+        }
+
+        function calculateAll(showAlert = true) {
             const basic = parseFloat(document.getElementById('basicSalary').value) || 0;
             const h1 = parseFloat(document.getElementById('ot1').value) || 0;
             const h2 = parseFloat(document.getElementById('ot2').value) || 0;
             const h3 = parseFloat(document.getElementById('ot3').value) || 0;
             const h4 = parseFloat(document.getElementById('ot4').value) || 0;
             const allowance = parseFloat(document.getElementById('transport').value) || 0;
+            const lang = document.getElementById('langSelect').value;
 
             if (basic <= 0) {
-                alert('እባክዎ ትክክለኛ መሰረታዊ ደመወዝ ያስገቡ');
+                if (showAlert) {
+                    if (lang === 'en') alert('Please enter a valid basic salary');
+                    else if (lang === 'om') alert('Maaloo mindaa bu\'uuraa sirrii galchaa');
+                    else if (lang === 'ti') alert('በጃኹም ትኽክለኛ መሰረታዊ ዓስቢ የእትዉ');
+                    else if (lang === 'so') alert('Fadlan geli mushahar sax ah');
+                    else alert('እባክዎ ትክክለኛ መሰረታዊ ደመወዝ ያስገቡ');
+                }
                 return;
             }
 
@@ -497,14 +502,7 @@
 
             const pension = basic * 0.07;
             const netSalary = grossSalary - tax - pension;
-
-            // እያንዳንዱ ቋንቋ የራሱ ትክክለኛ የገንዘብ መለኪያ ቃል እንዲኖረው ማድረግ
-            const lang = document.getElementById('langSelect').value;
-            let currencyUnit = ' ብር';
-            if (lang === 'en') currencyUnit = ' ETB';
-            else if (lang === 'om') currencyUnit = ' Birr';
-            else if (lang === 'ti') currencyUnit = ' ቅርሺ';
-            else if (lang === 'so') currencyUnit = ' Shilin';
+            const currencyUnit = getCurrencyUnit(lang);
 
             document.getElementById('resultCard').style.display = 'block';
             document.getElementById('resBasic').innerText = basic.toFixed(2) + currencyUnit;
@@ -520,7 +518,7 @@
             if (lang === 'en') {
                 document.getElementById('siteBadge').innerText = "🔥 New Revised 2026 Salary, Tax & Overtime Calculator";
                 document.getElementById('calcHeader').innerText = "Salary & Overtime Calculator";
-                document.getElementById('lblBasic').innerText = "Basic Salary (Birr):";
+                document.getElementById('lblBasic').innerText = "Basic Salary (ETB):";
                 document.getElementById('lblOt1').innerText = "1. Evening 12 to Night 4 (1.5x):";
                 document.getElementById('lblOt2').innerText = "2. Night 4 to Morning 12 / Night (1.75x):";
                 document.getElementById('lblOt3').innerText = "3. Rest Day / Weekend (2.0x):";
@@ -574,7 +572,7 @@
             } else if (lang === 'ti') {
                 document.getElementById('siteBadge').innerText = "🔥 ሓዲሽ ዝተሻሻለ መደብ ዓስቢ፣ ግብርን ኦቨርታይምን 2026";
                 document.getElementById('calcHeader').innerText = "ዓስቢ እና ኦቨርታይም መለኪዒ";
-                document.getElementById('lblBasic').innerText = "መሰረታዊ ዓስቢ (ብብር):";
+                document.getElementById('lblBasic').innerText = "መሰረታዊ ዓስቢ (ብቅርሺ):";
                 document.getElementById('lblOt1').innerText = "1. ካብ ሰዓት 12 ክሳብ ለይቲ 4 (1.5x):";
                 document.getElementById('lblOt2').innerText = "2. ካብ ለይቲ 4 ክሳብ ንግሆ 12 (1.75x):";
                 document.getElementById('lblOt3').innerText = "3. ዕረፍቲ ቀኒ (2.0x):";
@@ -651,14 +649,18 @@
                 document.getElementById('resNetTitle').innerText = "እጅ ላይ የሚደርስ (Net):";
                 document.getElementById('bannerTitle').innerText = "📱 Ethio Salary Pro አፕሊኬሽን";
                 document.getElementById('bannerDesc').innerText = "ፈጣን አገልግሎት ለማግኘት ስልክዎ ላይ ይጫኑት!";
-                document.getElementById('installBtn').innerText = "📥 ጫን (Install)";
+                document.getElementById('installBtn').innerText = "📥 Install";
+            }
+
+            // የስሌት ውጤት ቀድሞ ተከፍቶ ከነበረ፣ ቋንቋው ሲቀየር ውጤቱንም ወዲያውኑ በአዲሱ ቋንቋ ያድሰዋል
+            if (document.getElementById('resultCard').style.display === 'block') {
+                calculateAll(false);
             }
         }
 
-        // ገጹ ሲከፈት የቋንቋውን ነባሪ ሁኔታ ማስተካከል
         window.onload = function() {
             changeLanguage();
-        }
+        };
     </script>
 </body>
 </html>
