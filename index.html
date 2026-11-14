@@ -6,8 +6,8 @@
     
     <!-- Google Multi-Language SEO & Ranking Meta Tags -->
     <title>Ethio Salary Pro | የ2026 የኢትዮጵያ የደሞዝ ግብር እና ኦቨርታይም (OT) ማስያ</title>
-    <meta name="description" content="አዲሱ የተሻሻለው የ2026 የኢትዮጵያ የደመወዝ፣ የግብር/ታክስ፣ የጡረታ (7%) እና የኦቨርታይም (OT) ማስያ። Ethiopian Salary, Income Tax & Overtime Calculator in Amharic, Afaan Oromoo, Tigrinya, Somali & English.">
-    <meta name="keywords" content="Ethiopian salary calculator 2026, Ethio tax calculator, overtime calculator Ethiopia, የደሞዝ ግብር ማስያ, የኦቨርታይም ማስያ, Shallgessa Mindaa, ዓስቢ እና ኦቨርታይም, Xisaabiyaha Mushaharka">
+    <meta name="description" content="አዲሱ የተሻሻለው የ2026 የኢትዮጵያ የደመወዝ፣ የግብር/ታክስ፣ የጡረታ (7%) እና የኦቨርታይም (OT) ማስያ። Ethiopian Salary, Income Tax & Overtime Calculator.">
+    <meta name="keywords" content="Ethiopian salary calculator 2026, Ethio tax calculator, overtime calculator Ethiopia, የደሞዝ ግብር ማስያ, የኦቨርታይም ማስያ, Shallgessa Mindaa, ዓስቢ እና ኦቨርታይም">
     <meta name="robots" content="index, follow">
     
     <!-- Hreflang Tags for Multi-language Google Indexing -->
@@ -25,14 +25,11 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://wende717-pixel.github.io/">
     <meta property="og:image" content="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1200&h=630&q=85">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="🇪🇹 Ethio Salary Pro | የ2026 የደሞዝ ግብር እና OT ማስያ">
     <meta name="twitter:description" content="የተጣራ ደመወዝዎን እና የኦቨርታይም ክፍያዎን በ5 ቋንቋዎች በቀላሉ ያስሉ።">
-    <meta name="twitter:image" content="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1200&h=630&q=85">
 
-    <!-- PWA Manifest & Apple/Android App Icons -->
+    <!-- PWA Manifest & App Icons -->
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#078930">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -72,62 +69,30 @@
             --gray: #6b7280;
             --border: #e5e7eb;
         }
-        * {
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--light);
             color: var(--dark);
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            margin: 0; padding: 0;
+            display: flex; flex-direction: column; min-height: 100vh;
         }
 
-        /* Splash Screen / የአፑ መክፈቻ ሽፋን */
+        /* Splash Screen */
         #appSplash {
-            position: fixed;
-            inset: 0;
+            position: fixed; inset: 0;
             background: linear-gradient(145deg, #078930 0%, #044d1b 100%);
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            transition: opacity 0.4s ease, visibility 0.4s ease;
+            z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center;
+            color: white; transition: opacity 0.4s ease, visibility 0.4s ease;
         }
-        #appSplash.hidden {
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-        }
+        #appSplash.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
         .splash-logo {
-            width: 85px;
-            height: 85px;
-            background: white;
-            border-radius: 22px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.8rem;
-            box-shadow: 0 12px 25px rgba(0,0,0,0.3);
-            margin-bottom: 1rem;
-            border: 3px solid var(--secondary);
+            width: 85px; height: 85px; background: white; border-radius: 22px;
+            display: flex; align-items: center; justify-content: center; font-size: 2.8rem;
+            box-shadow: 0 12px 25px rgba(0,0,0,0.3); margin-bottom: 1rem; border: 3px solid var(--secondary);
         }
-        .splash-title {
-            font-size: 1.5rem;
-            font-weight: 800;
-            letter-spacing: 0.5px;
-        }
-        .splash-sub {
-            font-size: 0.85rem;
-            color: #d1fae5;
-            margin-top: 0.3rem;
-        }
+        .splash-title { font-size: 1.5rem; font-weight: 800; letter-spacing: 0.5px; }
+        .splash-sub { font-size: 0.85rem; color: #d1fae5; margin-top: 0.3rem; }
 
         @keyframes pulseGlow {
             0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(252, 209, 22, 0.8); }
@@ -137,297 +102,129 @@
 
         /* Install Banner */
         .install-popup-banner {
-            background: linear-gradient(135deg, #0056b3, #002b5c);
-            color: white;
-            padding: 0.8rem 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            background: linear-gradient(135deg, #0056b3, #002b5c); color: white;
+            padding: 0.8rem 1rem; display: flex; justify-content: space-between; align-items: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25); position: sticky; top: 0; z-index: 1000;
             border-bottom: 3px solid var(--secondary);
         }
-        .install-popup-banner .info {
-            display: flex;
-            flex-direction: column;
-            padding-right: 0.5rem;
-        }
-        .install-popup-banner .title {
-            font-weight: 700;
-            font-size: 0.92rem;
-            color: #fff;
-        }
-        .install-popup-banner .desc {
-            font-size: 0.76rem;
-            color: #e2e8f0;
-        }
-        .install-popup-banner .action-btns {
-            display: flex;
-            gap: 0.4rem;
-            align-items: center;
-            flex-shrink: 0;
-        }
+        .install-popup-banner .info { display: flex; flex-direction: column; padding-right: 0.5rem; }
+        .install-popup-banner .title { font-weight: 700; font-size: 0.92rem; color: #fff; }
+        .install-popup-banner .desc { font-size: 0.76rem; color: #e2e8f0; }
+        .install-popup-banner .action-btns { display: flex; gap: 0.4rem; align-items: center; flex-shrink: 0; }
         .install-popup-banner button.install-now {
-            background-color: var(--secondary);
-            color: #000000;
-            border: none;
-            padding: 0.55rem 1rem;
-            border-radius: 8px;
-            font-weight: 900;
-            cursor: pointer;
-            font-size: 0.88rem;
-            animation: pulseGlow 1.5s infinite;
+            background-color: var(--secondary); color: #000000; border: none;
+            padding: 0.55rem 1rem; border-radius: 8px; font-weight: 900; cursor: pointer;
+            font-size: 0.88rem; animation: pulseGlow 1.5s infinite;
         }
         .install-popup-banner button.close-banner {
-            background: transparent;
-            color: #cbd5e1;
-            border: none;
-            font-size: 1.25rem;
-            cursor: pointer;
-            padding: 0 0.3rem;
+            background: transparent; color: #cbd5e1; border: none; font-size: 1.25rem; cursor: pointer; padding: 0 0.3rem;
         }
 
-        /* Top Bar & Language Selector */
+        /* Top Bar */
         .top-lang-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.55rem 1rem;
-            background: #ffffff;
-            border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0.55rem 1rem; background: #ffffff; border-bottom: 1px solid var(--border);
         }
-        .brand-mini {
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
+        .brand-mini { font-size: 0.8rem; font-weight: 700; color: var(--primary); }
         select.lang-select {
-            padding: 0.4rem 0.75rem;
-            border-radius: 8px;
-            border: 1.5px solid #cbd5e1;
-            font-size: 0.85rem;
-            background: #f8fafc;
-            color: var(--dark);
-            cursor: pointer;
-            font-weight: 700;
+            padding: 0.4rem 0.75rem; border-radius: 8px; border: 1.5px solid #cbd5e1;
+            font-size: 0.85rem; background: #f8fafc; color: var(--dark); cursor: pointer; font-weight: 700;
         }
 
-        /* Modern Header */
+        /* Header */
         header {
             background: linear-gradient(160deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
-            padding: 1.4rem 1rem 1.8rem 1rem;
-            text-align: center;
-            border-bottom-left-radius: 24px;
-            border-bottom-right-radius: 24px;
+            color: white; padding: 1.4rem 1rem 1.8rem 1rem; text-align: center;
+            border-bottom-left-radius: 24px; border-bottom-right-radius: 24px;
             box-shadow: 0 6px 18px rgba(7, 137, 48, 0.2);
         }
-        header h1 {
-            margin: 0;
-            font-size: 1.6rem;
-            font-weight: 800;
-            letter-spacing: 0.3px;
-            color: #ffffff;
-        }
+        header h1 { margin: 0; font-size: 1.6rem; font-weight: 800; letter-spacing: 0.3px; color: #ffffff; }
         .badge {
-            display: inline-block;
-            background-color: var(--accent);
-            color: white;
-            padding: 0.45rem 1.1rem;
-            border-radius: 50px;
-            font-size: 0.88rem;
-            margin-top: 0.7rem;
-            font-weight: 700;
-            box-shadow: 0 4px 10px rgba(211, 47, 47, 0.35);
-            border: 1px solid rgba(255,255,255,0.2);
+            display: inline-block; background-color: var(--accent); color: white;
+            padding: 0.45rem 1.1rem; border-radius: 50px; font-size: 0.88rem; margin-top: 0.7rem;
+            font-weight: 700; box-shadow: 0 4px 10px rgba(211, 47, 47, 0.35); border: 1px solid rgba(255,255,255,0.2);
         }
 
-        main {
-            flex: 1;
-            max-width: 560px;
-            width: 100%;
-            margin: -0.8rem auto 1.5rem auto;
-            padding: 0 1rem;
-        }
+        main { flex: 1; max-width: 560px; width: 100%; margin: -0.8rem auto 1.5rem auto; padding: 0 1rem; }
 
         /* Navigation Tabs */
         .nav-buttons {
-            display: flex;
-            gap: 0.6rem;
-            background: #ffffff;
-            padding: 0.45rem;
-            border-radius: 14px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-            margin-bottom: 1.1rem;
+            display: flex; gap: 0.6rem; background: #ffffff; padding: 0.45rem;
+            border-radius: 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); margin-bottom: 1.1rem;
         }
         .nav-btn {
-            flex: 1;
-            padding: 0.75rem 0.5rem;
-            text-align: center;
-            border-radius: 10px;
-            font-weight: 700;
-            cursor: pointer;
-            font-size: 0.92rem;
-            border: none;
-            background: transparent;
-            color: var(--gray);
-            transition: all 0.25s ease;
+            flex: 1; padding: 0.75rem 0.5rem; text-align: center; border-radius: 10px;
+            font-weight: 700; cursor: pointer; font-size: 0.92rem; border: none; background: transparent;
+            color: var(--gray); transition: all 0.25s ease;
         }
-        .nav-btn.active {
-            background: var(--primary);
-            color: white;
-            box-shadow: 0 3px 8px rgba(7, 137, 48, 0.25);
-        }
+        .nav-btn.active { background: var(--primary); color: white; box-shadow: 0 3px 8px rgba(7, 137, 48, 0.25); }
 
-        .ad-container {
-            text-align: center;
-            margin: 0.9rem 0;
-            background: #ffffff;
-            padding: 0.7rem;
-            border-radius: 10px;
-            color: var(--gray);
-            font-size: 0.8rem;
-            border: 1px dashed #cbd5e1;
+        /* Professional Ad Space / Banner */
+        .pro-ad-banner {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: #ffffff; padding: 1rem; border-radius: 12px; text-align: center;
+            margin: 1rem 0; border: 1px solid #334155; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
+        .pro-ad-banner .ad-title { font-size: 0.95rem; font-weight: bold; color: var(--secondary); margin-bottom: 0.3rem; }
+        .pro-ad-banner .ad-desc { font-size: 0.8rem; color: #cbd5e1; }
 
-        /* Main Card */
+        /* Card */
         .card {
-            background: var(--card-bg);
-            padding: 1.4rem;
-            border-radius: 16px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.05);
-            margin-bottom: 1.2rem;
-            display: none;
+            background: var(--card-bg); padding: 1.4rem; border-radius: 16px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.05); margin-bottom: 1.2rem; display: none;
             border: 1px solid rgba(0,0,0,0.03);
         }
-        .card.active {
-            display: block;
-        }
+        .card.active { display: block; }
         .card-title {
-            margin: 0 0 1.1rem 0;
-            color: var(--primary);
-            font-size: 1.15rem;
-            font-weight: 800;
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-            border-bottom: 2px solid #f0fdf4;
-            padding-bottom: 0.6rem;
+            margin: 0 0 1.1rem 0; color: var(--primary); font-size: 1.15rem; font-weight: 800;
+            border-bottom: 2px solid #f0fdf4; padding-bottom: 0.6rem;
         }
 
-        .form-group {
-            margin-bottom: 1rem;
-        }
-        label {
-            display: block;
-            margin-bottom: 0.4rem;
-            font-weight: 700;
-            color: #374151;
-            font-size: 0.9rem;
-        }
+        .form-group { margin-bottom: 1rem; }
+        label { display: block; margin-bottom: 0.4rem; font-weight: 700; color: #374151; font-size: 0.9rem; }
         input, select, textarea {
-            width: 100%;
-            padding: 0.78rem 0.9rem;
-            border: 1.5px solid #d1d5db;
-            border-radius: 10px;
-            font-size: 1rem;
-            background-color: #f9fafb;
-            color: var(--dark);
-            transition: border-color 0.2s, background-color 0.2s;
+            width: 100%; padding: 0.78rem 0.9rem; border: 1.5px solid #d1d5db;
+            border-radius: 10px; font-size: 1rem; background-color: #f9fafb; color: var(--dark);
         }
         input:focus, select:focus, textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            background-color: #ffffff;
+            outline: none; border-color: var(--primary); background-color: #ffffff;
             box-shadow: 0 0 0 3px rgba(7, 137, 48, 0.12);
-        }
-        input::placeholder {
-            color: #9ca3af;
         }
 
         button.action-btn {
-            background: linear-gradient(135deg, #d32f2f, #b71c1c);
-            color: white;
-            border: none;
-            padding: 0.95rem 1.5rem;
-            border-radius: 12px;
-            font-size: 1.02rem;
-            cursor: pointer;
-            width: 100%;
-            font-weight: 800;
-            margin-top: 0.5rem;
-            box-shadow: 0 4px 12px rgba(211, 47, 47, 0.3);
-            transition: transform 0.15s ease;
-        }
-        button.action-btn:active {
-            transform: scale(0.98);
+            background: linear-gradient(135deg, #d32f2f, #b71c1c); color: white; border: none;
+            padding: 0.95rem 1.5rem; border-radius: 12px; font-size: 1.02rem; cursor: pointer;
+            width: 100%; font-weight: 800; margin-top: 0.5rem; box-shadow: 0 4px 12px rgba(211, 47, 47, 0.3);
         }
 
-        /* Share Button */
-        .share-bar {
-            margin-top: 1rem;
-            display: flex;
-            justify-content: center;
-        }
+        .share-bar { margin-top: 1rem; display: flex; justify-content: center; }
         .share-btn {
-            background: #f0fdf4;
-            color: var(--primary-dark);
-            border: 1.5px solid #86efac;
-            padding: 0.65rem 1.2rem;
-            border-radius: 10px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            cursor: pointer;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.4rem;
+            background: #f0fdf4; color: var(--primary-dark); border: 1.5px solid #86efac;
+            padding: 0.65rem 1.2rem; border-radius: 10px; font-weight: 700; font-size: 0.9rem;
+            cursor: pointer; width: 100%; display: flex; align-items: center; justify-content: center; gap: 0.4rem;
         }
 
-        /* Result Box */
         .result-box {
-            margin-top: 1.3rem;
-            padding: 1.2rem;
+            margin-top: 1.3rem; padding: 1.2rem;
             background: linear-gradient(180deg, #f0fdf4 0%, #dcfce7 100%);
-            border: 1.5px solid #86efac;
-            border-radius: 14px;
+            border: 1.5px solid #86efac; border-radius: 14px;
         }
         .result-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 0.65rem;
-            font-size: 0.95rem;
-            color: #1f2937;
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 0.65rem; font-size: 0.95rem; color: #1f2937;
         }
-        .result-item span:last-child {
-            font-weight: 700;
-        }
+        .result-item span:last-child { font-weight: 700; }
         .result-item.total {
-            font-weight: 900;
-            font-size: 1.15rem;
-            color: var(--primary-dark);
-            border-top: 2px dashed #4ade80;
-            padding-top: 0.75rem;
-            margin-top: 0.6rem;
-            margin-bottom: 0;
+            font-weight: 900; font-size: 1.15rem; color: var(--primary-dark);
+            border-top: 2px dashed #4ade80; padding-top: 0.75rem; margin-top: 0.6rem;
         }
 
-        footer {
-            text-align: center;
-            padding: 1.2rem;
-            background-color: var(--dark);
-            color: #9ca3af;
-            font-size: 0.82rem;
-        }
+        footer { text-align: center; padding: 1.2rem; background-color: var(--dark); color: #9ca3af; font-size: 0.82rem; }
     </style>
 </head>
 <body>
 
-    <!-- የአፑ መክፈቻ ሽፋን (Splash Screen) -->
+    <!-- Splash Screen -->
     <div id="appSplash">
         <div class="splash-logo">🇪🇹</div>
         <div class="splash-title">Ethio Salary Pro</div>
@@ -465,14 +262,15 @@
     </header>
 
     <main>
-        <!-- Navigation Tabs -->
         <div class="nav-buttons">
             <button id="btnTabCalc" class="nav-btn active" onclick="switchTab('calc')">💰 ደመወዝ & OT</button>
             <button id="btnTabFeedback" class="nav-btn" onclick="switchTab('feedback')">💬 ሐሳብ / ጥያቄ</button>
         </div>
 
-        <div class="ad-container">
-            [ የማስታወቂያ ቦታ - Ad Space ]
+        <!-- Professional Ad / Promo Banner -->
+        <div class="pro-ad-banner">
+            <div class="ad-title" id="adTitleText">💡 Ethio Salary Pro - 2026</div>
+            <div class="ad-desc" id="adDescText">ለኢትዮጵያ ሰራተኞች የተዘጋጀ ቀልጣፋ እና ትክክለኛ የደመወዝ መለኪያዎች</div>
         </div>
 
         <!-- Calculator Card -->
@@ -575,10 +373,6 @@
                 <button type="submit" class="action-btn" id="btnSubmit">ሐሳብዎን ይላኩ</button>
             </form>
         </div>
-
-        <div class="ad-container">
-            [ የማስታወቂያ ቦታ - Ad Space ]
-        </div>
     </main>
 
     <footer>
@@ -586,41 +380,27 @@
     </footer>
 
     <script>
-        // Splash Screen ማጥፊያ
         window.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 const splash = document.getElementById('appSplash');
                 if (splash) splash.classList.add('hidden');
-            }, 900);
+            }, 800);
         });
 
-        // Service Worker መመዝገብ
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./sw.js')
-                    .then(reg => {
-                        reg.update();
-                    })
-                    .catch(err => console.log('SW registration failed', err));
+                navigator.serviceWorker.register('./sw.js').then(reg => reg.update()).catch(console.error);
             });
         }
 
-        // ጎግል ላይ ሰርች ያደረጉበትን ወይም የስልካቸውን ቋንቋ በራስ-ሰር መለየት (Auto-Detect Language)
         function detectInitialLanguage() {
             const urlParams = new URLSearchParams(window.location.search);
             const urlLang = urlParams.get('lang');
             const supported = ['am', 'om', 'ti', 'so', 'en'];
-
-            if (urlLang && supported.includes(urlLang)) {
-                return urlLang;
-            }
-
+            if (urlLang && supported.includes(urlLang)) return urlLang;
             const savedLang = localStorage.getItem('ethio_salary_lang');
-            if (savedLang && supported.includes(savedLang)) {
-                return savedLang;
-            }
-
-            const browserLang = (navigator.language || navigator.userLanguage || 'am').toLowerCase();
+            if (savedLang && supported.includes(savedLang)) return savedLang;
+            const browserLang = (navigator.language || 'am').toLowerCase();
             if (browserLang.startsWith('om')) return 'om';
             if (browserLang.startsWith('ti')) return 'ti';
             if (browserLang.startsWith('so')) return 'so';
@@ -633,7 +413,6 @@
             const feedbackCard = document.getElementById('feedbackCard');
             const btnCalc = document.getElementById('btnTabCalc');
             const btnFeedback = document.getElementById('btnTabFeedback');
-
             if (tab === 'calc') {
                 calcCard.classList.add('active');
                 feedbackCard.classList.remove('active');
@@ -663,17 +442,10 @@
             if (deferredPrompt) {
                 deferredPrompt.prompt();
                 const { outcome } = await deferredPrompt.userChoice;
-                if (outcome === 'accepted') {
-                    document.getElementById('installPopup').style.display = 'none';
-                }
+                if (outcome === 'accepted') document.getElementById('installPopup').style.display = 'none';
                 deferredPrompt = null;
             } else {
-                const lang = document.getElementById('langSelect').value;
-                if (lang === 'en') alert('Tap the browser menu (⋮) at the top right and select "Install app" or "Add to Home screen".');
-                else if (lang === 'om') alert('Menu browser (⋮) gubbaa mirgaa tuquun "Install app" ykn "Add to Home screen" filadhaa.');
-                else if (lang === 'ti') alert('ኣብ ላዕሊ የማን ዘሎ ናይ ብሮውዘር ምልክት (⋮) ብምንካእ "Install app" ወይ "Add to Home screen" ይምረጹ።');
-                else if (lang === 'so') alert('Guji menu-ga browser-ka (⋮) ee kore midig ka dibna dooro "Install app" ama "Add to Home screen".');
-                else alert('አፑን ለመጫን ከላይ በቀኝ በኩል ያሉትን ሶስት ነጥቦች (⋮) ነክተው "Install app" ወይም "Add to Home screen" የሚለውን ይጫኑ።');
+                alert('አፑን ለመጫን ከላይ በቀኝ በኩል ያሉትን ሶስት ነጥቦች (⋮) ነክተው "Install app" ወይም "Add to Home screen" የሚለውን ይጫኑ።');
             }
         }
 
@@ -686,30 +458,11 @@
             const shareUrl = `https://wende717-pixel.github.io/?lang=${lang}`;
             let shareTitle = '🇪🇹 Ethio Salary Pro - የ2026 የደሞዝ ግብር እና የኦቨርታይም ማስያ';
             let shareText = 'የተጣራ ደመወዝዎን፣ የግብር ቅናሽ እና የኦቨርታይም ክፍያዎን በትክክል እና በፍጥነት ያስሉ!';
-
-            if (lang === 'en') {
-                shareTitle = '🇪🇹 Ethio Salary Pro - 2026 Salary & OT Calculator';
-                shareText = 'Calculate your Ethiopian Net Salary, Income Tax, and Overtime accurately!';
-            } else if (lang === 'om') {
-                shareTitle = '🇪🇹 Ethio Salary Pro - Shallgessa Mindaa fi OT 2026';
-                shareText = 'Mindaa qulqulluu, gibira fi kaffaltii OT keessan salphaatti shallagaa!';
-            } else if (lang === 'ti') {
-                shareTitle = '🇪🇹 Ethio Salary Pro - መለኪዒ ዓስቢ እና ኦቨርታይም 2026';
-                shareText = 'ንጹህ ዓስቢ፣ ግብርን ኦቨርታይምን ብቐሊሉ የስልዑ!';
-            } else if (lang === 'so') {
-                shareTitle = '🇪🇹 Ethio Salary Pro - Xisaabiyaha Mushaharka 2026';
-                shareText = 'Si fudud u xisaabi mushaharkaaga saafida ah, canshuurta iyo OT!';
-            }
-
             if (navigator.share) {
-                navigator.share({
-                    title: shareTitle,
-                    text: shareText,
-                    url: shareUrl
-                }).catch(console.error);
+                navigator.share({ title: shareTitle, text: shareText, url: shareUrl }).catch(console.error);
             } else {
                 navigator.clipboard.writeText(`${shareTitle}\n${shareText}\n${shareUrl}`);
-                alert('ሊንኩ ኮፒ ተደርጓል! አሁን ቴሌግራም ወይም ፌስቡክ ላይ Paste በማድረግ ሼር ማድረግ ይችላሉ።');
+                alert('ሊንኩ ኮፒ ተደርጓል!');
             }
         }
 
@@ -732,42 +485,23 @@
             const lang = document.getElementById('langSelect').value;
 
             if (basic <= 0) {
-                if (showAlert) {
-                    if (lang === 'en') alert('Please enter a valid basic salary');
-                    else if (lang === 'om') alert('Maaloo mindaa bu\'uuraa sirrii galchaa');
-                    else if (lang === 'ti') alert('በጃኹም ትኽክለኛ መሰረታዊ ዓስቢ የእትዉ');
-                    else if (lang === 'so') alert('Fadlan geli mushahar sax ah');
-                    else alert('እባክዎ ትክክለኛ መሰረታዊ ደመወዝ ያስገቡ');
-                }
+                if (showAlert) alert('እባክዎ ትክክለኛ መሰረታዊ ደመወዝ ያስገቡ');
                 return;
             }
 
             const hourlyRate = basic / monthlyHours;
-            const otPayment = (hourlyRate * 1.5 * h1) + 
-                              (hourlyRate * 1.75 * h2) + 
-                              (hourlyRate * 2.0 * h3) + 
-                              (hourlyRate * 2.5 * h4);
-
+            const otPayment = (hourlyRate * 1.5 * h1) + (hourlyRate * 1.75 * h2) + (hourlyRate * 2.0 * h3) + (hourlyRate * 2.5 * h4);
             const grossSalary = basic + otPayment + allowance;
 
             let tax = 0;
             const taxableIncome = basic + otPayment;
-            
-            if (taxableIncome <= 600) {
-                tax = 0;
-            } else if (taxableIncome <= 1650) {
-                tax = (taxableIncome * 0.10) - 60;
-            } else if (taxableIncome <= 3200) {
-                tax = (taxableIncome * 0.15) - 142.50;
-            } else if (taxableIncome <= 5250) {
-                tax = (taxableIncome * 0.20) - 302.50;
-            } else if (taxableIncome <= 7800) {
-                tax = (taxableIncome * 0.25) - 565.00;
-            } else if (taxableIncome <= 10900) {
-                tax = (taxableIncome * 0.30) - 955.00;
-            } else {
-                tax = (taxableIncome * 0.35) - 1500.00;
-            }
+            if (taxableIncome <= 600) tax = 0;
+            else if (taxableIncome <= 1650) tax = (taxableIncome * 0.10) - 60;
+            else if (taxableIncome <= 3200) tax = (taxableIncome * 0.15) - 142.50;
+            else if (taxableIncome <= 5250) tax = (taxableIncome * 0.20) - 302.50;
+            else if (taxableIncome <= 7800) tax = (taxableIncome * 0.25) - 565.00;
+            else if (taxableIncome <= 10900) tax = (taxableIncome * 0.30) - 955.00;
+            else tax = (taxableIncome * 0.35) - 1500.00;
             if (tax < 0) tax = 0;
 
             const pension = basic * 0.07;
@@ -786,9 +520,7 @@
         function changeLanguage(userInitiated = false) {
             const lang = document.getElementById('langSelect').value;
             document.documentElement.lang = lang;
-            if (userInitiated) {
-                localStorage.setItem('ethio_salary_lang', lang);
-            }
+            if (userInitiated) localStorage.setItem('ethio_salary_lang', lang);
 
             if (lang === 'en') {
                 document.title = "Ethio Salary Pro | 2026 Ethiopian Salary, Tax & OT Calculator";
@@ -806,6 +538,8 @@
                 document.getElementById('lblTransport').innerText = "Transport / Allowance:";
                 document.getElementById('btnCalculate').innerText = "Calculate Net Salary & OT";
                 document.getElementById('btnShare').innerText = "📤 Share App with Friends";
+                document.getElementById('adTitleText').innerText = "💡 Ethio Salary Pro - 2026";
+                document.getElementById('adDescText').innerText = "Accurate and fast salary and overtime calculator for Ethiopian employees";
                 document.getElementById('feedbackHeader').innerText = "💬 Have any feedback or questions?";
                 document.getElementById('feedbackDesc').innerText = "Send your message directly using the form below.";
                 document.getElementById('lblName').innerText = "Your Name:";
@@ -820,9 +554,6 @@
                 document.getElementById('resTaxTitle').innerText = "Tax Deduction:";
                 document.getElementById('resPensionTitle').innerText = "Pension Contribution (7%):";
                 document.getElementById('resNetTitle').innerText = "Net Salary (Take Home):";
-                document.getElementById('bannerTitle').innerText = "📱 Ethio Salary Pro App";
-                document.getElementById('bannerDesc').innerText = "Install on your phone for fast access!";
-                document.getElementById('installBtn').innerText = "📥 Install";
             } else if (lang === 'om') {
                 document.title = "Ethio Salary Pro | Shallgessa Mindaa, Gibira fi OT 2026";
                 document.getElementById('siteBadge').innerText = "🔥 Shallgessa Mindaa, Gibira fi OT Haaraa 2026";
@@ -839,6 +570,8 @@
                 document.getElementById('lblTransport').innerText = "Geejjiba / Buusii:";
                 document.getElementById('btnCalculate').innerText = "Mindaa Qulqulluu Shallugi";
                 document.getElementById('btnShare').innerText = "📤 Hiriyoota Keessaniif Qoodaa (Share)";
+                document.getElementById('adTitleText').innerText = "💡 Ethio Salary Pro - 2026";
+                document.getElementById('adDescText').innerText = "Shallgessa mindaa fi kaffaltii OT saffisaa fi sirrii ta'e";
                 document.getElementById('feedbackHeader').innerText = "💬 Yaada yookiin gaaffii qabdu?";
                 document.getElementById('feedbackDesc').innerText = "Ergaa keessan karaa kanaan nuuf ergaa.";
                 document.getElementById('lblName').innerText = "Maqaa Keessan:";
@@ -853,9 +586,6 @@
                 document.getElementById('resTaxTitle').innerText = "Hir'isa Gibiraa (Tax):";
                 document.getElementById('resPensionTitle').innerText = "Buusii Pensiyoonaa (7%):";
                 document.getElementById('resNetTitle').innerText = "Mindaa Qulqulluu (Net):";
-                document.getElementById('bannerTitle').innerText = "📱 Appii Ethio Salary Pro";
-                document.getElementById('bannerDesc').innerText = "Bilbila keessan irratti fe'adhaa!";
-                document.getElementById('installBtn').innerText = "📥 Install";
             } else if (lang === 'ti') {
                 document.title = "Ethio Salary Pro | መለኪዒ ዓስቢ፣ ግብርን ኦቨርታይምን 2026";
                 document.getElementById('siteBadge').innerText = "🔥 ሓዲሽ ዝተሻሻለ መደብ ዓስቢ፣ ግብርን ኦቨርታይምን 2026";
@@ -872,6 +602,8 @@
                 document.getElementById('lblTransport').innerText = "ትራንስፖርት / ካልእ ክፍያ:";
                 document.getElementById('btnCalculate').innerText = "ንጹህ ዓስቢ እና OT አስላ";
                 document.getElementById('btnShare').innerText = "📤 ንመሓዙትኩም ኣካፍሉ (Share)";
+                document.getElementById('adTitleText').innerText = "💡 Ethio Salary Pro - 2026";
+                document.getElementById('adDescText').innerText = "ንሰራሕተኛታት ኢትዮጵያ ዝተዳለወ ቅኑዕን ፍጡርን መለኪዒ ዓስቢ";
                 document.getElementById('feedbackHeader').innerText = "💬 ሐሳብ ወይ ሕቶ አለካካ?";
                 document.getElementById('feedbackDesc').innerText = "መልእኽትኹ ብቐጥታ ንሰዶ።";
                 document.getElementById('lblName').innerText = "ሽምካ:";
@@ -886,9 +618,6 @@
                 document.getElementById('resTaxTitle').innerText = "ቅናሽ ግብር (Tax):";
                 document.getElementById('resPensionTitle').innerText = "ቁጠባ ስንክልና/ጡረታ (7%):";
                 document.getElementById('resNetTitle').innerText = "ንጹህ ዓስቢ (Net):";
-                document.getElementById('bannerTitle').innerText = "📱 ኣፕሊኬሽን Ethio Salary Pro";
-                document.getElementById('bannerDesc').innerText = "ኣብ ስልኪ ኣጽዒንካ ተጠቀመሉ!";
-                document.getElementById('installBtn').innerText = "📥 Install";
             } else if (lang === 'so') {
                 document.title = "Ethio Salary Pro | Xisaabiyaha Mushaharka iyo OT 2026";
                 document.getElementById('siteBadge').innerText = "🔥 Xisaabiyaha Mushaharka, Canshuurta iyo OT 2026";
@@ -905,6 +634,8 @@
                 document.getElementById('lblTransport').innerText = "Gaadiidka / Lacagta kale:";
                 document.getElementById('btnCalculate').innerText = "Xisaabi Mushaharka Saafi ah";
                 document.getElementById('btnShare').innerText = "📤 La wadaag Saaxiibadaa (Share)";
+                document.getElementById('adTitleText').innerText = "💡 Ethio Salary Pro - 2026";
+                document.getElementById('adDescText').innerText = "Xisaabiyaha mushaharka iyo OT ee ugu saxsan shaqaalaha Itoobiya";
                 document.getElementById('feedbackHeader').innerText = "💬 Ma qabtaa talo ama su'aal?";
                 document.getElementById('feedbackDesc').innerText = "Fariintaada halkan ku soo dir.";
                 document.getElementById('lblName').innerText = "Magacaaga:";
@@ -919,9 +650,6 @@
                 document.getElementById('resTaxTitle').innerText = "Dhimista Canshuurta (Tax):";
                 document.getElementById('resPensionTitle').innerText = "Qeybta Howlgabka (7%):";
                 document.getElementById('resNetTitle').innerText = "Mushaharka Saafi ah (Net):";
-                document.getElementById('bannerTitle').innerText = "📱 Barnaamijka Ethio Salary Pro";
-                document.getElementById('bannerDesc').innerText = "Kala soo deg taleefankaaga!";
-                document.getElementById('installBtn').innerText = "📥 Install";
             } else {
                 document.title = "Ethio Salary Pro | የ2026 የደሞዝ ግብር እና ኦቨርታይም (OT) ማስያ";
                 document.getElementById('siteBadge').innerText = "🔥 አዲሱ የተሻሻለው የ2026 የደሞዝ ግብር እና የኦቨርታይም ማስያ";
@@ -938,6 +666,8 @@
                 document.getElementById('lblTransport').innerText = "የትራንስፖርት / ሌላ አበል (ከግብር ነጻ ከሆነ):";
                 document.getElementById('btnCalculate').innerText = "አዲሱን የተጣራ ደመወዝ እና OT አስላ";
                 document.getElementById('btnShare').innerText = "📤 ለጓደኞችዎ ሼር ያድርጉ (Share App)";
+                document.getElementById('adTitleText').innerText = "💡 Ethio Salary Pro - 2026";
+                document.getElementById('adDescText').innerText = "ለኢትዮጵያ ሰራተኞች የተዘጋጀ ቀልጣፋ እና ትክክለኛ የደመወዝ መለኪያዎች";
                 document.getElementById('feedbackHeader').innerText = "💬 ሐሳብ፣ አስተያየት ወይም ጥያቄ አለዎት?";
                 document.getElementById('feedbackDesc').innerText = "ከታች ባለው ሳጥን ውስጥ ሐሳብዎን በመጻፍ በቀጥታ ወደ እኛ መላክ ይችላሉ።";
                 document.getElementById('lblName').innerText = "ስምዎ:";
@@ -952,9 +682,6 @@
                 document.getElementById('resTaxTitle').innerText = "የግብር ቅናሽ (Tax):";
                 document.getElementById('resPensionTitle').innerText = "የጡረታ አስተዋጽኦ (7%):";
                 document.getElementById('resNetTitle').innerText = "እጅ ላይ የሚደርስ (Net):";
-                document.getElementById('bannerTitle').innerText = "📱 Ethio Salary Pro አፕሊኬሽን";
-                document.getElementById('bannerDesc').innerText = "ፈጣን አገልግሎት ለማግኘት ስልክዎ ላይ ይጫኑት!";
-                document.getElementById('installBtn').innerText = "📥 Install";
             }
 
             if (document.getElementById('resultCard').style.display === 'block') {
