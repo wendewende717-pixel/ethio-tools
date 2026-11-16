@@ -184,36 +184,6 @@
             box-shadow: 0 0 0 3px rgba(7, 137, 48, 0.12);
         }
 
-        /* 🌟 የተለየ ትኩረት የሚስብ የፕሮፌሽናል OT ሰዓት ማስተካከያ ዲዛይን */
-        .ot-highlight-box {
-            background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
-            border: 2px solid #34d399;
-            border-radius: 14px;
-            padding: 1rem;
-            margin-bottom: 1.2rem;
-            box-shadow: 0 4px 15px rgba(5, 150, 105, 0.08);
-        }
-        .ot-highlight-box label {
-            color: #065f46;
-            font-size: 0.92rem;
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-        .ot-highlight-box select {
-            border: 2px solid #059669;
-            background-color: #ffffff;
-            font-weight: 700;
-            color: #064e3b;
-        }
-        .ot-hint-text {
-            font-size: 0.76rem;
-            color: #047857;
-            margin-top: 0.4rem;
-            display: block;
-            font-weight: 600;
-        }
-
         button.action-btn {
             background: linear-gradient(135deg, #d32f2f, #b71c1c); color: white; border: none;
             padding: 0.95rem 1.5rem; border-radius: 12px; font-size: 1.02rem; cursor: pointer;
@@ -301,15 +271,14 @@
                 <input type="number" id="basicSalary" placeholder="0" inputmode="decimal">
             </div>
 
-            <!-- 🌟 የተለየ ትኩረት የሚስብ የፕሮፌሽናል OT ሰዓት ማስተካከያ ሳጥን -->
-            <div class="ot-highlight-box">
+            <!-- የበፊቱ መደበኛ የሰዓት ማስተካከያ ሳጥን -->
+            <div class="form-group">
                 <label id="lblWorkHours" for="monthlyHours">⚡ የድርጅቱ ወርሃዊ የስራ ሰዓት (OT መሰረት):</label>
                 <select id="monthlyHours">
                     <option value="208" id="opt208">26 የስራ ቀናት / 208 ሰዓት (ሰኞ - ቅዳሜ)</option>
                     <option value="176" id="opt176">22 የስራ ቀናት / 176 ሰዓት (ሰኞ - አርብ)</option>
                     <option value="240" id="opt240">30 ቀናት / 240 ሰዓት (መደበኛ ወርሃዊ)</option>
                 </select>
-                <span id="lblOtHint" class="ot-hint-text">💡 ድርጅትዎ በሚከተለው የስራ ህግ መሰረት መደበኛ ሰዓቱን ይምረጡ</span>
             </div>
 
             <div class="form-group">
@@ -548,7 +517,6 @@
             const bannerDesc = document.getElementById('bannerDesc');
             const installBtn = document.getElementById('installBtn');
             const lblWorkHours = document.getElementById('lblWorkHours');
-            const lblOtHint = document.getElementById('lblOtHint');
 
             if (lang === 'en') {
                 document.title = "Ethio Salary Pro | 2026 Ethiopian Salary, Tax & OT Calculator";
@@ -556,7 +524,6 @@
                 document.getElementById('calcHeader').innerText = "📊 Salary & Overtime Calculator";
                 document.getElementById('lblBasic').innerText = "Basic Salary (ETB):";
                 lblWorkHours.innerText = "⚡ Company Monthly Working Hours (OT Base):";
-                lblOtHint.innerText = "💡 Select your company's standard working hours policy";
                 document.getElementById('opt208').innerText = "26 Working Days / 208 Hours (Mon - Sat)";
                 document.getElementById('opt176').innerText = "22 Working Days / 176 Hours (Mon - Fri)";
                 document.getElementById('opt240').innerText = "30 Days / 240 Hours (Standard Monthly)";
@@ -595,7 +562,6 @@
                 document.getElementById('calcHeader').innerText = "📊 Shallgessa Mindaa fi OT";
                 document.getElementById('lblBasic').innerText = "Mindaa Bu'uuraa (Birr):";
                 lblWorkHours.innerText = "⚡ Sa'aatii Hojii Ji'aa Dhaabbataa (Bu'uura OT):";
-                lblOtHint.innerText = "💡 Dambii hojii dhaabbata keessaniitiin sa'aatii idilee filadhaa";
                 document.getElementById('opt208').innerText = "Guyyaa Hojii 26 / Sa'aatii 208 (Wiixata - Sanbata)";
                 document.getElementById('opt176').innerText = "Guyyaa Hojii 22 / Sa'aatii 176 (Wiixata - Jimaata)";
                 document.getElementById('opt240').innerText = "Guyyaa 30 / Sa'aatii 240 (Idilee Ji'aa)";
@@ -634,7 +600,6 @@
                 document.getElementById('calcHeader').innerText = "📊 ዓስቢ እና ኦቨርታይም መለኪዒ";
                 document.getElementById('lblBasic').innerText = "መሰረታዊ ዓስቢ (ብቅርሺ):";
                 lblWorkHours.innerText = "⚡ ወርሓዊ ናይ ስራሕ ሰዓታት ትካል (መሰረት OT):";
-                lblOtHint.innerText = "💡 ከም ሕጊ ስራሕ ትካልኩም መደበኛ ሰዓት ምረጹ";
                 document.getElementById('opt208').innerText = "26 መዓልታት ስራሕ / 208 ሰዓት (ሰኑይ - ቀዳም)";
                 document.getElementById('opt176').innerText = "22 መዓልታት ስራሕ / 176 ሰዓት (ሰኑይ - ዓርቢ)";
                 document.getElementById('opt240').innerText = "30 መዓልታት / 240 ሰዓት (ስሩዕ ወርሓዊ)";
@@ -673,7 +638,6 @@
                 document.getElementById('calcHeader').innerText = "📊 Xisaabiyaha Mushaharka iyo OT";
                 document.getElementById('lblBasic').innerText = "Mushaharka Aasaasiga ah (Shilin):";
                 lblWorkHours.innerText = "⚡ Saacadaha Shaqada Bisha ee Shirkadda (Saldhigga OT):";
-                lblOtHint.innerText = "💡 Dooro saacadaha shaqada ee waafaqsan sharciga shirkaddaada";
                 document.getElementById('opt208').innerText = "26 Maalmood / 208 Saacadood (Isniin - Sabti)";
                 document.getElementById('opt176').innerText = "22 Maalmood / 176 Saacadood (Isniin - Jimce)";
                 document.getElementById('opt240').innerText = "30 Maalmood / 240 Saacadood (Caadiga Bisha)";
@@ -712,7 +676,6 @@
                 document.getElementById('calcHeader').innerText = "📊 ደመወዝ እና ኦቨርታይም (OT) ማስያ";
                 document.getElementById('lblBasic').innerText = "መሰረታዊ ደመወዝ (Basic Salary በብር):";
                 lblWorkHours.innerText = "⚡ የድርጅቱ ወርሃዊ የስራ ሰዓት (OT መሰረት):";
-                lblOtHint.innerText = "💡 ድርጅትዎ በሚከተለው የስራ ህግ መሰረት መደበኛ ሰዓቱን ይምረጡ";
                 document.getElementById('opt208').innerText = "26 የስራ ቀናት / 208 ሰዓት (ሰኞ - ቅዳሜ)";
                 document.getElementById('opt176').innerText = "22 የስራ ቀናት / 176 ሰዓት (ሰኞ - አርብ)";
                 document.getElementById('opt240').innerText = "30 ቀናት / 240 ሰዓት (መደበኛ ወርሃዊ)";
@@ -760,4 +723,4 @@
         };
     </script>
 </body>
-</html> 
+</html>
