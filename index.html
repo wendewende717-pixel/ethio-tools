@@ -184,6 +184,36 @@
             box-shadow: 0 0 0 3px rgba(7, 137, 48, 0.12);
         }
 
+        /* 🌟 የተለየ ትኩረት የሚስብ እና ፕሮፌሽናል የሆነ የOT ሰዓት ማስተካከያ ሳጥን ዲዛይን */
+        .ot-highlight-box {
+            background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+            border: 2px solid #34d399;
+            border-radius: 14px;
+            padding: 1rem;
+            margin-bottom: 1.2rem;
+            box-shadow: 0 4px 15px rgba(5, 150, 105, 0.08);
+        }
+        .ot-highlight-box label {
+            color: #065f46;
+            font-size: 0.92rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .ot-highlight-box select {
+            border: 2px solid #059669;
+            background-color: #ffffff;
+            font-weight: 700;
+            color: #064e3b;
+        }
+        .ot-hint-text {
+            font-size: 0.76rem;
+            color: #047857;
+            margin-top: 0.4rem;
+            display: block;
+            font-weight: 600;
+        }
+
         button.action-btn {
             background: linear-gradient(135deg, #d32f2f, #b71c1c); color: white; border: none;
             padding: 0.95rem 1.5rem; border-radius: 12px; font-size: 1.02rem; cursor: pointer;
@@ -271,14 +301,15 @@
                 <input type="number" id="basicSalary" placeholder="0" inputmode="decimal">
             </div>
 
-            <!-- የበፊቱ መደበኛ የሰዓት ማስተካከያ ሳጥን -->
-            <div class="form-group">
+            <!-- 🌟 የተለየ ትኩረት የሚስብ የፕሮፌሽናል OT ሰዓት ማስተካከያ ሳጥን -->
+            <div class="ot-highlight-box">
                 <label id="lblWorkHours" for="monthlyHours">⚡ የድርጅቱ ወርሃዊ የስራ ሰዓት (OT መሰረት):</label>
                 <select id="monthlyHours">
                     <option value="208" id="opt208">26 የስራ ቀናት / 208 ሰዓት (ሰኞ - ቅዳሜ)</option>
                     <option value="176" id="opt176">22 የስራ ቀናት / 176 ሰዓት (ሰኞ - አርብ)</option>
                     <option value="240" id="opt240">30 ቀናት / 240 ሰዓት (መደበኛ ወርሃዊ)</option>
                 </select>
+                <span id="lblOtHint" class="ot-hint-text">💡 ድርጅትዎ በሚከተለው የስራ ህግ መሰረት መደበኛ ሰዓቱን ይምረጡ</span>
             </div>
 
             <div class="form-group">
@@ -517,6 +548,7 @@
             const bannerDesc = document.getElementById('bannerDesc');
             const installBtn = document.getElementById('installBtn');
             const lblWorkHours = document.getElementById('lblWorkHours');
+            const lblOtHint = document.getElementById('lblOtHint');
 
             if (lang === 'en') {
                 document.title = "Ethio Salary Pro | 2026 Ethiopian Salary, Tax & OT Calculator";
@@ -524,13 +556,14 @@
                 document.getElementById('calcHeader').innerText = "📊 Salary & Overtime Calculator";
                 document.getElementById('lblBasic').innerText = "Basic Salary (ETB):";
                 lblWorkHours.innerText = "⚡ Company Monthly Working Hours (OT Base):";
+                lblOtHint.innerText = "💡 Select your company's standard working hours policy";
                 document.getElementById('opt208').innerText = "26 Working Days / 208 Hours (Mon - Sat)";
                 document.getElementById('opt176').innerText = "22 Working Days / 176 Hours (Mon - Fri)";
                 document.getElementById('opt240').innerText = "30 Days / 240 Hours (Standard Monthly)";
-                document.getElementById('lblOt1').innerText = "1. Evening 12 to Night 4 (1.5x):";
-                document.getElementById('lblOt2').innerText = "2. Night 4 to Morning 12 / Night (1.75x):";
-                document.getElementById('lblOt3').innerText = "3. Rest Day / Weekend (2.0x):";
-                document.getElementById('lblOt4').innerText = "4. Public Holiday (2.5x):";
+                document.getElementById('lblOt1').innerText = "1. Evening 12 to Night 4 Hours (1.5x):";
+                document.getElementById('lblOt2').innerText = "2. Night 4 to Morning 12 Hours / Night (1.75x):";
+                document.getElementById('lblOt3').innerText = "3. Rest Day / Weekend Hours (2.0x):";
+                document.getElementById('lblOt4').innerText = "4. Public Holiday Hours (2.5x):";
                 document.getElementById('lblTransport').innerText = "Transport / Allowance:";
                 document.getElementById('btnCalculate').innerText = "Calculate Net Salary & OT";
                 document.getElementById('btnShare').innerText = "📤 Share App with Friends";
@@ -562,13 +595,14 @@
                 document.getElementById('calcHeader').innerText = "📊 Shallgessa Mindaa fi OT";
                 document.getElementById('lblBasic').innerText = "Mindaa Bu'uuraa (Birr):";
                 lblWorkHours.innerText = "⚡ Sa'aatii Hojii Ji'aa Dhaabbataa (Bu'uura OT):";
+                lblOtHint.innerText = "💡 Dambii hojii dhaabbata keessaniitiin sa'aatii idilee filadhaa";
                 document.getElementById('opt208').innerText = "Guyyaa Hojii 26 / Sa'aatii 208 (Wiixata - Sanbata)";
                 document.getElementById('opt176').innerText = "Guyyaa Hojii 22 / Sa'aatii 176 (Wiixata - Jimaata)";
                 document.getElementById('opt240').innerText = "Guyyaa 30 / Sa'aatii 240 (Idilee Ji'aa)";
-                document.getElementById('lblOt1').innerText = "1. Galgala 12 hanga Halkan 4 (1.5x):";
-                document.getElementById('lblOt2').innerText = "2. Halkan 4 hanga Barii 12 (1.75x):";
-                document.getElementById('lblOt3').innerText = "3. Guyyaa Boqonnaa (2.0x):";
-                document.getElementById('lblOt4').innerText = "4. Guyyaa Ayyaanaa (2.5x):";
+                document.getElementById('lblOt1').innerText = "1. Galgala 12 hanga Halkan 4 Sa'aatii (1.5x):";
+                document.getElementById('lblOt2').innerText = "2. Halkan 4 hanga Barii 12 Sa'aatii (1.75x):";
+                document.getElementById('lblOt3').innerText = "3. Sa'aatii Guyyaa Boqonnaa (2.0x):";
+                document.getElementById('lblOt4').innerText = "4. Sa'aatii Guyyaa Ayyaanaa (2.5x):";
                 document.getElementById('lblTransport').innerText = "Geejjiba / Buusii:";
                 document.getElementById('btnCalculate').innerText = "Mindaa Qulqulluu Shallugi";
                 document.getElementById('btnShare').innerText = "📤 Hiriyoota Keessaniif Qoodaa (Share)";
@@ -600,13 +634,14 @@
                 document.getElementById('calcHeader').innerText = "📊 ዓስቢ እና ኦቨርታይም መለኪዒ";
                 document.getElementById('lblBasic').innerText = "መሰረታዊ ዓስቢ (ብቅርሺ):";
                 lblWorkHours.innerText = "⚡ ወርሓዊ ናይ ስራሕ ሰዓታት ትካል (መሰረት OT):";
+                lblOtHint.innerText = "💡 ከም ሕጊ ስራሕ ትካልኩም መደበኛ ሰዓት ምረጹ";
                 document.getElementById('opt208').innerText = "26 መዓልታት ስራሕ / 208 ሰዓት (ሰኑይ - ቀዳም)";
                 document.getElementById('opt176').innerText = "22 መዓልታት ስራሕ / 176 ሰዓት (ሰኑይ - ዓርቢ)";
                 document.getElementById('opt240').innerText = "30 መዓልታት / 240 ሰዓት (ስሩዕ ወርሓዊ)";
-                document.getElementById('lblOt1').innerText = "1. ካብ ሰዓት 12 ክሳብ ለይቲ 4 (1.5x):";
-                document.getElementById('lblOt2').innerText = "2. ካብ ለይቲ 4 ክሳብ ንግሆ 12 (1.75x):";
-                document.getElementById('lblOt3').innerText = "3. ዕረፍቲ ቀኒ (2.0x):";
-                document.getElementById('lblOt4').innerText = "4. በዓልቲ እዋን (2.5x):";
+                document.getElementById('lblOt1').innerText = "1. ካብ ሰዓት 12 ክሳብ ለይቲ 4 ሰዓታት (1.5x):";
+                document.getElementById('lblOt2').innerText = "2. ካብ ለይቲ 4 ክሳብ ንግሆ 12 ሰዓታት (1.75x):";
+                document.getElementById('lblOt3').innerText = "3. ሰዓታት ዕረፍቲ ቀኒ (2.0x):";
+                document.getElementById('lblOt4').innerText = "4. ሰዓታት በዓልቲ እዋን (2.5x):";
                 document.getElementById('lblTransport').innerText = "ትራንስፖርት / ካልእ ክፍያ:";
                 document.getElementById('btnCalculate').innerText = "ንጹህ ዓስቢ እና OT አስላ";
                 document.getElementById('btnShare').innerText = "📤 ንመሓዙትኩም ኣካፍሉ (Share)";
@@ -638,13 +673,14 @@
                 document.getElementById('calcHeader').innerText = "📊 Xisaabiyaha Mushaharka iyo OT";
                 document.getElementById('lblBasic').innerText = "Mushaharka Aasaasiga ah (Shilin):";
                 lblWorkHours.innerText = "⚡ Saacadaha Shaqada Bisha ee Shirkadda (Saldhigga OT):";
+                lblOtHint.innerText = "💡 Dooro saacadaha shaqada ee waafaqsan sharciga shirkaddaada";
                 document.getElementById('opt208').innerText = "26 Maalmood / 208 Saacadood (Isniin - Sabti)";
                 document.getElementById('opt176').innerText = "22 Maalmood / 176 Saacadood (Isniin - Jimce)";
                 document.getElementById('opt240').innerText = "30 Maalmood / 240 Saacadood (Caadiga Bisha)";
-                document.getElementById('lblOt1').innerText = "1. Fiidkii 12 ilaa Habeenka 4 (1.5x):";
-                document.getElementById('lblOt2').innerText = "2. Habeenka 4 ilaa Subaxda 12 (1.75x):";
-                document.getElementById('lblOt3').innerText = "3. Maalinta Nasashada (2.0x):";
-                document.getElementById('lblOt4').innerText = "4. Maalinta Ciidda (2.5x):";
+                document.getElementById('lblOt1').innerText = "1. Fiidkii 12 ilaa Habeenka 4 Saacadood (1.5x):";
+                document.getElementById('lblOt2').innerText = "2. Habeenka 4 ilaa Subaxda 12 Saacadood (1.75x):";
+                document.getElementById('lblOt3').innerText = "3. Saacadaha Maalinta Nasashada (2.0x):";
+                document.getElementById('lblOt4').innerText = "4. Saacadaha Maalinta Ciidda (2.5x):";
                 document.getElementById('lblTransport').innerText = "Gaadiidka / Lacagta kale:";
                 document.getElementById('btnCalculate').innerText = "Xisaabi Mushaharka Saafi ah";
                 document.getElementById('btnShare').innerText = "📤 La wadaag Saaxiibadaa (Share)";
@@ -676,13 +712,14 @@
                 document.getElementById('calcHeader').innerText = "📊 ደመወዝ እና ኦቨርታይም (OT) ማስያ";
                 document.getElementById('lblBasic').innerText = "መሰረታዊ ደመወዝ (Basic Salary በብር):";
                 lblWorkHours.innerText = "⚡ የድርጅቱ ወርሃዊ የስራ ሰዓት (OT መሰረት):";
+                lblOtHint.innerText = "💡 ድርጅትዎ በሚከተለው የስራ ህግ መሰረት መደበኛ ሰዓቱን ይምረጡ";
                 document.getElementById('opt208').innerText = "26 የስራ ቀናት / 208 ሰዓት (ሰኞ - ቅዳሜ)";
                 document.getElementById('opt176').innerText = "22 የስራ ቀናት / 176 ሰዓት (ሰኞ - አርብ)";
                 document.getElementById('opt240').innerText = "30 ቀናት / 240 ሰዓት (መደበኛ ወርሃዊ)";
                 document.getElementById('lblOt1').innerText = "1. ከሰዓት 12 እስከ ምሽት 4 ሰዓት (1.5x):";
                 document.getElementById('lblOt2').innerText = "2. ከምሽት 4 እስከ ንጋት 12 ሰዓት / ሌሊት (1.75x):";
-                document.getElementById('lblOt3').innerText = "3. እረፍት / የእረፍት ቀን (2.0x):";
-                document.getElementById('lblOt4').innerText = "4. የህዝብ በዓል ቀን (2.5x):";
+                document.getElementById('lblOt3').innerText = "3. እረፍት / የእረፍት ሰዓት (2.0x):";
+                document.getElementById('lblOt4').innerText = "4. የህዝብ በዓል ሰዓት (2.5x):";
                 document.getElementById('lblTransport').innerText = "የትራንስፖርት / ሌላ አበል (ከግብር ነጻ ከሆነ):";
                 document.getElementById('btnCalculate').innerText = "አዲሱን የተጣራ ደመወዝ እና OT አስላ";
                 document.getElementById('btnShare').innerText = "📤 ለጓደኞችዎ ሼር ያድርጉ (Share App)";
