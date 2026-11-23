@@ -357,12 +357,12 @@
             </div>
 
             <div class="form-group">
-                <label id="lblOt3" for="ot3">3. እረፍት / የእረፍት ሰዓት (2.0x):</label>
+                <label id="lblOt3" for="ot3">3. በሳምንታዊ የእረፍት ቀን (እሁድ / የድርጅቱ እረፍት ቀን) የተሰራ ሰዓት (2.0x):</label>
                 <input type="number" id="ot3" placeholder="0" min="0" step="any" inputmode="decimal">
             </div>
 
             <div class="form-group">
-                <label id="lblOt4" for="ot4">4. የህዝብ በዓል ሰዓት (2.5x):</label>
+                <label id="lblOt4" for="ot4">4. በሕዝብ በዓል ቀን (Public Holiday) የተሰራ ተጨማሪ ሰዓት (2.5x):</label>
                 <input type="number" id="ot4" placeholder="0" min="0" step="any" inputmode="decimal">
             </div>
 
@@ -702,8 +702,8 @@
                 document.getElementById('opt240').innerText = "30 Days / 240 Hours (Standard Monthly)";
                 document.getElementById('lblOt1').innerText = "1. After Regular Working Hours up to 10:00 PM (1.5x):";
                 document.getElementById('lblOt2').innerText = "2. Night Hours (10:00 PM to 6:00 AM) (1.75x):";
-                document.getElementById('lblOt3').innerText = "3. Weekly Rest Day Hours (2.0x):";
-                document.getElementById('lblOt4').innerText = "4. Public Holiday Hours (2.5x):";
+                document.getElementById('lblOt3').innerText = "3. Weekly Rest Day (Sunday / Company Rest Day) Hours (2.0x):";
+                document.getElementById('lblOt4').innerText = "4. Official Public Holiday Overtime Hours (2.5x):";
                 document.getElementById('lblTransport').innerText = "Transport / Other Allowance:";
                 document.getElementById('optExempt').innerText = "Tax-Free (Exempt)";
                 document.getElementById('optTaxable').innerText = "Taxable Allowance";
@@ -753,8 +753,8 @@
                 document.getElementById('opt240').innerText = "Guyyaa 30 / Sa'aatii 240 (Idilee Ji'aa)";
                 document.getElementById('lblOt1').innerText = "1. Sa'aatii Hojii Idilee Booda hanga Halkan Sa'aatii 4 (1.5x):";
                 document.getElementById('lblOt2').innerText = "2. Halkan Sa'aatii 4 hanga Barii Sa'aatii 12 (1.75x):";
-                document.getElementById('lblOt3').innerText = "3. Sa'aatii Guyyaa Boqonnaa (2.0x):";
-                document.getElementById('lblOt4').innerText = "4. Sa'aatii Guyyaa Ayyaanaa (2.5x):";
+                document.getElementById('lblOt3').innerText = "3. Sa'aatii Guyyaa Boqonnaa Torbanii (Dilbata / Guyyaa Boqonnaa Dhaabbataa) (2.0x):";
+                document.getElementById('lblOt4').innerText = "4. Sa'aatii Dabalataa Guyyaa Ayyaana Ummataa (Public Holiday) (2.5x):";
                 document.getElementById('lblTransport').innerText = "Geejjiba / Buusii (Allowance):";
                 document.getElementById('optExempt').innerText = "Gibira Irraa Bilisa";
                 document.getElementById('optTaxable').innerText = "Gibira Kan Kaffalu";
@@ -804,8 +804,8 @@
                 document.getElementById('opt240').innerText = "30 መዓልታት / 240 ሰዓት (ስሩዕ ወርሓዊ)";
                 document.getElementById('lblOt1').innerText = "1. ድሕሪ ስሩዕ ሰዓት ስራሕ ክሳብ ሰዓት 4 ለይቲ (1.5x):";
                 document.getElementById('lblOt2').innerText = "2. ካብ ሰዓት 4 ለይቲ ክሳብ ሰዓት 12 ንግሆ (1.75x):";
-                document.getElementById('lblOt3').innerText = "3. ሰዓታት ዕረፍቲ ቀኒ (2.0x):";
-                document.getElementById('lblOt4').innerText = "4. ሰዓታት በዓልቲ እዋን (2.5x):";
+                document.getElementById('lblOt3').innerText = "3. ኣብ ሰሙናዊ መዓልቲ ዕረፍቲ (ሰንበት / መዓልቲ ዕረፍቲ ትካል) ዝተሰርሐ ሰዓት (2.0x):";
+                document.getElementById('lblOt4').innerText = "4. ኣብ ህዝባዊ በዓል (Public Holiday) ዝተሰርሐ ተወሳኺ ሰዓት (2.5x):";
                 document.getElementById('lblTransport').innerText = "ትራንስፖርት / ካልእ ክፍያ:";
                 document.getElementById('optExempt').innerText = "ካብ ግብሪ ነጻ";
                 document.getElementById('optTaxable').innerText = "ግብሪ ዝኽፈሎ";
@@ -855,8 +855,8 @@
                 document.getElementById('opt240').innerText = "30 Maalmood / 240 Saacadood (Caadiga Bisha)";
                 document.getElementById('lblOt1').innerText = "1. Dhammaadka Shaqada Caadiga ah ilaa Saacadda 4 ee Habeenkii (1.5x):";
                 document.getElementById('lblOt2').innerText = "2. Laga bilaabo Saacadda 4 ee Habeenkii ilaa Saacadda 12 ee Subaxdii (1.75x):";
-                document.getElementById('lblOt3').innerText = "3. Saacadaha Maalinta Nasashada (2.0x):";
-                document.getElementById('lblOt4').innerText = "4. Saacadaha Maalinta Ciidda (2.5x):";
+                document.getElementById('lblOt3').innerText = "3. Saacadaha Maalinta Nasashada Toddobaadlaha ah (Axad / Maalinta Nasashada Shirkadda) (2.0x):";
+                document.getElementById('lblOt4').innerText = "4. Saacadaha Dheeraadka ah ee Maalinta Ciidda / Fasaxa Dadweynaha (2.5x):";
                 document.getElementById('lblTransport').innerText = "Gaadiidka / Lacagta kale:";
                 document.getElementById('optExempt').innerText = "Canshuur La'aan";
                 document.getElementById('optTaxable').innerText = "Canshuur Leh";
@@ -906,8 +906,8 @@
                 document.getElementById('opt240').innerText = "30 ቀናት / 240 ሰዓት (መደበኛ ወርሃዊ)";
                 document.getElementById('lblOt1').innerText = "1. ከመደበኛ የሥራ ሰዓት በኋላ እስከ ምሽት 4 ሰዓት (1.5x):";
                 document.getElementById('lblOt2').innerText = "2. ከምሽት 4 እስከ ንጋት 12 ሰዓት / ሌሊት (1.75x):";
-                document.getElementById('lblOt3').innerText = "3. እረፍት / የእረፍት ሰዓት (2.0x):";
-                document.getElementById('lblOt4').innerText = "4. የህዝብ በዓል ሰዓት (2.5x):";
+                document.getElementById('lblOt3').innerText = "3. በሳምንታዊ የእረፍት ቀን (እሁድ / የድርጅቱ እረፍት ቀን) የተሰራ ሰዓት (2.0x):";
+                document.getElementById('lblOt4').innerText = "4. በሕዝብ በዓል ቀን (Public Holiday) የተሰራ ተጨማሪ ሰዓት (2.5x):";
                 document.getElementById('lblTransport').innerText = "የትራንስፖርት / ሌላ አበል (Allowance):";
                 document.getElementById('optExempt').innerText = "ከግብር ነጻ (Tax-Free)";
                 document.getElementById('optTaxable').innerText = "ግብር የሚከፈልበት (Taxable)";
