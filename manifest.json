@@ -1,24 +1,22 @@
 {
-  "name": "Ethio Salary Pro - የደሞዝ ግብር እና OT ማስያ",
-  "short_name": "Ethio Salary",
-  "description": "አዲሱ የተሻሻለው የኢትዮጵያ የደመወዝ፣ የግብር እና የኦቨርታይም (OT) ማስያ።",
-  "start_url": "./index.html",
+  "name": "Ethio Salary Pro",
+  "short_name": "EthioSalary",
+  "start_url": "./?lang=am",
+  "scope": "./",
   "display": "standalone",
-  "orientation": "portrait",
   "background_color": "#078930",
   "theme_color": "#078930",
+  "orientation": "portrait-primary",
   "icons": [
     {
       "src": "https://cdn-icons-png.flaticon.com/512/2344/2344132.png",
       "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "type": "image/png"
     },
     {
       "src": "https://cdn-icons-png.flaticon.com/512/2344/2344132.png",
       "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "type": "image/png"
     }
   ]
 }
