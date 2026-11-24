@@ -485,7 +485,7 @@
                     <span id="resNet">0.00 ብር</span>
                 </div>
                 <div class="employer-box">
-                    <span id="employerPensionNote">🏢 የአሠሪው የ11% ጡረታ ድርሻ (ከደመወዝ ሳይቀነስ): 0.00 ብር</span>
+                    <span id="employerPensionNote">🏢 የመንግሥት / የአሠሪው የ11% ጡረታ ድርሻ (ከደመወዝ ሳይቀነስ): 0.00 ብር</span>
                     <span id="taxReliefNote" style="color:#078930; font-weight:800;">✨ በአዲሱ የ2,000 ብር ነጻ ጣሪያ (አዋጅ 1395/2017) መሠረት የተሰላ</span>
                 </div>
                 <button type="button" class="copy-summary-btn" id="btnCopySummary" onclick="copySummary()">📋 የውጤት ማጠቃለያ ኮፒ አድርግ</button>
@@ -539,7 +539,7 @@
 
             <div class="guide-box">
                 <h4 id="guide3Title">3. የኦቨርታይም (OT) ብዜቶች እና ጡረታ (7% / 11%)</h4>
-                <p id="guide3Text">የኦቨርታይም ብዜቶች፡ 1.5x (ምሽት እስከ 4 ሰዓት)፣ 1.75x (ከምሽት 4 እስከ ንጋት 12)፣ 2.0x (ሳምንታዊ የእረፍት ቀን) እና 2.5x (የሕዝብ በዓል) ናቸው። የ7% ጡረታ ከመሠረታዊ ደመወዝ ሲቀነስ፣ የ11% የአሠሪ ድርሻ ለመረጃ ያህል ለየብቻ ይታያል።</p>
+                <p id="guide3Text">የኦቨርታይም ብዜቶች፡ 1.5x (ምሽት እስከ 4 ሰዓት)፣ 1.75x (ከምሽት 4 እስከ ንጋት 12)፣ 2.0x (ሳምንታዊ የእረፍት ቀን) እና 2.5x (የሕዝብ በዓል) ናቸው። የ7% ጡረታ ከመሠረታዊ ደመወዝ ሲቀነስ፣ የመንግሥትም ሆነ የግል አሠሪ የ11% የጡረታ ድርሻ ለመረጃ ያህል ለየብቻ ይታያል።</p>
             </div>
         </div>
 
@@ -917,17 +917,17 @@
             };
 
             const employerLabels = {
-                am: `🏢 የአሠሪው የ11% ጡረታ ድርሻ (ከደመወዝ ሳይቀነስ): ${formatMoney(employerPension)}${currencyUnit}`,
-                om: `🏢 Qooda Pensiyoonaa Qacaramaa 11% (Mindaa irraa osoo hin hir'atin): ${formatMoney(employerPension)}${currencyUnit}`,
-                ti: `🏢 ናይ ኣስራሒ 11% ጡረታ (ካብ ዓስቢ ከይተቀነሰ): ${formatMoney(employerPension)}${currencyUnit}`,
-                so: `🏢 Qeybta Howlgabka Loo-shaqeeyaha 11% (Lagama jarayo mushaharka): ${formatMoney(employerPension)}${currencyUnit}`,
-                en: `🏢 Employer 11% Pension Share (Not deducted from pay): ${formatMoney(employerPension)}${currencyUnit}`
+                am: `🏢 የመንግሥት / የአሠሪው የ11% ጡረታ ድርሻ (ከደመወዝ ሳይቀነስ): ${formatMoney(employerPension)}${currencyUnit}`,
+                om: `🏢 Qooda Pensiyoonaa Mootummaa / Qacaramaa 11% (Mindaa irraa osoo hin hir'atin): ${formatMoney(employerPension)}${currencyUnit}`,
+                ti: `🏢 ናይ መንግስቲ / ኣስራሒ 11% ጡረታ (ካብ ደሞዝ ከይተቀነሰ): ${formatMoney(employerPension)}${currencyUnit}`,
+                so: `🏢 Qeybta Howlgabka Dawladda / Loo-shaqeeyaha 11% (Lagama jarayo mushaharka): ${formatMoney(employerPension)}${currencyUnit}`,
+                en: `🏢 Government / Employer 11% Pension Share (Not deducted from pay): ${formatMoney(employerPension)}${currencyUnit}`
             };
 
             const reliefLabels = {
                 am: `✨ በአዲሱ የ2,000 ብር ነጻ ጣሪያ (አዋጅ 1395/2017) መሠረት የተሰላ`,
                 om: `✨ Bu'uura kaffaltii bilisaa Birr 2,000 (Labsii 1395/2025) tiin kan shallagame`,
-                ti: `✨ ብሓዲሽ ናጻ 2,000 ቅርሺ (ኣዋጅ 1395/2017) መሰረት ዝተሰላሕ`,
+                ti: `✨ ብሓዲሽ ናጻ 2,000 ብር (ኣዋጅ 1395/2017) መሰረት ዝተሰላሕ`,
                 so: `✨ Waxaa lagu xisaabiyay Xeerka 1395/2025 (2,000 ETB canshuur la'aan)`,
                 en: `✨ Calculated under Proc. 1395/2025 (0% up to 2,000 ETB)`
             };
@@ -1027,7 +1027,7 @@
                 document.getElementById('guide2Title').innerText = "2. Monthly Working Hours (208 / 176 / 240)";
                 document.getElementById('guide2Text').innerText = "Choose 208 hours (26 days, Mon–Sat), 176 hours (22 days, Mon–Fri, common in civil service and offices), or 240 hours (30 days) according to your workplace schedule.";
                 document.getElementById('guide3Title').innerText = "3. Overtime Multipliers & Pension (7% / 11%)";
-                document.getElementById('guide3Text').innerText = "Overtime multipliers are 1.5x (evening up to 10 PM), 1.75x (night 10 PM–6 AM), 2.0x (weekly rest day), and 2.5x (public holiday). Employee pension is 7% of basic salary; employer share is 11% for reference.";
+                document.getElementById('guide3Text').innerText = "Overtime multipliers are 1.5x (evening up to 10 PM), 1.75x (night 10 PM–6 AM), 2.0x (weekly rest day), and 2.5x (public holiday). Employee pension is 7% of basic salary; government/employer share is 11% for reference.";
                 document.getElementById('settingsHeader').innerText = "⚙️ App Settings";
                 document.getElementById('setLangTitle').innerText = "🌐 App Language";
                 document.getElementById('setLangDesc').innerText = "Switch display language anytime";
@@ -1106,11 +1106,11 @@
                 document.getElementById('bracketsNote').innerText = "💡 Hubachiisa: Buusiin pensiyoonaa 7% mindaa bu'uuraa qofa irraa shallagama.";
                 document.getElementById('guideHeader').innerText = "📘 Ibsa Bal'aa fi Qajeelfama Fayyadamaa";
                 document.getElementById('guide1Title').innerText = "1. Appiin Kun Akkamitti Hojjeta?";
-                document.getElementById('guide1Text').innerText = "Mindaa bu'uuraa, sa'aatii OT fi buusii yoo galchitan kaffaltii sa'aatii tokkoo, gibira Labsii 1395/2017, pensiyoonii 7% fi mindaa qulqulluu (Net) ni shallaga.";
+                document.getElementById('guide1Text').innerText = "Mindaa bu'uuraa, sa'aatii OT fi buusii yoo galchitan kaffaltii sa'aatii tokkoo, gibira Labsii 1395/2025, pensiyoonii 7% fi mindaa qulqulluu (Net) ni shallaga.";
                 document.getElementById('guide2Title').innerText = "2. Sa'aatii Hojii Ji'aa (208 / 176 / 240)";
                 document.getElementById('guide2Text').innerText = "Guyyaa 26 (sa'aatii 208), guyyaa 22 (sa'aatii 176 - akka waajjiraalee fi siiviil sarvisii), ykn guyyaa 30 (sa'aatii 240) akka dambii dhaabbata keessaniitti filadhaa.";
                 document.getElementById('guide3Title').innerText = "3. Baay'istuu OT fi Pensiyoonii (7% / 11%)";
-                document.getElementById('guide3Text').innerText = "Baay'istuu OT: 1.5x (hanga halkan sa'aatii 4), 1.75x (halkan 4 - barii 12), 2.0x (guyyaa boqonnaa) fi 2.5x (ayyaana). Pensiyooniin hojjetaa 7% mindaa bu'uuraa irraa yoo hir'atu, qoodni qacaramaa 11% odeeffannoof agarsiifama.";
+                document.getElementById('guide3Text').innerText = "Baay'istuu OT: 1.5x (hanga halkan sa'aatii 4), 1.75x (halkan 4 - barii 12), 2.0x (guyyaa boqonnaa) fi 2.5x (ayyaana). Pensiyooniin hojjetaa 7% mindaa bu'uuraa irraa yoo hir'atu, qoodni mootummaa/qacaramaa 11% odeeffannoof agarsiifama.";
                 document.getElementById('settingsHeader').innerText = "⚙️ Qindaa'ina Appii";
                 document.getElementById('setLangTitle').innerText = "🌐 Afaan Appii";
                 document.getElementById('setLangDesc').innerText = "Afaan yeroo barbaaddanitti jijjiiraa";
@@ -1193,7 +1193,7 @@
                 document.getElementById('guide2Title').innerText = "2. ወርሓዊ ሰዓታት ስራሕ (208 / 176 / 240)";
                 document.getElementById('guide2Text').innerText = "ከም ሕጊ ትካልኩም 208 ሰዓት (26 መዓልቲ)፣ 176 ሰዓት (22 መዓልቲ) ወይ 240 ሰዓት (30 መዓልቲ) ምረጹ።";
                 document.getElementById('guide3Title').innerText = "3. መበራትሒ OT እና ጡረታ (7% / 11%)";
-                document.getElementById('guide3Text').innerText = "መበራትሒ OT 1.5x፣ 1.75x፣ 2.0xን 2.5xን እዮም። 7% ጡረታ ሰራሕተኛ ካብ መሰረታዊ ዓስቢ ዝቅነስ እንትኾን ናይ ኣስራሒ 11% ንሓበሬታ ይርአ።";
+                document.getElementById('guide3Text').innerText = "መበራትሒ OT 1.5x፣ 1.75x፣ 2.0xን 2.5xን እዮም። 7% ጡረታ ሰራሕተኛ ካብ መሰረታዊ ዓስቢ ዝቅነስ እንትኾን ናይ መንግስቲ/ኣስራሒ 11% ንሓበሬታ ይርአ።";
                 document.getElementById('settingsHeader').innerText = "⚙️ ምትዕርራይ ኣፕ";
                 document.getElementById('setLangTitle').innerText = "🌐 ቋንቋ ኣፕ";
                 document.getElementById('setLangDesc').innerText = "ኣብ ዝኾነ እዋን ቋንቋ ይቀያይሩ";
@@ -1276,7 +1276,7 @@
                 document.getElementById('guide2Title').innerText = "2. Saacadaha Shaqada Bisha (208 / 176 / 240)";
                 document.getElementById('guide2Text').innerText = "Dooro 208 saacadood (26 maalmood), 176 saacadood (22 maalmood), ama 240 saacadood (30 maalmood) sida waafaqsan shaqadaada.";
                 document.getElementById('guide3Title').innerText = "3. Dhufteyaasha OT iyo Howlgabka (7% / 11%)";
-                document.getElementById('guide3Text').innerText = "Dhufteyaasha OT waa 1.5x, 1.75x, 2.0x iyo 2.5x. Howlgabka shaqaaluhu waa 7% mushaharka aasaasiga ah; 11% loo-shaqeeyaha waxaa loo muujiyaa macluumaad.";
+                document.getElementById('guide3Text').innerText = "Dhufteyaasha OT waa 1.5x, 1.75x, 2.0x iyo 2.5x. Howlgabka shaqaaluhu waa 7% mushaharka aasaasiga ah; 11% dawladda/loo-shaqeeyaha waxaa loo muujiyaa macluumaad.";
                 document.getElementById('settingsHeader').innerText = "⚙️ Dejinta App-ka";
                 document.getElementById('setLangTitle').innerText = "🌐 Luqadda App-ka";
                 document.getElementById('setLangDesc').innerText = "Beddel luqadda wakhti kasta";
@@ -1359,7 +1359,7 @@
                 document.getElementById('guide2Title').innerText = "2. የወርሃዊ የሥራ ሰዓት (208 / 176 / 240) ምርጫ";
                 document.getElementById('guide2Text').innerText = "በሳምንት 6 ቀን (ሰኞ-ቅዳሜ) ለሚሠሩ ድርጅቶች 26 ቀን (208 ሰዓት)፣ በሳምንት 5 ቀን (ሰኞ-አርብ) ለሚሠሩ (እንደ አብዛኛው የመንግሥት ተቋማትና ቢሮዎች) 22 ቀን (176 ሰዓት)፣ ወይም በ30 ቀን (240 ሰዓት) መሠረት የሚያሰሉ ድርጅቶች ተገቢውን አማራጭ መምረጥ ይችላሉ።";
                 document.getElementById('guide3Title').innerText = "3. የኦቨርታይም (OT) ብዜቶች እና ጡረታ (7% / 11%)";
-                document.getElementById('guide3Text').innerText = "የኦቨርታይም ብዜቶች፡ 1.5x (ምሽት እስከ 4 ሰዓት)፣ 1.75x (ከምሽት 4 እስከ ንጋት 12)፣ 2.0x (ሳምንታዊ የእረፍት ቀን) እና 2.5x (የሕዝብ በዓል) ናቸው። የ7% ጡረታ ከመሠረታዊ ደመወዝ ሲቀነስ፣ የ11% የአሠሪ ድርሻ ለመረጃ ያህል ለየብቻ ይታያል።";
+                document.getElementById('guide3Text').innerText = "የኦቨርታይም ብዜቶች፡ 1.5x (ምሽት እስከ 4 ሰዓት)፣ 1.75x (ከምሽት 4 እስከ ንጋት 12)፣ 2.0x (ሳምንታዊ የእረፍት ቀን) እና 2.5x (የሕዝብ በዓል) ናቸው። የ7% ጡረታ ከመሠረታዊ ደመወዝ ሲቀነስ፣ የመንግሥትም ሆነ የግል አሠሪ የ11% የጡረታ ድርሻ ለመረጃ ያህል ለየብቻ ይታያል።";
                 document.getElementById('settingsHeader').innerText = "⚙️ ቅንብሮች (App Settings)";
                 document.getElementById('setLangTitle').innerText = "🌐 ቋንቋ (App Language)";
                 document.getElementById('setLangDesc').innerText = "የአፑን ቋንቋ በማንኛውም ጊዜ ይቀይሩ";
@@ -1387,7 +1387,7 @@
                 document.getElementById('btnTabSettings').innerText = "⚙️ ቅንብሮች";
                 document.getElementById('btnTabFeedback').innerText = "💬 ሐሳብ";
                 document.getElementById('btnTabPolicy').innerText = "📜 ሕግ";
-                document.getElementById('resBasicTitle').innerText = "መሰረታዊ ዓስቢ:";
+                document.getElementById('resBasicTitle').innerText = "መሰረታዊ ደመወዝ:";
                 document.getElementById('resOtTitle').innerText = "ጠቅላላ የኦቨርታይም ክፍያ:";
                 document.getElementById('resAllowTitle').innerText = "አበል (Allowance):";
                 document.getElementById('resGrossTitle').innerText = "ጠቅላላ ገቢ (Gross):";
