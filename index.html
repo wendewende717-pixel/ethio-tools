@@ -160,16 +160,16 @@
             font-weight: 700; box-shadow: 0 4px 12px rgba(158, 24, 24, 0.35); border: 1px solid rgba(255,255,255,0.22);
         }
 
-        main { flex: 1; max-width: 560px; width: 100%; margin: -0.95rem auto 1.6rem auto; padding: 0 1rem; }
+        main { flex: 1; max-width: 580px; width: 100%; margin: -0.95rem auto 1.6rem auto; padding: 0 0.85rem; }
 
         .nav-buttons {
-            display: flex; gap: 0.3rem; background: #ffffff; padding: 0.45rem;
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.35rem; background: #ffffff; padding: 0.45rem;
             border-radius: 16px; box-shadow: var(--shadow-md); margin-bottom: 1.1rem;
-            border: 1px solid var(--border); flex-wrap: wrap;
+            border: 1px solid var(--border);
         }
         .nav-btn {
-            flex: 1 1 22%; min-width: 68px; padding: 0.68rem 0.25rem; text-align: center; border-radius: 12px;
-            font-weight: 700; cursor: pointer; font-size: 0.78rem; border: none; background: transparent;
+            padding: 0.65rem 0.25rem; text-align: center; border-radius: 12px;
+            font-weight: 700; cursor: pointer; font-size: 0.77rem; border: none; background: transparent;
             color: var(--gray); transition: all 0.2s ease;
         }
         .nav-btn.active {
@@ -179,27 +179,27 @@
 
         .pro-ad-banner {
             background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            color: #ffffff; padding: 1.05rem; border-radius: 16px; text-align: center;
+            color: #ffffff; padding: 1rem; border-radius: 16px; text-align: center;
             margin: 1rem 0; border: 1px solid #334155; box-shadow: var(--shadow-sm);
         }
-        .pro-ad-banner .ad-title { font-size: 0.96rem; font-weight: 800; color: var(--secondary); margin-bottom: 0.28rem; }
-        .pro-ad-banner .ad-desc { font-size: 0.81rem; color: #cbd5e1; }
+        .pro-ad-banner .ad-title { font-size: 0.95rem; font-weight: 800; color: var(--secondary); margin-bottom: 0.25rem; }
+        .pro-ad-banner .ad-desc { font-size: 0.8rem; color: #cbd5e1; }
 
         .card {
-            background: var(--card-bg); padding: 1.45rem; border-radius: 20px;
+            background: var(--card-bg); padding: 1.4rem; border-radius: 20px;
             box-shadow: var(--shadow-md); margin-bottom: 1.2rem; display: none;
             border: 1px solid var(--border);
         }
         .card.active { display: block; }
         .card-title {
-            margin: 0 0 1.15rem 0; color: var(--primary-dark); font-size: 1.15rem; font-weight: 800;
+            margin: 0 0 1.15rem 0; color: var(--primary-dark); font-size: 1.14rem; font-weight: 800;
             border-bottom: 2px solid var(--primary-soft); padding-bottom: 0.65rem;
         }
 
         .form-group { margin-bottom: 1rem; }
-        label { display: block; margin-bottom: 0.42rem; font-weight: 700; color: #1e293b; font-size: 0.9rem; }
+        label { display: block; margin-bottom: 0.42rem; font-weight: 700; color: #1e293b; font-size: 0.89rem; }
         input, select, textarea {
-            width: 100%; padding: 0.8rem 0.92rem; border: 1.5px solid #cbd5e1;
+            width: 100%; padding: 0.78rem 0.9rem; border: 1.5px solid #cbd5e1;
             border-radius: 12px; font-size: 1rem; background-color: #f8fafc; color: var(--dark);
             transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
         }
@@ -218,7 +218,7 @@
         }
         .ot-highlight-box label {
             color: #065f46;
-            font-size: 0.94rem;
+            font-size: 0.93rem;
             font-weight: 800;
             display: flex;
             align-items: center;
@@ -243,12 +243,12 @@
             gap: 0.55rem;
         }
         .allowance-row input { flex: 1.2; }
-        .allowance-row select { flex: 1; font-size: 0.86rem; font-weight: 700; }
+        .allowance-row select { flex: 1; font-size: 0.85rem; font-weight: 700; }
 
         button.action-btn {
             background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-            color: white; border: none; padding: 0.98rem 1.5rem; border-radius: 14px;
-            font-size: 1.03rem; cursor: pointer; width: 100%; font-weight: 800; margin-top: 0.5rem;
+            color: white; border: none; padding: 0.96rem 1.5rem; border-radius: 14px;
+            font-size: 1.02rem; cursor: pointer; width: 100%; font-weight: 800; margin-top: 0.5rem;
             box-shadow: 0 6px 16px rgba(183, 28, 28, 0.28); transition: transform 0.15s ease;
         }
         button.action-btn:active { transform: scale(0.99); }
@@ -256,12 +256,12 @@
         .btn-row { display: flex; gap: 0.55rem; margin-top: 0.8rem; }
         .reset-btn {
             background: #f8fafc; color: #334155; border: 1.5px solid #cbd5e1;
-            padding: 0.7rem 1rem; border-radius: 12px; font-weight: 700; font-size: 0.88rem;
+            padding: 0.7rem 0.9rem; border-radius: 12px; font-weight: 700; font-size: 0.86rem;
             cursor: pointer; flex: 1;
         }
         .share-btn {
             background: var(--primary-soft); color: var(--primary-dark); border: 1.5px solid #86efac;
-            padding: 0.7rem 1rem; border-radius: 12px; font-weight: 700; font-size: 0.88rem;
+            padding: 0.7rem 0.9rem; border-radius: 12px; font-weight: 700; font-size: 0.86rem;
             cursor: pointer; flex: 2; display: flex; align-items: center; justify-content: center; gap: 0.35rem;
         }
 
@@ -272,21 +272,34 @@
         }
         .result-item {
             display: flex; justify-content: space-between; align-items: center;
-            margin-bottom: 0.65rem; font-size: 0.95rem; color: #1e293b;
+            margin-bottom: 0.65rem; font-size: 0.94rem; color: #1e293b;
         }
         .result-item span:last-child { font-weight: 700; }
         .result-item.total {
             font-weight: 900; font-size: 1.18rem; color: var(--primary-dark);
             border-top: 2px dashed #4ade80; padding-top: 0.8rem; margin-top: 0.65rem;
         }
+        .ot-detail-box {
+            margin: 0.75rem 0; padding: 0.7rem 0.85rem; border-radius: 12px;
+            background: rgba(255, 255, 255, 0.78); border: 1px solid #bbf7d0;
+            font-size: 0.81rem; color: #14532d; display: none;
+        }
+        .ot-detail-line { display: flex; justify-content: space-between; margin-bottom: 0.25rem; }
+        .ot-detail-line:last-child { margin-bottom: 0; }
+
         .employer-box {
-            margin-top: 0.9rem; padding: 0.75rem 0.9rem; border-radius: 12px;
-            background: rgba(255, 255, 255, 0.82); border: 1px dashed #34d399;
-            font-size: 0.83rem; color: #064e3b;
+            margin-top: 0.85rem; padding: 0.75rem 0.9rem; border-radius: 12px;
+            background: rgba(255, 255, 255, 0.85); border: 1px dashed #34d399;
+            font-size: 0.82rem; color: #064e3b; display: flex; flex-direction: column; gap: 0.3rem;
+        }
+        .copy-summary-btn {
+            margin-top: 0.75rem; width: 100%; background: #0f172a; color: #ffffff;
+            border: none; padding: 0.65rem 1rem; border-radius: 11px; font-weight: 700;
+            font-size: 0.86rem; cursor: pointer;
         }
         .rate-note {
-            font-size: 0.8rem; color: #065f46; background: rgba(255,255,255,0.85);
-            padding: 0.5rem 0.75rem; border-radius: 10px; margin-bottom: 0.8rem; font-weight: 700;
+            font-size: 0.8rem; color: #065f46; background: rgba(255,255,255,0.88);
+            padding: 0.55rem 0.75rem; border-radius: 10px; margin-bottom: 0.85rem; font-weight: 700;
             display: flex; flex-direction: column; gap: 0.25rem;
         }
 
@@ -301,6 +314,13 @@
             padding: 0.6rem 0.5rem; border-bottom: 1px solid var(--border); color: #1e293b;
         }
         .tax-table tr:nth-child(even) { background: #f8fafc; }
+
+        .guide-box {
+            background: #f8fafc; border: 1px solid var(--border); border-radius: 14px;
+            padding: 0.95rem 1rem; margin-bottom: 0.9rem;
+        }
+        .guide-box h4 { margin: 0 0 0.35rem 0; color: var(--primary-dark); font-size: 0.96rem; }
+        .guide-box p { margin: 0; font-size: 0.85rem; color: #334155; line-height: 1.55; }
 
         .setting-item {
             display: flex; justify-content: space-between; align-items: center; gap: 0.75rem;
@@ -357,14 +377,16 @@
         <div class="nav-buttons">
             <button id="btnTabCalc" class="nav-btn active" onclick="switchTab('calc')">💰 ደመወዝ & OT</button>
             <button id="btnTabBrackets" class="nav-btn" onclick="switchTab('brackets')">📊 የግብር እርከን</button>
+            <button id="btnTabGuide" class="nav-btn" onclick="switchTab('guide')">📘 ማብራሪያ</button>
             <button id="btnTabSettings" class="nav-btn" onclick="switchTab('settings')">⚙️ ቅንብሮች</button>
             <button id="btnTabFeedback" class="nav-btn" onclick="switchTab('feedback')">💬 ሐሳብ</button>
+            <button id="btnTabPolicy" class="nav-btn" onclick="switchTab('policy')">📜 ሕግ</button>
         </div>
 
         <!-- AdSense / Promo Banner Container -->
         <div class="pro-ad-banner" id="adContainer">
             <div class="ad-title" id="adTitleText">💡 Ethio Salary Pro - 2026</div>
-            <div class="ad-desc" id="adDescText">በአዲሱ አዋጅ 1395/2017 (እስከ 2,000 ብር ነጻ) የተዘጋጀ ትክክለኛ የደመወዝ ማስያ</div>
+            <div class="ad-desc" id="adDescText">በአዲሱ አዋጅ 1395/2017 (እስከ 2,000 ብር ነጻ) ለመንግሥትና ለግል ሠራተኞች</div>
         </div>
 
         <!-- Calculator Card -->
@@ -374,8 +396,8 @@
             <div class="form-group">
                 <label id="lblSector" for="sectorType">🏢 የሠራተኛ ዓይነት / ዘርፍ:</label>
                 <select id="sectorType" onchange="onSectorChange()">
-                    <option value="private" id="optPrivate">የግል ድርጅት ሠራተኛ (Private Sector)</option>
-                    <option value="civil" id="optCivil">የመንግሥት / ሲቪል ሰርቪስ ሠራተኛ (Civil Service)</option>
+                    <option value="private" id="optPrivate">የግል ድርጅት ሠራተኛ</option>
+                    <option value="civil" id="optCivil">የመንግሥት / ሲቪል ሰርቪስ ሠራተኛ</option>
                 </select>
             </div>
             
@@ -441,6 +463,7 @@
                     <span id="resOtTitle">ጠቅላላ የኦቨርታይም ክፍያ:</span>
                     <span id="resOt" style="color:#d32f2f;">+0.00 ብር</span>
                 </div>
+                <div id="otDetailBox" class="ot-detail-box"></div>
                 <div class="result-item">
                     <span id="resAllowTitle">አበል (Allowance):</span>
                     <span id="resAllow">+0.00 ብር</span>
@@ -461,9 +484,11 @@
                     <span id="resNetTitle">እጅ ላይ የሚደርስ (Net):</span>
                     <span id="resNet">0.00 ብር</span>
                 </div>
-                <div class="employer-box" id="employerPensionNote">
-                    🏢 የአሠሪው የ11% ጡረታ ድርሻ (ከደመወዝ ሳይቀነስ): 0.00 ብር
+                <div class="employer-box">
+                    <span id="employerPensionNote">🏢 የአሠሪው የ11% ጡረታ ድርሻ (ከደመወዝ ሳይቀነስ): 0.00 ብር</span>
+                    <span id="taxReliefNote" style="color:#078930; font-weight:800;">✨ በአዲሱ የ2,000 ብር ነጻ ጣሪያ (አዋጅ 1395/2017) መሠረት የተሰላ</span>
                 </div>
+                <button type="button" class="copy-summary-btn" id="btnCopySummary" onclick="copySummary()">📋 የውጤት ማጠቃለያ ኮፒ አድርግ</button>
             </div>
 
             <div class="btn-row">
@@ -498,9 +523,29 @@
             </p>
         </div>
 
-        <!-- Settings, About & Legal Info Card -->
+        <!-- Detailed App Explanation & Guide Card -->
+        <div class="card" id="guideCard">
+            <h3 class="card-title" id="guideHeader">📘 ስለ አፑ ዝርዝር ማብራሪያ እና የአጠቃቀም መመሪያ</h3>
+
+            <div class="guide-box">
+                <h4 id="guide1Title">1. አፑ እንዴት ይሠራል?</h4>
+                <p id="guide1Text">መሠረታዊ ደመወዝዎን፣ የተሠሩ የኦቨርታይም (OT) ሰዓቶችን እና አበልዎን ሲያስገቡ አፑ መጀመሪያ የ1 ሰዓት መደበኛ ክፍያዎን ያሰላል። ከዚያ በአዋጅ 1395/2017 መሠረት ግብር የሚከፈልበትን ገቢ (Taxable Income) ለይቶ የገቢ ግብርን፣ ከመሠረታዊ ደመወዝ ላይ 7% የሠራተኛ ጡረታን በመቀነስ እጅ የሚደርሰውን (Net) ደመወዝ ያወጣል።</p>
+            </div>
+
+            <div class="guide-box">
+                <h4 id="guide2Title">2. የወርሃዊ የሥራ ሰዓት (208 / 176 / 240) ምርጫ</h4>
+                <p id="guide2Text">በሳምንት 6 ቀን (ሰኞ-ቅዳሜ) ለሚሠሩ ድርጅቶች 26 ቀን (208 ሰዓት)፣ በሳምንት 5 ቀን (ሰኞ-አርብ) ለሚሠሩ (እንደ አብዛኛው የመንግሥት ተቋማትና ቢሮዎች) 22 ቀን (176 ሰዓት)፣ ወይም በ30 ቀን (240 ሰዓት) መሠረት የሚያሰሉ ድርጅቶች ተገቢውን አማራጭ መምረጥ ይችላሉ።</p>
+            </div>
+
+            <div class="guide-box">
+                <h4 id="guide3Title">3. የኦቨርታይም (OT) ብዜቶች እና ጡረታ (7% / 11%)</h4>
+                <p id="guide3Text">የኦቨርታይም ብዜቶች፡ 1.5x (ምሽት እስከ 4 ሰዓት)፣ 1.75x (ከምሽት 4 እስከ ንጋት 12)፣ 2.0x (ሳምንታዊ የእረፍት ቀን) እና 2.5x (የሕዝብ በዓል) ናቸው። የ7% ጡረታ ከመሠረታዊ ደመወዝ ሲቀነስ፣ የ11% የአሠሪ ድርሻ ለመረጃ ያህል ለየብቻ ይታያል።</p>
+            </div>
+        </div>
+
+        <!-- Settings Card -->
         <div class="card policy-section" id="settingsCard">
-            <h3 class="card-title" id="settingsHeader">⚙️ ቅንብሮች፣ የአፑ መረጃ እና ሕግ</h3>
+            <h3 class="card-title" id="settingsHeader">⚙️ ቅንብሮች (App Settings)</h3>
 
             <div class="setting-item">
                 <div>
@@ -513,6 +558,17 @@
                     <option value="ti">ትግርኛ</option>
                     <option value="so">Soomaali</option>
                     <option value="en">English</option>
+                </select>
+            </div>
+
+            <div class="setting-item">
+                <div>
+                    <span class="setting-title" id="setOtDetailTitle">📑 የOT ዝርዝር ማሳያ (OT Breakdown)</span>
+                    <span class="setting-desc" id="setOtDetailDesc">እያንዳንዱ የOT ሰዓት ስንት ብር እንደወጣ በውጤቱ ስር አሳይ</span>
+                </div>
+                <select id="otDetailMode" style="width: auto; padding: 0.45rem 0.65rem; font-size: 0.85rem;" onchange="onPreferenceChanged()">
+                    <option value="show" id="optShowDetail">አሳይ (Show)</option>
+                    <option value="hide" id="optHideDetail">ደብቅ (Compact)</option>
                 </select>
             </div>
 
@@ -531,15 +587,6 @@
                 </div>
                 <button class="reset-btn" style="flex:none; width:auto;" id="btnSettingsReset" onclick="resetAllPreferences()">Reset</button>
             </div>
-            
-            <h4 id="aboutTitle">1. ስለ Ethio Salary Pro (About Us)</h4>
-            <p id="aboutText">Ethio Salary Pro ለመንግሥት እና ለግል ድርጅት ሠራተኞች የተዘጋጀ ነጻ የዲጂታል ማስያ ሲሆን በአዲሱ የገቢ ግብር ማሻሻያ አዋጅ (1395/2017)፣ በሠራተኛ ሕግ እና በጡረታ መዋጮ መሠረት የተጣራ ደመወዝን፣ ታክስን፣ 7% ጡረታን እና የኦቨርታይም (OT) ክፍያን ያሰላል። ይህ መተግበሪያ የመንግሥት ወይም የገቢዎች ሚኒስቴር ይፋዊ አፕ አይደለም።</p>
-
-            <h4 id="privacyTitle">2. የግላዊነት ፖሊሲ (Privacy Policy)</h4>
-            <p id="privacyText">የእርስዎ የግል መረጃ እና የደመወዝ ቁጥሮች በስልክዎ ብሮውዘር ላይ ብቻ የሚሰሉ ሲሆኑ ወደ ማንኛውም ውጫዊ ሰርቨር አይላኩም ወይም አይቀመጡም። ይህ ድረ-ገጽ አገልግሎቱን በነጻ ለማቅረብ የሦስተኛ ወገን ማስታወቂያዎችን (እንደ Google AdSense) ሊጠቀም ይችላል።</p>
-
-            <h4 id="disclaimerTitle">3. ማሳሰቢያ (Disclaimer)</h4>
-            <p id="disclaimerText">ይህ ማስያ ለመረጃ እና ለግምት አገልግሎት የተዘጋጀ ነው። ልዩ የድርጅት ወይም የተቋም የሕብረት ስምምነቶች፣ የመስክ/ትራንስፖርት አበል ደንቦች ወይም ልዩ የታክስ ቅናሾች ካሉ የድርጅትዎን የፋይናንስ/HR ክፍል ማረጋገጥ ይመከራል።</p>
         </div>
 
         <!-- Feedback Card -->
@@ -563,13 +610,29 @@
                 <button type="submit" class="action-btn" id="btnSubmit">ሐሳብዎን ይላኩ</button>
             </form>
         </div>
+
+        <!-- Privacy Policy, About & Legal Info Card -->
+        <div class="card policy-section" id="policyCard">
+            <h3 class="card-title" id="policyHeader">📜 ስለ አፑ፣ የግላዊነት ፖሊሲ እና ሕጋዊ መረጃ</h3>
+            
+            <h4 id="aboutTitle">1. ስለ Ethio Salary Pro (About Us)</h4>
+            <p id="aboutText">Ethio Salary Pro ለመንግሥት እና ለግል ድርጅት ሠራተኞች የተዘጋጀ ነጻ የዲጂታል ማስያ ሲሆን በአዲሱ የገቢ ግብር ማሻሻያ አዋጅ (1395/2017)፣ በሠራተኛ ሕግ እና በጡረታ መዋጮ መሠረት የተጣራ ደመወዝን፣ ታክስን፣ 7% ጡረታን እና የኦቨርታይም (OT) ክፍያን ያሰላል። ይህ መተግበሪያ የመንግሥት ወይም የገቢዎች ሚኒስቴር ይፋዊ አፕ አይደለም።</p>
+
+            <h4 id="privacyTitle">2. የግላዊነት ፖሊሲ (Privacy Policy)</h4>
+            <p id="privacyText">የእርስዎ የግል መረጃ እና የደመወዝ ቁጥሮች በስልክዎ ብሮውዘር ላይ ብቻ የሚሰሉ ሲሆኑ ወደ ማንኛውም ውጫዊ ሰርቨር አይላኩም ወይም አይቀመጡም። ይህ ድረ-ገጽ አገልግሎቱን በነጻ ለማቅረብ የሦስተኛ ወገን ማስታወቂያዎችን (እንደ Google AdSense) ሊጠቀም ይችላል።</p>
+
+            <h4 id="disclaimerTitle">3. ማሳሰቢያ (Disclaimer)</h4>
+            <p id="disclaimerText">ይህ ማስያ ለመረጃ እና ለግምት አገልግሎት የተዘጋጀ ነው። ልዩ የድርጅት ወይም የተቋም የሕብረት ስምምነቶች፣ የመስክ/ትራንስፖርት አበል ደንቦች ወይም ልዩ የታክስ ቅናሾች ካሉ የድርጅትዎን የፋይናንስ/HR ክፍል ማረጋገጥ ይመከራል።</p>
+        </div>
     </main>
 
     <footer>
-        <p>&copy; 2026 Ethio Salary Pro. All rights reserved. | <a onclick="switchTab('settings')">Settings & Privacy</a></p>
+        <p>&copy; 2026 Ethio Salary Pro. All rights reserved. | <a onclick="switchTab('policy')">Privacy Policy & Terms</a></p>
     </footer>
 
     <script>
+        let lastSummaryText = '';
+
         function hideSplash() {
             const splash = document.getElementById('appSplash');
             if (splash && !splash.classList.contains('hidden')) {
@@ -611,8 +674,22 @@
         }
 
         function switchTab(tab) {
-            const cards = { calc: 'calcCard', brackets: 'bracketsCard', settings: 'settingsCard', feedback: 'feedbackCard' };
-            const btns = { calc: 'btnTabCalc', brackets: 'btnTabBrackets', settings: 'btnTabSettings', feedback: 'btnTabFeedback' };
+            const cards = {
+                calc: 'calcCard',
+                brackets: 'bracketsCard',
+                guide: 'guideCard',
+                settings: 'settingsCard',
+                feedback: 'feedbackCard',
+                policy: 'policyCard'
+            };
+            const btns = {
+                calc: 'btnTabCalc',
+                brackets: 'btnTabBrackets',
+                guide: 'btnTabGuide',
+                settings: 'btnTabSettings',
+                feedback: 'btnTabFeedback',
+                policy: 'btnTabPolicy'
+            };
             Object.keys(cards).forEach(k => {
                 document.getElementById(cards[k]).classList.toggle('active', k === tab);
                 document.getElementById(btns[k]).classList.toggle('active', k === tab);
@@ -636,11 +713,18 @@
             }
         }
 
+        function onPreferenceChanged() {
+            if (document.getElementById('resultCard').style.display === 'block') {
+                calculateAll(false);
+            }
+        }
+
         function resetAllPreferences() {
             localStorage.removeItem('ethio_salary_lang');
             document.getElementById('sectorType').value = 'private';
             document.getElementById('monthlyHours').value = '208';
             document.getElementById('allowanceType').value = 'exempt';
+            document.getElementById('otDetailMode').value = 'show';
             resetForm();
             const lang = document.getElementById('langSelect').value;
             alert(lang === 'en' ? 'Settings and form reset.' : 'ቅንብሮች እና ቅጹ ዳግም ተጀምረዋል።');
@@ -679,6 +763,18 @@
 
         function closeInstallBanner() {
             document.getElementById('installPopup').style.display = 'none';
+        }
+
+        function copySummary() {
+            const lang = document.getElementById('langSelect').value;
+            if (!lastSummaryText) return;
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(lastSummaryText).then(() => {
+                    alert(lang === 'en' ? 'Summary copied!' : 'የውጤት ማጠቃለያው ኮፒ ተደርጓል!');
+                }).catch(() => {
+                    alert(lang === 'en' ? 'Copy ready.' : 'ኮፒ ተዘጋጅቷል።');
+                });
+            }
         }
 
         function shareApp() {
@@ -728,6 +824,7 @@
             document.getElementById('ot4').value = '';
             document.getElementById('transport').value = '';
             document.getElementById('resultCard').style.display = 'none';
+            lastSummaryText = '';
         }
 
         function calculateAll(showAlert = true) {
@@ -739,6 +836,7 @@
             const h4 = Math.max(0, parseFloat(document.getElementById('ot4').value) || 0);
             const allowance = Math.max(0, parseFloat(document.getElementById('transport').value) || 0);
             const allowanceType = document.getElementById('allowanceType').value;
+            const detailMode = document.getElementById('otDetailMode').value;
             const lang = document.getElementById('langSelect').value;
 
             if (basic <= 0) {
@@ -757,12 +855,16 @@
 
             // 1. Hourly rate & OT Payment
             const hourlyRate = basic / monthlyHours;
-            const otPayment = (hourlyRate * 1.5 * h1) + (hourlyRate * 1.75 * h2) + (hourlyRate * 2.0 * h3) + (hourlyRate * 2.5 * h4);
+            const ot1Pay = hourlyRate * 1.5 * h1;
+            const ot2Pay = hourlyRate * 1.75 * h2;
+            const ot3Pay = hourlyRate * 2.0 * h3;
+            const ot4Pay = hourlyRate * 2.5 * h4;
+            const otPayment = ot1Pay + ot2Pay + ot3Pay + ot4Pay;
             
             // 2. Gross Salary
             const grossSalary = basic + otPayment + allowance;
 
-            // 3. Taxable Income (Basic + OT + Taxable Allowance if applicable)
+            // 3. Taxable Income
             const taxableAllowance = (allowanceType === 'taxable') ? allowance : 0;
             const taxableIncome = basic + otPayment + taxableAllowance;
 
@@ -822,6 +924,28 @@
                 en: `🏢 Employer 11% Pension Share (Not deducted from pay): ${formatMoney(employerPension)}${currencyUnit}`
             };
 
+            const reliefLabels = {
+                am: `✨ በአዲሱ የ2,000 ብር ነጻ ጣሪያ (አዋጅ 1395/2017) መሠረት የተሰላ`,
+                om: `✨ Bu'uura kaffaltii bilisaa Birr 2,000 (Labsii 1395/2025) tiin kan shallagame`,
+                ti: `✨ ብሓዲሽ ናጻ 2,000 ቅርሺ (ኣዋጅ 1395/2017) መሰረት ዝተሰላሕ`,
+                so: `✨ Waxaa lagu xisaabiyay Xeerka 1395/2025 (2,000 ETB canshuur la'aan)`,
+                en: `✨ Calculated under Proc. 1395/2025 (0% up to 2,000 ETB)`
+            };
+
+            const detailBox = document.getElementById('otDetailBox');
+            if (detailMode === 'show' && otPayment > 0) {
+                detailBox.style.display = 'block';
+                detailBox.innerHTML = `
+                    <div class="ot-detail-line"><span>1.5x (${h1}h):</span><strong>${formatMoney(ot1Pay)}${currencyUnit}</strong></div>
+                    <div class="ot-detail-line"><span>1.75x (${h2}h):</span><strong>${formatMoney(ot2Pay)}${currencyUnit}</strong></div>
+                    <div class="ot-detail-line"><span>2.0x (${h3}h):</span><strong>${formatMoney(ot3Pay)}${currencyUnit}</strong></div>
+                    <div class="ot-detail-line"><span>2.5x (${h4}h):</span><strong>${formatMoney(ot4Pay)}${currencyUnit}</strong></div>
+                `;
+            } else {
+                detailBox.style.display = 'none';
+                detailBox.innerHTML = '';
+            }
+
             document.getElementById('resultCard').style.display = 'block';
             document.getElementById('hourlyRateInfo').innerText = rateLabels[lang] || rateLabels.am;
             document.getElementById('taxBracketInfo').innerText = bracketLabels[lang] || bracketLabels.am;
@@ -833,6 +957,18 @@
             document.getElementById('resPension').innerText = '-' + formatMoney(pension) + currencyUnit;
             document.getElementById('resNet').innerText = formatMoney(netSalary) + currencyUnit;
             document.getElementById('employerPensionNote').innerText = employerLabels[lang] || employerLabels.am;
+            document.getElementById('taxReliefNote').innerText = reliefLabels[lang] || reliefLabels.am;
+
+            lastSummaryText = [
+                `Ethio Salary Pro (2026 - Proc. 1395/2017)`,
+                `Basic: ${formatMoney(basic)}${currencyUnit}`,
+                `OT: +${formatMoney(otPayment)}${currencyUnit}`,
+                `Allowance: +${formatMoney(allowance)}${currencyUnit}`,
+                `Gross: ${formatMoney(grossSalary)}${currencyUnit}`,
+                `Tax (${taxRateText}): -${formatMoney(tax)}${currencyUnit}`,
+                `Pension (7%): -${formatMoney(pension)}${currencyUnit}`,
+                `Net: ${formatMoney(netSalary)}${currencyUnit}`
+            ].join('\n');
         }
 
         function changeLanguage(userInitiated = false) {
@@ -874,6 +1010,7 @@
                 document.getElementById('optExempt').innerText = "Tax-Free (Exempt)";
                 document.getElementById('optTaxable').innerText = "Taxable Allowance";
                 document.getElementById('btnCalculate').innerText = "Calculate Net Salary & OT";
+                document.getElementById('btnCopySummary').innerText = "📋 Copy Result Summary";
                 document.getElementById('btnReset').innerText = "🔄 Clear";
                 document.getElementById('btnShare').innerText = "📤 Share App";
                 document.getElementById('adTitleText').innerText = "💡 Ethio Salary Pro - 2026";
@@ -884,9 +1021,20 @@
                 document.getElementById('thRate').innerText = "Rate";
                 document.getElementById('thDed').innerText = "Deduction";
                 document.getElementById('bracketsNote').innerText = "💡 Note: Employee 7% pension contribution is calculated on Basic Salary only.";
-                document.getElementById('settingsHeader').innerText = "⚙️ Settings, App Info & Policy";
+                document.getElementById('guideHeader').innerText = "📘 Detailed Explanation & Usage Guide";
+                document.getElementById('guide1Title').innerText = "1. How the Calculator Works";
+                document.getElementById('guide1Text').innerText = "Enter your basic salary, overtime hours, and allowance. The app computes your hourly rate, overtime pay, taxable income under Proclamation 1395/2025, 7% employee pension on basic salary, and net take-home pay.";
+                document.getElementById('guide2Title').innerText = "2. Monthly Working Hours (208 / 176 / 240)";
+                document.getElementById('guide2Text').innerText = "Choose 208 hours (26 days, Mon–Sat), 176 hours (22 days, Mon–Fri, common in civil service and offices), or 240 hours (30 days) according to your workplace schedule.";
+                document.getElementById('guide3Title').innerText = "3. Overtime Multipliers & Pension (7% / 11%)";
+                document.getElementById('guide3Text').innerText = "Overtime multipliers are 1.5x (evening up to 10 PM), 1.75x (night 10 PM–6 AM), 2.0x (weekly rest day), and 2.5x (public holiday). Employee pension is 7% of basic salary; employer share is 11% for reference.";
+                document.getElementById('settingsHeader').innerText = "⚙️ App Settings";
                 document.getElementById('setLangTitle').innerText = "🌐 App Language";
                 document.getElementById('setLangDesc').innerText = "Switch display language anytime";
+                document.getElementById('setOtDetailTitle').innerText = "📑 OT Breakdown Display";
+                document.getElementById('setOtDetailDesc').innerText = "Show individual payout per overtime tier";
+                document.getElementById('optShowDetail').innerText = "Show";
+                document.getElementById('optHideDetail').innerText = "Compact";
                 document.getElementById('setInstallTitle').innerText = "📱 Install App on Phone (PWA)";
                 document.getElementById('setInstallDesc').innerText = "Add to home screen for fast access";
                 document.getElementById('btnSettingsInstall').innerText = "📥 Install";
@@ -903,8 +1051,10 @@
                 document.getElementById('btnSubmit').innerText = "Send Feedback";
                 document.getElementById('btnTabCalc').innerText = "💰 Salary & OT";
                 document.getElementById('btnTabBrackets').innerText = "📊 Tax Table";
+                document.getElementById('btnTabGuide').innerText = "📘 Guide";
                 document.getElementById('btnTabSettings').innerText = "⚙️ Settings";
                 document.getElementById('btnTabFeedback').innerText = "💬 Feedback";
+                document.getElementById('btnTabPolicy').innerText = "📜 Policy";
                 document.getElementById('resBasicTitle').innerText = "Basic Salary:";
                 document.getElementById('resOtTitle').innerText = "Total Overtime Payment:";
                 document.getElementById('resAllowTitle').innerText = "Allowance:";
@@ -915,6 +1065,7 @@
                 bannerTitle.innerText = "📱 Ethio Salary Pro App";
                 bannerDesc.innerText = "Install on your phone for quick access!";
                 installBtn.innerText = "📥 Install";
+                document.getElementById('policyHeader').innerText = "📜 About, Privacy Policy & Legal Notice";
                 document.getElementById('aboutTitle').innerText = "1. About Ethio Salary Pro";
                 document.getElementById('aboutText').innerText = "Ethio Salary Pro is a free calculator for both private and public/civil service employees under Proclamation No. 1395/2025, labor rules, and pension contributions. This app is not an official government or tax authority application.";
                 document.getElementById('privacyTitle').innerText = "2. Privacy Policy";
@@ -942,6 +1093,7 @@
                 document.getElementById('optExempt').innerText = "Gibira Irraa Bilisa";
                 document.getElementById('optTaxable').innerText = "Gibira Kan Kaffalu";
                 document.getElementById('btnCalculate').innerText = "Mindaa Qulqulluu Shallugi";
+                document.getElementById('btnCopySummary').innerText = "📋 Cuunfaa Bu'aa Garagalchi";
                 document.getElementById('btnReset').innerText = "🔄 Haqi";
                 document.getElementById('btnShare').innerText = "📤 Hiriyootaaf Qoodaa";
                 document.getElementById('adTitleText').innerText = "💡 Ethio Salary Pro - 2026";
@@ -952,9 +1104,20 @@
                 document.getElementById('thRate').innerText = "Dhibbeentaa";
                 document.getElementById('thDed').innerText = "Hir'isa";
                 document.getElementById('bracketsNote').innerText = "💡 Hubachiisa: Buusiin pensiyoonaa 7% mindaa bu'uuraa qofa irraa shallagama.";
-                document.getElementById('settingsHeader').innerText = "⚙️ Qindaa'ina, Odeeffannoo Appii fi Seera";
+                document.getElementById('guideHeader').innerText = "📘 Ibsa Bal'aa fi Qajeelfama Fayyadamaa";
+                document.getElementById('guide1Title').innerText = "1. Appiin Kun Akkamitti Hojjeta?";
+                document.getElementById('guide1Text').innerText = "Mindaa bu'uuraa, sa'aatii OT fi buusii yoo galchitan kaffaltii sa'aatii tokkoo, gibira Labsii 1395/2017, pensiyoonii 7% fi mindaa qulqulluu (Net) ni shallaga.";
+                document.getElementById('guide2Title').innerText = "2. Sa'aatii Hojii Ji'aa (208 / 176 / 240)";
+                document.getElementById('guide2Text').innerText = "Guyyaa 26 (sa'aatii 208), guyyaa 22 (sa'aatii 176 - akka waajjiraalee fi siiviil sarvisii), ykn guyyaa 30 (sa'aatii 240) akka dambii dhaabbata keessaniitti filadhaa.";
+                document.getElementById('guide3Title').innerText = "3. Baay'istuu OT fi Pensiyoonii (7% / 11%)";
+                document.getElementById('guide3Text').innerText = "Baay'istuu OT: 1.5x (hanga halkan sa'aatii 4), 1.75x (halkan 4 - barii 12), 2.0x (guyyaa boqonnaa) fi 2.5x (ayyaana). Pensiyooniin hojjetaa 7% mindaa bu'uuraa irraa yoo hir'atu, qoodni qacaramaa 11% odeeffannoof agarsiifama.";
+                document.getElementById('settingsHeader').innerText = "⚙️ Qindaa'ina Appii";
                 document.getElementById('setLangTitle').innerText = "🌐 Afaan Appii";
                 document.getElementById('setLangDesc').innerText = "Afaan yeroo barbaaddanitti jijjiiraa";
+                document.getElementById('setOtDetailTitle').innerText = "📑 Agarsiisa Bal'ina OT";
+                document.getElementById('setOtDetailDesc').innerText = "Kaffaltii sadarkaa OT adda addaa agarsiisi";
+                document.getElementById('optShowDetail').innerText = "Agarsiisi";
+                document.getElementById('optHideDetail').innerText = "Gabaabsi";
                 document.getElementById('setInstallTitle').innerText = "📱 Appii Bilbila Irratti Fe'uu (PWA)";
                 document.getElementById('setInstallDesc').innerText = "Saffisaaf fuula jalqabaa irratti kaa'adhaa";
                 document.getElementById('btnSettingsInstall').innerText = "📥 Fe'i";
@@ -971,8 +1134,10 @@
                 document.getElementById('btnSubmit').innerText = "Ergi";
                 document.getElementById('btnTabCalc').innerText = "💰 Mindaa & OT";
                 document.getElementById('btnTabBrackets').innerText = "📊 Gabatee";
+                document.getElementById('btnTabGuide').innerText = "📘 Ibsa";
                 document.getElementById('btnTabSettings').innerText = "⚙️ Qindaa'ina";
                 document.getElementById('btnTabFeedback').innerText = "💬 Yaada";
+                document.getElementById('btnTabPolicy').innerText = "📜 Seera";
                 document.getElementById('resBasicTitle').innerText = "Mindaa Bu'uuraa:";
                 document.getElementById('resOtTitle').innerText = "Ida'ama Kaffaltii OT:";
                 document.getElementById('resAllowTitle').innerText = "Buusii (Allowance):";
@@ -983,6 +1148,7 @@
                 bannerTitle.innerText = "📱 Appii Ethio Salary Pro";
                 bannerDesc.innerText = "Tajaajila saffisaaf bilbila keessan irratti fe'adhaa!";
                 installBtn.innerText = "📥 Fe'i (Install)";
+                document.getElementById('policyHeader').innerText = "📜 Waa'ee Appii fi Imaammata Dhuunfaa";
                 document.getElementById('aboutTitle').innerText = "1. Waa'ee Ethio Salary Pro";
                 document.getElementById('aboutText').innerText = "Ethio Salary Pro hojjetaa dhuunfaa fi mootummaaf kan qophaa'e yoo ta'u labsii gibiraa fooyya'e (1395/2017) fi buusii pensiyoonaa bu'uura godhata. Appiin kun appii mootummaa ykn abbaa taayitaa gibiraa miti.";
                 document.getElementById('privacyTitle').innerText = "2. Imaammata Dhuunfaa (Privacy Policy)";
@@ -1010,6 +1176,7 @@
                 document.getElementById('optExempt').innerText = "ካብ ግብሪ ነጻ";
                 document.getElementById('optTaxable').innerText = "ግብሪ ዝኽፈሎ";
                 document.getElementById('btnCalculate').innerText = "ንጹህ ዓስቢ እና OT አስላ";
+                document.getElementById('btnCopySummary').innerText = "📋 ጽሟቕ ውጽኢት ቅዳሕ";
                 document.getElementById('btnReset').innerText = "🔄 ኣጽሪ";
                 document.getElementById('btnShare').innerText = "📤 ንመሓዙትኩም ኣካፍሉ";
                 document.getElementById('adTitleText').innerText = "💡 Ethio Salary Pro - 2026";
@@ -1020,9 +1187,20 @@
                 document.getElementById('thRate').innerText = "ሚእታዊት";
                 document.getElementById('thDed').innerText = "ተቀናሽ";
                 document.getElementById('bracketsNote').innerText = "💡 መተሓሳሰቢ፡ ናይ ሰራሕተኛ 7% ጡረታ ዝስላሕ ካብ መሰረታዊ ዓስቢ ጥራይ እዩ።";
-                document.getElementById('settingsHeader').innerText = "⚙️ ምትዕርራይ፣ ሓበሬታ ኣፕን ሕግን";
+                document.getElementById('guideHeader').innerText = "📘 ዝርዝር መብርሂ እና መምርሒ ኣጠቃቀማ";
+                document.getElementById('guide1Title').innerText = "1. እዚ መለኪዒ ብኸመይ ይሰርሕ?";
+                document.getElementById('guide1Text').innerText = "መሰረታዊ ዓስብኹም፣ ሰዓታት ኦቨርታይምን ክፍያታትን ምስ ኣእተኹም ናይ 1 ሰዓት ክፍያ፣ ግብሪ ኣዋጅ 1395/2017፣ 7% ጡረታን ንጹህ ዓስብን የውጽእ።";
+                document.getElementById('guide2Title').innerText = "2. ወርሓዊ ሰዓታት ስራሕ (208 / 176 / 240)";
+                document.getElementById('guide2Text').innerText = "ከም ሕጊ ትካልኩም 208 ሰዓት (26 መዓልቲ)፣ 176 ሰዓት (22 መዓልቲ) ወይ 240 ሰዓት (30 መዓልቲ) ምረጹ።";
+                document.getElementById('guide3Title').innerText = "3. መበራትሒ OT እና ጡረታ (7% / 11%)";
+                document.getElementById('guide3Text').innerText = "መበራትሒ OT 1.5x፣ 1.75x፣ 2.0xን 2.5xን እዮም። 7% ጡረታ ሰራሕተኛ ካብ መሰረታዊ ዓስቢ ዝቅነስ እንትኾን ናይ ኣስራሒ 11% ንሓበሬታ ይርአ።";
+                document.getElementById('settingsHeader').innerText = "⚙️ ምትዕርራይ ኣፕ";
                 document.getElementById('setLangTitle').innerText = "🌐 ቋንቋ ኣፕ";
                 document.getElementById('setLangDesc').innerText = "ኣብ ዝኾነ እዋን ቋንቋ ይቀያይሩ";
+                document.getElementById('setOtDetailTitle').innerText = "📑 ዝርዝር ኣርኣያ OT";
+                document.getElementById('setOtDetailDesc').innerText = "ክፍያ ነፍሲ ወከፍ ብርኪ OT ኣርኢ";
+                document.getElementById('optShowDetail').innerText = "ኣርኢ";
+                document.getElementById('optHideDetail').innerText = "ሓጺር";
                 document.getElementById('setInstallTitle').innerText = "📱 ኣፕ ኣብ ስልኪ ምጽዓን (PWA)";
                 document.getElementById('setInstallDesc').innerText = "ቅልጡፍ ኣገልግሎት ንምርካብ ኣብ ስክሪን ኣቐምጡ";
                 document.getElementById('btnSettingsInstall').innerText = "📥 ጽዓን";
@@ -1039,8 +1217,10 @@
                 document.getElementById('btnSubmit').innerText = "መልእኽቲ ሰዶ";
                 document.getElementById('btnTabCalc').innerText = "💰 ዓስቢ & OT";
                 document.getElementById('btnTabBrackets').innerText = "📊 ብርኪ ግብሪ";
+                document.getElementById('btnTabGuide').innerText = "📘 መብርሂ";
                 document.getElementById('btnTabSettings').innerText = "⚙️ ቅንብሮች";
                 document.getElementById('btnTabFeedback').innerText = "💬 ሐሳብ";
+                document.getElementById('btnTabPolicy').innerText = "📜 ሕጊ";
                 document.getElementById('resBasicTitle').innerText = "መሰረታዊ ዓስቢ:";
                 document.getElementById('resOtTitle').innerText = "ጠቅላላ ክፍያ ኦቨርታይም:";
                 document.getElementById('resAllowTitle').innerText = "ተወሳኺ ክፍያ:";
@@ -1051,6 +1231,7 @@
                 bannerTitle.innerText = "📱 ኣፕሊኬሽን Ethio Salary Pro";
                 bannerDesc.innerText = "ቅልጡፍ ኣገልግሎት ንምርካብ ኣብ ስልኪኹም ሓርሙዎ!";
                 installBtn.innerText = "📥 ኣእቱ (Install)";
+                document.getElementById('policyHeader').innerText = "📜 ብዛዕባ እቲ ኣፕን ፖሊሲ ግላውነትን";
                 document.getElementById('aboutTitle').innerText = "1. ብዛዕባ Ethio Salary Pro";
                 document.getElementById('aboutText').innerText = "Ethio Salary Pro ንብሕትን መንግስትን ሰራሕተኛታት ዝተዳለወ ኮይኑ ብሓዲሽ ኣዋጅ ግብሪ 1395/2017ን ሕጊ ጡረታን ይስራሕ። እዚ ኣፕ ወግዓዊ ናይ መንግስቲ ወይ ናይ ግብሪ ኣፕ ኣይኮነን።";
                 document.getElementById('privacyTitle').innerText = "2. ፖሊሲ ግላውነት (Privacy Policy)";
@@ -1078,6 +1259,7 @@
                 document.getElementById('optExempt').innerText = "Canshuur La'aan";
                 document.getElementById('optTaxable').innerText = "Canshuur Leh";
                 document.getElementById('btnCalculate').innerText = "Xisaabi Mushaharka Saafi ah";
+                document.getElementById('btnCopySummary').innerText = "📋 Koobi Garay Natiijada";
                 document.getElementById('btnReset').innerText = "🔄 Tirtir";
                 document.getElementById('btnShare').innerText = "📤 La wadaag Saaxiibadaa";
                 document.getElementById('adTitleText').innerText = "💡 Ethio Salary Pro - 2026";
@@ -1088,9 +1270,20 @@
                 document.getElementById('thRate').innerText = "Boqolkiiba";
                 document.getElementById('thDed').innerText = "Dhimista";
                 document.getElementById('bracketsNote').innerText = "💡 Ogeysiis: Qeybta howlgabka ee 7% waxaa laga xisaabiyaa mushaharka aasaasiga ah oo kaliya.";
-                document.getElementById('settingsHeader').innerText = "⚙️ Dejinta, Macluumaadka App-ka iyo Xeerka";
+                document.getElementById('guideHeader').innerText = "📘 Sharaxaad Faahfaahsan iyo Hagaha Isticmaalka";
+                document.getElementById('guide1Title').innerText = "1. Sidee ayuu Xisaabiyuhu u Shaqeeyaa?";
+                document.getElementById('guide1Text').innerText = "Geli mushaharka aasaasiga ah, saacadaha OT iyo gunnada si aad u hesho qiimaha saacadda, canshuurta Xeerka 1395/2025, howlgabka 7% iyo mushaharka saafi ah.";
+                document.getElementById('guide2Title').innerText = "2. Saacadaha Shaqada Bisha (208 / 176 / 240)";
+                document.getElementById('guide2Text').innerText = "Dooro 208 saacadood (26 maalmood), 176 saacadood (22 maalmood), ama 240 saacadood (30 maalmood) sida waafaqsan shaqadaada.";
+                document.getElementById('guide3Title').innerText = "3. Dhufteyaasha OT iyo Howlgabka (7% / 11%)";
+                document.getElementById('guide3Text').innerText = "Dhufteyaasha OT waa 1.5x, 1.75x, 2.0x iyo 2.5x. Howlgabka shaqaaluhu waa 7% mushaharka aasaasiga ah; 11% loo-shaqeeyaha waxaa loo muujiyaa macluumaad.";
+                document.getElementById('settingsHeader').innerText = "⚙️ Dejinta App-ka";
                 document.getElementById('setLangTitle').innerText = "🌐 Luqadda App-ka";
                 document.getElementById('setLangDesc').innerText = "Beddel luqadda wakhti kasta";
+                document.getElementById('setOtDetailTitle').innerText = "📑 Faahfaahinta OT";
+                document.getElementById('setOtDetailDesc').innerText = "Muuji lacagta heer kasta oo OT ah";
+                document.getElementById('optShowDetail').innerText = "Muuji";
+                document.getElementById('optHideDetail').innerText = "Kooban";
                 document.getElementById('setInstallTitle').innerText = "📱 Ku rakib Teleefanka (PWA)";
                 document.getElementById('setInstallDesc').innerText = "Ku dar shaashadda hore si aad si degdeg ah u gasho";
                 document.getElementById('btnSettingsInstall').innerText = "📥 Rakib";
@@ -1107,8 +1300,10 @@
                 document.getElementById('btnSubmit').innerText = "Dir Fariinta";
                 document.getElementById('btnTabCalc').innerText = "💰 Mushahar & OT";
                 document.getElementById('btnTabBrackets').innerText = "📊 Shaxda";
+                document.getElementById('btnTabGuide').innerText = "📘 Hagaha";
                 document.getElementById('btnTabSettings').innerText = "⚙️ Dejinta";
                 document.getElementById('btnTabFeedback').innerText = "💬 Talo";
+                document.getElementById('btnTabPolicy').innerText = "📜 Xeerka";
                 document.getElementById('resBasicTitle').innerText = "Mushaharka Aasaasiga ah:";
                 document.getElementById('resOtTitle').innerText = "Wadarta Lacagta OT:";
                 document.getElementById('resAllowTitle').innerText = "Guno (Allowance):";
@@ -1119,6 +1314,7 @@
                 bannerTitle.innerText = "📱 App-ka Ethio Salary Pro";
                 bannerDesc.innerText = "Ku rakib taleefankaaga adeeg degdeg ah!";
                 installBtn.innerText = "📥 Ku rakib";
+                document.getElementById('policyHeader').innerText = "📜 Ku saabsan App-ka iyo Xeerka Asturnaanta";
                 document.getElementById('aboutTitle').innerText = "1. Ku saabsan Ethio Salary Pro";
                 document.getElementById('aboutText').innerText = "Ethio Salary Pro waxaa loo sameeyay shaqaalaha gaarka iyo dawladda iyadoo la raacayo Xeerka Canshuurta 1395/2025 iyo howlgabka. Kani maaha app rasmi ah oo dawladeed.";
                 document.getElementById('privacyTitle').innerText = "2. Xeerka Asturnaanta (Privacy Policy)";
@@ -1146,6 +1342,7 @@
                 document.getElementById('optExempt').innerText = "ከግብር ነጻ (Tax-Free)";
                 document.getElementById('optTaxable').innerText = "ግብር የሚከፈልበት (Taxable)";
                 document.getElementById('btnCalculate').innerText = "በአዲሱ ሕግ የተጣራ ደመወዝ እና OT አስላ";
+                document.getElementById('btnCopySummary').innerText = "📋 የውጤት ማጠቃለያ ኮፒ አድርግ";
                 document.getElementById('btnReset').innerText = "🔄 አጽዳ";
                 document.getElementById('btnShare').innerText = "📤 ለጓደኞችዎ ሼር ያድርጉ";
                 document.getElementById('adTitleText').innerText = "💡 Ethio Salary Pro - 2026";
@@ -1156,9 +1353,20 @@
                 document.getElementById('thRate').innerText = "መቶኛ";
                 document.getElementById('thDed').innerText = "ተቀናሽ";
                 document.getElementById('bracketsNote').innerText = "💡 ማስታወሻ፡ የሰራተኛው የ7% የጡረታ መዋጮ የሚሰላው ከመሰረታዊ ደመወዝ (Basic Salary) ላይ ብቻ ነው።";
-                document.getElementById('settingsHeader').innerText = "⚙️ ቅንብሮች፣ የአፑ መረጃ እና ሕግ";
+                document.getElementById('guideHeader').innerText = "📘 ስለ አፑ ዝርዝር ማብራሪያ እና የአጠቃቀም መመሪያ";
+                document.getElementById('guide1Title').innerText = "1. አፑ እንዴት ይሠራል?";
+                document.getElementById('guide1Text').innerText = "መሠረታዊ ደመወዝዎን፣ የተሠሩ የኦቨርታይም (OT) ሰዓቶችን እና አበልዎን ሲያስገቡ አፑ መጀመሪያ የ1 ሰዓት መደበኛ ክፍያዎን ያሰላል። ከዚያ በአዋጅ 1395/2017 መሠረት ግብር የሚከፈልበትን ገቢ (Taxable Income) ለይቶ የገቢ ግብርን፣ ከመሠረታዊ ደመወዝ ላይ 7% የሠራተኛ ጡረታን በመቀነስ እጅ የሚደርሰውን (Net) ደመወዝ ያወጣል።";
+                document.getElementById('guide2Title').innerText = "2. የወርሃዊ የሥራ ሰዓት (208 / 176 / 240) ምርጫ";
+                document.getElementById('guide2Text').innerText = "በሳምንት 6 ቀን (ሰኞ-ቅዳሜ) ለሚሠሩ ድርጅቶች 26 ቀን (208 ሰዓት)፣ በሳምንት 5 ቀን (ሰኞ-አርብ) ለሚሠሩ (እንደ አብዛኛው የመንግሥት ተቋማትና ቢሮዎች) 22 ቀን (176 ሰዓት)፣ ወይም በ30 ቀን (240 ሰዓት) መሠረት የሚያሰሉ ድርጅቶች ተገቢውን አማራጭ መምረጥ ይችላሉ።";
+                document.getElementById('guide3Title').innerText = "3. የኦቨርታይም (OT) ብዜቶች እና ጡረታ (7% / 11%)";
+                document.getElementById('guide3Text').innerText = "የኦቨርታይም ብዜቶች፡ 1.5x (ምሽት እስከ 4 ሰዓት)፣ 1.75x (ከምሽት 4 እስከ ንጋት 12)፣ 2.0x (ሳምንታዊ የእረፍት ቀን) እና 2.5x (የሕዝብ በዓል) ናቸው። የ7% ጡረታ ከመሠረታዊ ደመወዝ ሲቀነስ፣ የ11% የአሠሪ ድርሻ ለመረጃ ያህል ለየብቻ ይታያል።";
+                document.getElementById('settingsHeader').innerText = "⚙️ ቅንብሮች (App Settings)";
                 document.getElementById('setLangTitle').innerText = "🌐 ቋንቋ (App Language)";
                 document.getElementById('setLangDesc').innerText = "የአፑን ቋንቋ በማንኛውም ጊዜ ይቀይሩ";
+                document.getElementById('setOtDetailTitle').innerText = "📑 የOT ዝርዝር ማሳያ (OT Breakdown)";
+                document.getElementById('setOtDetailDesc').innerText = "እያንዳንዱ የOT ሰዓት ስንት ብር እንደወጣ በውጤቱ ስር አሳይ";
+                document.getElementById('optShowDetail').innerText = "አሳይ";
+                document.getElementById('optHideDetail').innerText = "ደብቅ";
                 document.getElementById('setInstallTitle').innerText = "📱 አፕን በስልክ ላይ መጫን (PWA)";
                 document.getElementById('setInstallDesc').innerText = "ፈጣን መዳረሻ ለማግኘት በስክሪን ላይ ያስቀምጡ";
                 document.getElementById('btnSettingsInstall').innerText = "📥 ጫን";
@@ -1175,9 +1383,11 @@
                 document.getElementById('btnSubmit').innerText = "ሐሳብዎን ይላኩ";
                 document.getElementById('btnTabCalc').innerText = "💰 ደመወዝ & OT";
                 document.getElementById('btnTabBrackets').innerText = "📊 የግብር እርከን";
+                document.getElementById('btnTabGuide').innerText = "📘 ማብራሪያ";
                 document.getElementById('btnTabSettings').innerText = "⚙️ ቅንብሮች";
                 document.getElementById('btnTabFeedback').innerText = "💬 ሐሳብ";
-                document.getElementById('resBasicTitle').innerText = "መሰረታዊ ደመወዝ:";
+                document.getElementById('btnTabPolicy').innerText = "📜 ሕግ";
+                document.getElementById('resBasicTitle').innerText = "መሰረታዊ ዓስቢ:";
                 document.getElementById('resOtTitle').innerText = "ጠቅላላ የኦቨርታይም ክፍያ:";
                 document.getElementById('resAllowTitle').innerText = "አበል (Allowance):";
                 document.getElementById('resGrossTitle').innerText = "ጠቅላላ ገቢ (Gross):";
@@ -1187,6 +1397,7 @@
                 bannerTitle.innerText = "📱 Ethio Salary Pro አፕሊኬሽን";
                 bannerDesc.innerText = "ፈጣን አገልግሎት ለማግኘት ስልክዎ ላይ ይጫኑት!";
                 installBtn.innerText = "📥 Install";
+                document.getElementById('policyHeader').innerText = "📜 ስለ አፑ፣ የግላዊነት ፖሊሲ እና ሕጋዊ መረጃ";
                 document.getElementById('aboutTitle').innerText = "1. ስለ Ethio Salary Pro (About Us)";
                 document.getElementById('aboutText').innerText = "Ethio Salary Pro ለመንግሥት እና ለግል ድርጅት ሠራተኞች የተዘጋጀ ነጻ የዲጂታል ማስያ ሲሆን በአዲሱ የገቢ ግብር ማሻሻያ አዋጅ (1395/2017)፣ በሠራተኛ ሕግ እና በጡረታ መዋጮ መሠረት የተጣራ ደመወዝን፣ ታክስን፣ 7% ጡረታን እና የኦቨርታይም (OT) ክፍያን ያሰላል። ይህ መተግበሪያ የመንግሥት ወይም የገቢዎች ሚኒስቴር ይፋዊ አፕ አይደለም።";
                 document.getElementById('privacyTitle').innerText = "2. የግላዊነት ፖሊሲ (Privacy Policy)";
