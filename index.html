@@ -211,6 +211,11 @@
         .allowance-row input { flex: 1.2; }
         .allowance-row select { flex: 1; font-size: 0.84rem; font-weight: 700; }
 
+        .org-config-box {
+            background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: 14px;
+            padding: 0.9rem; margin-bottom: 1rem;
+        }
+
         button.action-btn {
             background: linear-gradient(135deg, var(--accent), var(--accent-dark));
             color: white; border: none; padding: 0.92rem 1.4rem; border-radius: 14px;
@@ -342,7 +347,7 @@
     </div>
 
     <div class="top-lang-bar">
-        <span class="brand-mini">🌐 ቋንቋ / Language</span>
+        <span class="brand-mini" id="topLangLabel">🌐 ቋንቋ / Language</span>
         <select class="lang-select" id="langSelect" onchange="changeLanguage(true)">
             <option value="am">🇪🇹 አማርኛ</option>
             <option value="en">🇬🇧 English</option>
@@ -356,39 +361,39 @@
     <header>
         <h1>🇪🇹 Ethio Salary Pro</h1>
         <div class="slogan" id="siteSlogan">One System. Every Ethiopian Employee.</div>
-        <div class="badge" id="siteBadge">🔥 Proclamation 1395/2017 • Pension 7% / 11% / 33% (2026)</div>
+        <div class="badge" id="siteBadge">🔥 አዋጅ 1395/2017 • ጡረታ 7% / 11% / 33% (2026)</div>
     </header>
 
     <main>
         <div class="nav-buttons">
-            <button id="btnTabCalc" class="nav-btn active" onclick="switchTab('calc')">💰 Salary & OT</button>
-            <button id="btnTabPayroll" class="nav-btn" onclick="switchTab('payroll')">🏢 Payroll</button>
-            <button id="btnTabBrackets" class="nav-btn" onclick="switchTab('brackets')">📊 Tax & Pension</button>
-            <button id="btnTabGuide" class="nav-btn" onclick="switchTab('guide')">📘 Guide</button>
-            <button id="btnTabSettings" class="nav-btn" onclick="switchTab('settings')">⚙️ Settings</button>
-            <button id="btnTabFeedback" class="nav-btn" onclick="switchTab('feedback')">💬 Comments</button>
+            <button id="btnTabCalc" class="nav-btn active" onclick="switchTab('calc')">💰 ደመወዝ & OT</button>
+            <button id="btnTabPayroll" class="nav-btn" onclick="switchTab('payroll')">🏢 ደመወዝ ክፍያ</button>
+            <button id="btnTabBrackets" class="nav-btn" onclick="switchTab('brackets')">📊 ግብር & ጡረታ</button>
+            <button id="btnTabGuide" class="nav-btn" onclick="switchTab('guide')">📘 ማብራሪያ</button>
+            <button id="btnTabSettings" class="nav-btn" onclick="switchTab('settings')">⚙️ ቅንብር & ሕግ</button>
+            <button id="btnTabFeedback" class="nav-btn" onclick="switchTab('feedback')">💬 አስተያየት</button>
         </div>
 
         <div class="pro-ad-banner" id="adContainer">
             <div class="ad-title" id="adTitleText">💡 Ethio Salary Pro - 2026</div>
-            <div class="ad-desc" id="adDescText">Private, Civil Service (Teachers & Doctors), Military/Police (33% Employer) & Employer Payroll</div>
+            <div class="ad-desc" id="adDescText">የግል፣ ሲቪል (መምህራንና ዶክተሮች)፣ ወታደርና ፖሊስ (33%) እና የተቋም ደመወዝ ክፍያ</div>
         </div>
 
         <!-- 1. Individual Salary & OT Card -->
         <div class="card active" id="calcCard">
-            <h2 class="card-title" id="calcHeader">📊 Salary & Overtime Calculator</h2>
+            <h2 class="card-title" id="calcHeader">📊 ደመወዝ እና ኦቨርታይም (OT) ማስያ</h2>
 
             <div class="form-group">
-                <label id="lblSector" for="sectorType">🏢 Sector / Pension Category:</label>
+                <label id="lblSector" for="sectorType">🏢 የዘርፍ / የጡረታ ዓይነት:</label>
                 <select id="sectorType" onchange="onSectorChange()">
-                    <option value="private" id="optPrivate">Private Organization (7% Employee / 11% Employer)</option>
-                    <option value="civil" id="optCivil">Civil Service: Gov, Teachers & Doctors (7% Employee / 11% Gov)</option>
-                    <option value="uniformed" id="optUniformed">Military & Police Service (7% Member / 33% Gov)</option>
+                    <option value="private" id="optPrivate">የግል ድርጅት (7% ሠራተኛ / 11% አሠሪ)</option>
+                    <option value="civil" id="optCivil">ሲቪል ሰርቪስ: መንግሥት፣ መምህራን እና ዶክተሮች (7% / 11%)</option>
+                    <option value="uniformed" id="optUniformed">ወታደራዊ እና ፖሊስ አገልግሎት (7% አባል / 33% መንግሥት)</option>
                 </select>
             </div>
 
             <div class="form-group">
-                <label id="lblBasic" for="basicSalary">Basic Salary:</label>
+                <label id="lblBasic" for="basicSalary">መሠረታዊ ደመወዝ (በብር):</label>
                 <input type="number" id="basicSalary" placeholder="0" min="0" step="any" inputmode="decimal">
                 <div class="preset-row">
                     <button type="button" class="preset-chip" onclick="applyBasicPreset(10000)">10,000</button>
@@ -399,151 +404,168 @@
             </div>
 
             <div class="ot-highlight-box">
-                <label id="lblWorkHours" for="monthlyHours">⚡ Monthly Working Hours (OT Base):</label>
+                <label id="lblWorkHours" for="monthlyHours">⚡ ወርሃዊ የሥራ ሰዓት (የOT መሠረት):</label>
                 <select id="monthlyHours">
-                    <option value="208" id="opt208">26 Working Days / 208 Hours (Mon - Sat)</option>
-                    <option value="176" id="opt176">22 Working Days / 176 Hours (Mon - Fri)</option>
-                    <option value="240" id="opt240">30 Days / 240 Hours (Standard Monthly)</option>
+                    <option value="208" id="opt208">26 የሥራ ቀናት / 208 ሰዓት (ሰኞ - ቅዳሜ)</option>
+                    <option value="176" id="opt176">22 የሥራ ቀናት / 176 ሰዓት (ሰኞ - አርብ)</option>
+                    <option value="240" id="opt240">30 ቀናት / 240 ሰዓት (ወርሃዊ)</option>
                 </select>
-                <span id="lblOtHint" class="ot-hint-text">💡 Select your workplace working schedule</span>
+                <span id="lblOtHint" class="ot-hint-text">💡 የመሥሪያ ቤትዎን የሥራ ቀናት መርሃ ግብር ይምረጡ</span>
             </div>
 
             <div class="form-group">
-                <label id="lblOt1" for="ot1">1. Evening Overtime up to 10:00 PM (1.5x):</label>
+                <label id="lblOt1" for="ot1">1. ከመደበኛ ሰዓት በኋላ እስከ ምሽት 4 ሰዓት (1.5x):</label>
                 <input type="number" id="ot1" placeholder="0" min="0" step="any" inputmode="decimal">
             </div>
 
             <div class="form-group">
-                <label id="lblOt2" for="ot2">2. Night Overtime 10:00 PM to 6:00 AM (1.75x):</label>
+                <label id="lblOt2" for="ot2">2. ምሽት 4 እስከ ንጋት 12 ሰዓት (1.75x):</label>
                 <input type="number" id="ot2" placeholder="0" min="0" step="any" inputmode="decimal">
             </div>
 
             <div class="form-group">
-                <label id="lblOt3" for="ot3">3. Weekly Rest Day Overtime (2.0x):</label>
+                <label id="lblOt3" for="ot3">3. ሳምንታዊ የእረፍት ቀን (2.0x):</label>
                 <input type="number" id="ot3" placeholder="0" min="0" step="any" inputmode="decimal">
             </div>
 
             <div class="form-group">
-                <label id="lblOt4" for="ot4">4. Public Holiday Overtime (2.5x):</label>
+                <label id="lblOt4" for="ot4">4. የሕዝብ በዓል (2.5x):</label>
                 <input type="number" id="ot4" placeholder="0" min="0" step="any" inputmode="decimal">
             </div>
 
             <div class="form-group">
-                <label id="lblTransport" for="transport">Transport / Duty / Other Allowance:</label>
+                <label id="lblTransport" for="transport">ትራንስፖርት / Duty / ሌላ አበል:</label>
                 <div class="allowance-row">
                     <input type="number" id="transport" placeholder="0" min="0" step="any" inputmode="decimal">
                     <select id="allowanceType">
-                        <option value="exempt" id="optExempt">Tax-Free (Exempt)</option>
-                        <option value="taxable" id="optTaxable">Taxable Allowance</option>
+                        <option value="exempt" id="optExempt">ከግብር ነጻ (Tax-Free)</option>
+                        <option value="taxable" id="optTaxable">ግብር የሚከፈልበት (Taxable)</option>
                     </select>
                 </div>
             </div>
 
-            <button onclick="calculateAll(true)" class="action-btn" id="btnCalculate">Calculate Net Salary & OT</button>
+            <button onclick="calculateAll(true)" class="action-btn" id="btnCalculate">የተጣራ ደመወዝ እና OT አስላ</button>
 
             <div id="resultCard" class="result-box" style="display:none;">
                 <div class="rate-note">
-                    <span id="hourlyRateInfo">⏱️ Regular Hourly Rate: 0.00</span>
-                    <span id="taxBracketInfo">📋 Tax Bracket (Proc. 1395/2017): 0%</span>
+                    <span id="hourlyRateInfo">⏱️ የ1 ሰዓት ዋጋ: 0.00</span>
+                    <span id="taxBracketInfo">📋 የግብር እርከን (አዋጅ 1395/2017): 0%</span>
                 </div>
                 <div class="result-item">
-                    <span id="resBasicTitle">Basic Salary:</span>
+                    <span id="resBasicTitle">መሠረታዊ ደመወዝ:</span>
                     <span id="resBasic">0.00</span>
                 </div>
                 <div class="result-item">
-                    <span id="resOtTitle">Total Overtime Payment:</span>
+                    <span id="resOtTitle">ጠቅላላ የኦቨርታይም (OT) ክፍያ:</span>
                     <span id="resOt" style="color:#d32f2f;">+0.00</span>
                 </div>
                 <div id="otDetailBox" class="ot-detail-box"></div>
                 <div class="result-item">
-                    <span id="resAllowTitle">Allowance:</span>
+                    <span id="resAllowTitle">አበል:</span>
                     <span id="resAllow">+0.00</span>
                 </div>
                 <div class="result-item">
-                    <span id="resGrossTitle">Gross Income:</span>
+                    <span id="resGrossTitle">ጠቅላላ ገቢ (Gross):</span>
                     <span id="resGross">0.00</span>
                 </div>
                 <div class="result-item">
-                    <span id="resTaxTitle">Tax Deduction:</span>
+                    <span id="resTaxTitle">የሥራ ግብር (Tax):</span>
                     <span id="resTax">-0.00</span>
                 </div>
                 <div class="result-item">
-                    <span id="resPensionTitle">Employee Pension (7%):</span>
+                    <span id="resPensionTitle">የሠራተኛ ጡረታ (7%):</span>
                     <span id="resPension">-0.00</span>
                 </div>
                 <div class="result-item total">
-                    <span id="resNetTitle">Net Salary (Take Home):</span>
+                    <span id="resNetTitle">የተጣራ ደመወዝ (Net Pay):</span>
                     <span id="resNet">0.00</span>
                 </div>
                 <div class="employer-box">
-                    <span id="employerPensionNote">🏢 Employer / Gov Pension Share (Not deducted): 0.00</span>
-                    <span id="taxReliefNote" style="color:#078930; font-weight:800;">✨ Proclamation 1395/2017 (0% up to 2,000)</span>
+                    <span id="employerPensionNote">🏢 የአሠሪ / የመንግሥት የጡረታ ድርሻ (ከደመወዝ ሳይቀነስ): 0.00</span>
+                    <span id="taxReliefNote" style="color:#078930; font-weight:800;">✨ በአዋጅ 1395/2017 መሠረት የተሰላ</span>
                 </div>
                 <div class="annual-box" id="annualEstimateBox"></div>
-                <button type="button" class="copy-summary-btn" id="btnCopySummary" onclick="copySummary()">📋 Copy Result Summary</button>
+                <button type="button" class="copy-summary-btn" id="btnCopySummary" onclick="copySummary()">📋 የውጤት ማጠቃለያ ኮፒ አድርግ</button>
             </div>
 
             <div class="btn-row">
-                <button class="reset-btn" id="btnReset" onclick="resetForm()">🔄 Clear</button>
-                <button class="share-btn" id="btnShare" onclick="shareApp()">📤 Share App</button>
+                <button class="reset-btn" id="btnReset" onclick="resetForm()">🔄 አጽዳ</button>
+                <button class="share-btn" id="btnShare" onclick="shareApp()">📤 ሼር ያድርጉ</button>
             </div>
         </div>
 
         <!-- 2. Employer / Organization Payroll Batch Card -->
         <div class="card" id="payrollCard">
-            <h3 class="card-title" id="payrollHeader">🏢 Employer Payroll Batch Calculator</h3>
-            <p id="payrollDesc" style="font-size:0.84rem; color:#475569; margin-top:0;">Add employees to compute total monthly payroll, tax, 7% employee pension, net pay, and employer 11% or 33% pension share.</p>
+            <h3 class="card-title" id="payrollHeader">🏢 የተቋም ደመወዝ ክፍያ ማስያ & ሴቲንግ</h3>
+            <p id="payrollDesc" style="font-size:0.84rem; color:#475569; margin-top:0;">ለሠራተኞች ደመወዝ የሚከፍል ተቋም ወይም ድርጅት የተቋሙን ሴቲንግ አስተካክሎ የእያንዳንዱን ሠራተኛ እና የጠቅላላ ተቋሙን ክፍያ ማስላት ይችላል።</p>
 
-            <div class="form-group">
-                <label id="lblEmpName" for="empName">Employee Name / Role:</label>
-                <input type="text" id="empName" placeholder="e.g. Selamawit - Teacher / Officer">
+            <div class="org-config-box">
+                <div class="form-group" style="margin-bottom:0.7rem;">
+                    <label id="lblOrgName" for="orgName">🏛️ የተቋም / የድርጅት ስም:</label>
+                    <input type="text" id="orgName" placeholder="ለምሳሌ፦ አባይ ንግድ / ትምህርት ቤት / ተቋም" oninput="renderPayroll()">
+                </div>
+                <div class="form-group" style="margin-bottom:0;">
+                    <label id="lblOrgRateSetting" for="orgCustomRate">⚙️ የተቋም የአሠሪ ጡረታ መቶኛ ሴቲንግ:</label>
+                    <select id="orgCustomRate" onchange="renderPayroll()">
+                        <option value="auto" id="optOrgAuto">በሠራተኛው ዘርፍ መሠረት (11% ግል/ሲቪል | 33% ወታደር/ፖሊስ)</option>
+                        <option value="0.11" id="optOrg11">ቋሚ 11% የአሠሪ ድርሻ (የግል / ሲቪል ተቋም)</option>
+                        <option value="0.33" id="optOrg33">ቋሚ 33% የመንግሥት/ተቋም ድርሻ (ወታደር / ፖሊስ)</option>
+                        <option value="0.00" id="optOrg0">0% የተቋም ጡረታ (ተጨማሪ ክፍያ ብቻ)</option>
+                    </select>
+                </div>
             </div>
 
             <div class="form-group">
-                <label id="lblEmpSector" for="empSector">Sector / Pension Rate:</label>
+                <label id="lblEmpName" for="empName">የሠራተኛ ስም / የሥራ መደብ:</label>
+                <input type="text" id="empName" placeholder="ለምሳሌ፦ ሰላማዊት - መምህር / ዶክተር / ሠራተኛ">
+            </div>
+
+            <div class="form-group">
+                <label id="lblEmpSector" for="empSector">የሠራተኛው ዘርፍ:</label>
                 <select id="empSector">
-                    <option value="private">Private (7% Emp / 11% Employer)</option>
-                    <option value="civil">Civil / Teacher / Doctor (7% Emp / 11% Gov)</option>
-                    <option value="uniformed">Military / Police (7% Member / 33% Gov)</option>
+                    <option value="private" id="optEmpPrivate">የግል ድርጅት (7% ሠራተኛ / 11% አሠሪ)</option>
+                    <option value="civil" id="optEmpCivil">ሲቪል / መምህር / ዶክተር (7% ሠራተኛ / 11% መንግሥት)</option>
+                    <option value="uniformed" id="optEmpUniformed">ወታደር / ፖሊስ (7% አባል / 33% መንግሥት)</option>
                 </select>
             </div>
 
             <div class="form-group">
-                <label id="lblEmpBasic" for="empBasic">Basic Salary:</label>
+                <label id="lblEmpBasic" for="empBasic">መሠረታዊ ደመወዝ (በብር):</label>
                 <input type="number" id="empBasic" placeholder="0" min="0" step="any" inputmode="decimal">
             </div>
 
             <div class="form-group">
-                <label id="lblEmpExtra" for="empExtra">OT + Allowance Total (Monthly):</label>
+                <label id="lblEmpExtra" for="empExtra">OT + አበል ድምር (ወርሃዊ):</label>
                 <input type="number" id="empExtra" placeholder="0" min="0" step="any" inputmode="decimal">
             </div>
 
-            <button type="button" class="secondary-btn" id="btnAddPayroll" onclick="addPayrollEmployee()">➕ Add Employee to Payroll</button>
+            <button type="button" class="secondary-btn" id="btnAddPayroll" onclick="addPayrollEmployee()">➕ ሠራተኛ ወደ ደመወዝ ዝርዝር ጨምር</button>
 
             <div id="payrollList" style="margin-top:0.9rem;"></div>
 
             <div id="payrollSummaryBox" class="result-box" style="display:none;">
-                <div class="result-item"><span id="prCountTitle">Employees:</span><strong id="prCount">0</strong></div>
-                <div class="result-item"><span id="prGrossTitle">Total Gross Pay:</span><strong id="prGross">0.00</strong></div>
-                <div class="result-item"><span id="prTaxTitle">Total Income Tax:</span><strong id="prTax">-0.00</strong></div>
-                <div class="result-item"><span id="prEmpPenTitle">Total Employee Pension (7%):</span><strong id="prEmpPen">-0.00</strong></div>
-                <div class="result-item total"><span id="prNetTitle">Total Net Pay to Staff:</span><strong id="prNet">0.00</strong></div>
-                <div class="employer-box"><span id="prOrgPenTitle">🏢 Total Employer/Gov Pension (11%/33%): 0.00</span></div>
-                <button type="button" class="copy-summary-btn" id="btnCopyPayroll" onclick="copyPayrollSummary()">📋 Copy Payroll Summary</button>
-                <button type="button" class="reset-btn" style="width:100%; margin-top:0.5rem;" id="btnClearPayroll" onclick="clearPayrollList()">🗑️ Clear Payroll List</button>
+                <div class="result-item"><span id="prOrgTitle">ተቋም:</span><strong id="prOrgVal">-</strong></div>
+                <div class="result-item"><span id="prCountTitle">የሠራተኞች ብዛት:</span><strong id="prCount">0</strong></div>
+                <div class="result-item"><span id="prGrossTitle">ጠቅላላ Gross:</span><strong id="prGross">0.00</strong></div>
+                <div class="result-item"><span id="prTaxTitle">ጠቅላላ የሥራ ግብር:</span><strong id="prTax">-0.00</strong></div>
+                <div class="result-item"><span id="prEmpPenTitle">ጠቅላላ የሠራተኛ ጡረታ (7%):</span><strong id="prEmpPen">-0.00</strong></div>
+                <div class="result-item total"><span id="prNetTitle">ለሠራተኞች የሚከፈል ጠቅላላ Net:</span><strong id="prNet">0.00</strong></div>
+                <div class="employer-box"><span id="prOrgPenTitle">🏢 ጠቅላላ የተቋም/መንግሥት ጡረታ ድርሻ: 0.00</span></div>
+                <button type="button" class="copy-summary-btn" id="btnCopyPayroll" onclick="copyPayrollSummary()">📋 የደመወዝ ክፍያ ማጠቃለያ ኮፒ አድርግ</button>
+                <button type="button" class="reset-btn" style="width:100%; margin-top:0.5rem;" id="btnClearPayroll" onclick="clearPayrollList()">🗑️ ዝርዝር አጽዳ</button>
             </div>
         </div>
 
         <!-- 3. Tax & Pension Table Card -->
         <div class="card" id="bracketsCard">
-            <h3 class="card-title" id="bracketsHeader">📊 Tax Brackets & Sector Pension Guide</h3>
-            <p id="bracketsDesc" style="font-size:0.84rem; color:#475569; margin-top:0;">Employment income tax brackets (Proclamation 1395/2017):</p>
+            <h3 class="card-title" id="bracketsHeader">📊 የግብር እርከኖች እና የዘርፍ ጡረታ ሰንጠረዥ</h3>
+            <p id="bracketsDesc" style="font-size:0.84rem; color:#475569; margin-top:0;">የቅጥር ሥራ የገቢ ግብር እርከኖች (አዋጅ 1395/2017):</p>
             <table class="tax-table">
                 <thead>
                     <tr>
-                        <th id="thIncome">Monthly Income</th>
-                        <th id="thRate">Rate</th>
-                        <th id="thDed">Deduction</th>
+                        <th id="thIncome">ወርሃዊ ገቢ</th>
+                        <th id="thRate">መቶኛ</th>
+                        <th id="thDed">ተቀናሽ</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -559,52 +581,52 @@
             <table class="tax-table">
                 <thead>
                     <tr>
-                        <th id="thSector">Sector</th>
-                        <th id="thEmp">Employee</th>
-                        <th id="thOrg">Employer/Gov</th>
+                        <th id="thSector">ዘርፍ</th>
+                        <th id="thEmp">ሠራተኛ</th>
+                        <th id="thOrg">አሠሪ / መንግሥት</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td>Private</td><td>7%</td><td>11%</td></tr>
-                    <tr><td>Civil / Teachers / Doctors</td><td>7%</td><td>11%</td></tr>
-                    <tr><td>Military / Police</td><td>7%</td><td>33%</td></tr>
+                    <tr><td>የግል ድርጅት</td><td>7%</td><td>11%</td></tr>
+                    <tr><td>ሲቪል / መምህራን / ዶክተሮች</td><td>7%</td><td>11%</td></tr>
+                    <tr><td>ወታደራዊ / ፖሊስ</td><td>7%</td><td>33%</td></tr>
                 </tbody>
             </table>
         </div>
 
         <!-- 4. Detailed Sector Guide Card -->
         <div class="card" id="guideCard">
-            <h3 class="card-title" id="guideHeader">📘 Sector Guide: Private, Civil, Teachers, Doctors & Uniformed</h3>
+            <h3 class="card-title" id="guideHeader">📘 የዘርፍ ማብራሪያ፡ ግል፣ ሲቪል፣ መምህራን፣ ዶክተሮች እና ወታደር/ፖሊስ</h3>
 
             <div class="guide-box">
-                <h4 id="g1Title">1. Private & Civil Service (7% Employee / 11% Employer)</h4>
-                <p id="g1Text">Employees contribute 7% of basic salary toward pension, while employers/government contribute 11% (not deducted from employee net pay). OT multipliers are 1.5x, 1.75x, 2.0x, and 2.5x based on 208, 176, or 240 monthly hours.</p>
+                <h4 id="g1Title">1. የግል ድርጅት እና ሲቪል ሰርቪስ (7% ሠራተኛ / 11% አሠሪ)</h4>
+                <p id="g1Text">ሠራተኛው ከመሠረታዊ ደመወዙ 7% ጡረታ ያዋጣል፤ አሠሪው ወይም መንግሥት ደግሞ 11% ያዋጣል (ከሠራተኛው Net አይቀነስም)። የOT ብዜቶች 1.5x፣ 1.75x፣ 2.0x እና 2.5x ናቸው።</p>
             </div>
 
             <div class="guide-box">
-                <h4 id="g2Title">2. Teachers & Doctors (Health Professionals)</h4>
-                <p id="g2Text">Public teachers and doctors generally follow civil service pension rules (7% employee / 11% government). Doctors often receive Duty, Night/Weekend shift, or Risk allowances, and teachers may have teaching period schedules or school allowances—verify allowance tax exemptions with HR/finance.</p>
+                <h4 id="g2Title">2. መምህራኖች እና ዶክተሮች (የጤና ባለሙያዎች)</h4>
+                <p id="g2Text">የመንግሥት መምህራንና ዶክተሮች በሲቪል ሰርቪስ የ7%/11% ጡረታ ሕግ ይተዳደራሉ። ዶክተሮች የDuty፣ የፈረቃ ወይም የRisk አበል ሊኖራቸው ይችላል፤ መምህራኖች ደግሞ የክፍለ ጊዜ/የትምህርት ቤት አበል ሊኖራቸው ስለሚችል የግብር ነጻነትን ከተቋሙ ፋይናንስ ያረጋግጡ።</p>
             </div>
 
             <div class="guide-box">
-                <h4 id="g3Title">3. Military & Police Services (7% Member / 33% Government)</h4>
-                <p id="g3Text">Under Ethiopia's public service pension framework for military and police service, members contribute 7% while the government/institution contributes 33%. Operational duty pay and allowances follow specialized service regulations rather than standard commercial OT hours.</p>
+                <h4 id="g3Title">3. ወታደራዊ እና ፖሊስ አገልግሎት (7% አባል / 33% መንግሥት)</h4>
+                <p id="g3Text">በወታደራዊና ፖሊስ የጡረታ ሥርዓት አባሉ 7% ሲያዋጣ መንግሥት/ተቋሙ 33% ያዋጣል። የግዳጅና የአገልግሎት አበሎች እንደ ልዩ አዋጅና ደንብ ይወሰናሉ።</p>
             </div>
 
             <div class="guide-box">
-                <h4 id="g4Title">4. Employer Payroll Batch Mode</h4>
-                <p id="g4Text">Organizations paying multiple staff can switch to the Payroll tab, enter each employee's sector, basic salary, and extra pay, and view combined totals for net pay, tax, 7% employee pension, and 11%/33% employer pension.</p>
+                <h4 id="g4Title">4. የተቋም ደመወዝ ክፍያ (Payroll Batch & Settings)</h4>
+                <p id="g4Text">ደመወዝ ከፋይ ተቋማት በ"🏢 ደመወዝ ክፍያ" ትር ውስጥ የድርጅቱን ስምና የጡረታ ሴቲንግ በማስተካከል የሠራተኞችን ጠቅላላ Net፣ ግብር፣ 7% እና 11%/33% ጡረታ ማስላት ይችላሉ።</p>
             </div>
         </div>
 
         <!-- 5. Settings & Legal Card -->
         <div class="card policy-section" id="settingsCard">
-            <h3 class="card-title" id="settingsHeader">⚙️ Settings & Legal Notice</h3>
+            <h3 class="card-title" id="settingsHeader">⚙️ ቅንብር እና ሕጋዊ ማሳሰቢያ</h3>
 
             <div class="setting-item">
                 <div>
-                    <span class="setting-title" id="setLangTitle">🌐 Language</span>
-                    <span class="setting-desc" id="setLangDesc">Amharic, English, Afaan Oromoo, Tigrinya, Somali, Afar</span>
+                    <span class="setting-title" id="setLangTitle">🌐 ቋንቋ</span>
+                    <span class="setting-desc" id="setLangDesc">አማርኛ፣ English፣ Afaan Oromoo፣ ትግርኛ፣ Af-Soomaali፣ Afar</span>
                 </div>
                 <select id="settingsLangSelect" style="width:auto; padding:0.42rem 0.6rem; font-size:0.84rem;" onchange="syncLangFromSettings()">
                     <option value="am">አማርኛ</option>
@@ -618,40 +640,40 @@
 
             <div class="setting-item">
                 <div>
-                    <span class="setting-title" id="setOtDetailTitle">📑 OT Breakdown</span>
-                    <span class="setting-desc" id="setOtDetailDesc">Show payout per overtime tier</span>
+                    <span class="setting-title" id="setOtDetailTitle">📑 የOT ዝርዝር ማሳያ</span>
+                    <span class="setting-desc" id="setOtDetailDesc">የእያንዳንዱን የOT ብዜት ክፍያ አሳይ</span>
                 </div>
                 <select id="otDetailMode" style="width:auto; padding:0.42rem 0.6rem; font-size:0.84rem;" onchange="onPreferenceChanged()">
-                    <option value="show" id="optShowDetail">Show</option>
-                    <option value="hide" id="optHideDetail">Compact</option>
+                    <option value="show" id="optShowDetail">ዝርዝር</option>
+                    <option value="hide" id="optHideDetail">አጭር</option>
                 </select>
             </div>
 
             <div class="setting-item">
                 <div>
-                    <span class="setting-title" id="setInstallTitle">📱 Install App (PWA)</span>
-                    <span class="setting-desc" id="setInstallDesc">Add to home screen</span>
+                    <span class="setting-title" id="setInstallTitle">📱 አፑን ጫን (PWA)</span>
+                    <span class="setting-desc" id="setInstallDesc">በስልክ ማያ ላይ ጫን</span>
                 </div>
-                <button class="reset-btn" style="flex:none; width:auto;" id="btnSettingsInstall" onclick="installApp()">📥 Install</button>
+                <button class="reset-btn" style="flex:none; width:auto;" id="btnSettingsInstall" onclick="installApp()">📥 ጫን</button>
             </div>
 
             <div class="setting-item">
                 <div>
-                    <span class="setting-title" id="setResetTitle">🔄 Reset All</span>
-                    <span class="setting-desc" id="setResetDesc">Reset settings and inputs</span>
+                    <span class="setting-title" id="setResetTitle">🔄 ሁሉንም ዳግም አስጀምር</span>
+                    <span class="setting-desc" id="setResetDesc">ቅንብሮችንና ቁጥሮችን አጽዳ</span>
                 </div>
-                <button class="reset-btn" style="flex:none; width:auto;" id="btnSettingsReset" onclick="resetAllPreferences()">Reset</button>
+                <button class="reset-btn" style="flex:none; width:auto;" id="btnSettingsReset" onclick="resetAllPreferences()">ዳግም</button>
             </div>
 
-            <h4 id="aboutTitle">Disclaimer & Privacy</h4>
-            <p id="aboutText">Ethio Salary Pro is an informational calculation tool built around Proclamation 1395/2017 and Ethiopian pension rules (7% employee; 11% private/civil employer; 33% military/police government share). Calculations run locally in your browser. Confirm specialized institutional allowances or service rules with your HR/Finance office.</p>
+            <h4 id="aboutTitle">ሕጋዊ ማሳሰቢያ እና ግላዊነት</h4>
+            <p id="aboutText">Ethio Salary Pro በአዋጅ 1395/2017 እና በኢትዮጵያ የጡረታ ሥርዓት (7% ሠራተኛ፤ 11% የግል/ሲቪል አሠሪ፤ 33% የወታደር/ፖሊስ የመንግሥት ድርሻ) መሠረት መረጃ የሚሰጥ ማስያ ነው። ስሌቶች በራስዎ መሣሪያ ላይ ይከናወናሉ፤ ልዩ የአበል ወይም የአገልግሎት ደንቦችን ከተቋምዎ HR/ፋይናንስ ያረጋግጡ።</p>
         </div>
 
         <!-- 6. Public Comments & Moderation Card -->
         <div class="card" id="feedbackCard">
-            <h3 class="card-title" id="feedbackHeader">💬 User Feedback & Discussion</h3>
-            <p id="feedbackDesc" style="font-size:0.86rem; color:#475569; margin-top:0;">Share strengths, suggestions, or questions. Replies appear publicly right here.</p>
-            <div class="comment-note" id="commentModNote">🛡️ Moderation: Comments appear publicly after approval so you can remove offensive language and reply directly.</div>
+            <h3 class="card-title" id="feedbackHeader">💬 የተጠቃሚ አስተያየት እና ውይይት</h3>
+            <p id="feedbackDesc" style="font-size:0.86rem; color:#475569; margin-top:0;">ሀሳብዎን፣ ጥያቄዎን ወይም አስተያየትዎን ያጋሩ።</p>
+            <div class="comment-note" id="commentModNote">🛡️ አስተያየቶች ሲጸድቁ በግልጽ ይታያሉ፤ የCusdis ሰርቨር ሲመለስ App IDዎን ያስገቡ።</div>
 
             <div id="cusdis_thread"
               data-host="https://cusdis.com"
@@ -665,13 +687,400 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 Ethio Salary Pro • One System. Every Ethiopian Employee. | <a onclick="switchTab('settings')">Legal & Privacy</a></p>
+        <p id="footerText">&copy; 2026 Ethio Salary Pro • One System. Every Ethiopian Employee. | <a onclick="switchTab('settings')" id="footerLink">ቅንብር & ሕግ</a></p>
     </footer>
 
     <script>
         let lastSummaryText = '';
         let lastPayrollText = '';
         let payrollEmployees = [];
+
+        const I18N = {
+            am: {
+                topLang: '🌐 ቋንቋ / Language',
+                slogan: 'One System. Every Ethiopian Employee.',
+                badge: '🔥 አዋጅ 1395/2017 • ጡረታ 7% / 11% / 33% (2026)',
+                tabCalc: '💰 ደመወዝ & OT',
+                tabPayroll: '🏢 ደመወዝ ክፍያ',
+                tabBrackets: '📊 ግብር & ጡረታ',
+                tabGuide: '📘 ማብራሪያ',
+                tabSettings: '⚙️ ቅንብር & ሕግ',
+                tabFeedback: '💬 አስተያየት',
+                adTitle: '💡 Ethio Salary Pro - 2026',
+                adDesc: 'የግል፣ ሲቪል (መምህራንና ዶክተሮች)፣ ወታደርና ፖሊስ (33%) እና የተቋም ደመወዝ ክፍያ',
+                calcHeader: '📊 ደመወዝ እና ኦቨርታይም (OT) ማስያ',
+                lblSector: '🏢 የዘርፍ / የጡረታ ዓይነት:',
+                optPrivate: 'የግል ድርጅት (7% ሠራተኛ / 11% አሠሪ)',
+                optCivil: 'ሲቪል ሰርቪስ: መንግሥት፣ መምህራን እና ዶክተሮች (7% / 11%)',
+                optUniformed: 'ወታደራዊ እና ፖሊስ አገልግሎት (7% አባል / 33% መንግሥት)',
+                lblBasic: 'መሠረታዊ ደመወዝ (በብር):',
+                lblWorkHours: '⚡ ወርሃዊ የሥራ ሰዓት (የOT መሠረት):',
+                opt208: '26 የሥራ ቀናት / 208 ሰዓት (ሰኞ - ቅዳሜ)',
+                opt176: '22 የሥራ ቀናት / 176 ሰዓት (ሰኞ - አርብ)',
+                opt240: '30 ቀናት / 240 ሰዓት (ወርሃዊ)',
+                lblOtHint: '💡 የመሥሪያ ቤትዎን የሥራ ቀናት መርሃ ግብር ይምረጡ',
+                lblOt1: '1. ከመደበኛ ሰዓት በኋላ እስከ ምሽት 4 ሰዓት (1.5x):',
+                lblOt2: '2. ምሽት 4 እስከ ንጋት 12 ሰዓት (1.75x):',
+                lblOt3: '3. ሳምንታዊ የእረፍት ቀን (2.0x):',
+                lblOt4: '4. የሕዝብ በዓል (2.5x):',
+                lblTransport: 'ትራንስፖርት / Duty / ሌላ አበል:',
+                optExempt: 'ከግብር ነጻ (Tax-Free)',
+                optTaxable: 'ግብር የሚከፈልበት (Taxable)',
+                btnCalculate: 'የተጣራ ደመወዝ እና OT አስላ',
+                resBasicTitle: 'መሠረታዊ ደመወዝ:',
+                resOtTitle: 'ጠቅላላ የኦቨርታይም (OT) ክፍያ:',
+                resAllowTitle: 'አበል:',
+                resGrossTitle: 'ጠቅላላ ገቢ (Gross):',
+                resTaxTitle: 'የሥራ ግብር (Tax):',
+                resPensionTitle: 'የሠራተኛ ጡረታ (7%):',
+                resNetTitle: 'የተጣራ ደመወዝ (Net Pay):',
+                btnCopySummary: '📋 የውጤት ማጠቃለያ ኮፒ አድርግ',
+                btnReset: '🔄 አጽዳ',
+                btnShare: '📤 ሼር ያድርጉ',
+                payrollHeader: '🏢 የተቋም ደመወዝ ክፍያ ማስያ & ሴቲንግ',
+                payrollDesc: 'ለሠራተኞች ደመወዝ የሚከፍል ተቋም ወይም ድርጅት የተቋሙን ሴቲንግ አስተካክሎ የእያንዳንዱን ሠራተኛ እና የጠቅላላ ተቋሙን ክፍያ ማስላት ይችላል።',
+                lblOrgName: '🏛️ የተቋም / የድርጅት ስም:',
+                lblOrgRateSetting: '⚙️ የተቋም የአሠሪ ጡረታ መቶኛ ሴቲንግ:',
+                optOrgAuto: 'በሠራተኛው ዘርፍ መሠረት (11% ግል/ሲቪል | 33% ወታደር/ፖሊስ)',
+                optOrg11: 'ቋሚ 11% የአሠሪ ድርሻ (የግል / ሲቪል ተቋም)',
+                optOrg33: 'ቋሚ 33% የመንግሥት/ተቋም ድርሻ (ወታደር / ፖሊስ)',
+                optOrg0: '0% የተቋም ጡረታ (ተጨማሪ ክፍያ ብቻ)',
+                lblEmpName: 'የሠራተኛ ስም / የሥራ መደብ:',
+                lblEmpSector: 'የሠራተኛው ዘርፍ:',
+                lblEmpBasic: 'መሠረታዊ ደመወዝ (በብር):',
+                lblEmpExtra: 'OT + አበል ድምር (ወርሃዊ):',
+                btnAddPayroll: '➕ ሠራተኛ ወደ ደመወዝ ዝርዝር ጨምር',
+                prOrgTitle: 'ተቋም:',
+                prCountTitle: 'የሠራተኞች ብዛት:',
+                prGrossTitle: 'ጠቅላላ Gross:',
+                prTaxTitle: 'ጠቅላላ የሥራ ግብር:',
+                prEmpPenTitle: 'ጠቅላላ የሠራተኛ ጡረታ (7%):',
+                prNetTitle: 'ለሠራተኞች የሚከፈል ጠቅላላ Net:',
+                btnCopyPayroll: '📋 የደመወዝ ክፍያ ማጠቃለያ ኮፒ አድርግ',
+                btnClearPayroll: '🗑️ ዝርዝር አጽዳ',
+                footerLink: 'ቅንብር & ሕግ'
+            },
+            en: {
+                topLang: '🌐 Language / ቋንቋ',
+                slogan: 'One System. Every Ethiopian Employee.',
+                badge: '🔥 Proclamation 1395/2017 • Pension 7% / 11% / 33% (2026)',
+                tabCalc: '💰 Salary & OT',
+                tabPayroll: '🏢 Payroll',
+                tabBrackets: '📊 Tax & Pension',
+                tabGuide: '📘 Guide',
+                tabSettings: '⚙️ Settings',
+                tabFeedback: '💬 Comments',
+                adTitle: '💡 Ethio Salary Pro - 2026',
+                adDesc: 'Private, Civil Service (Teachers & Doctors), Military/Police (33%) & Employer Payroll',
+                calcHeader: '📊 Salary & Overtime Calculator',
+                lblSector: '🏢 Sector / Pension Category:',
+                optPrivate: 'Private Organization (7% Employee / 11% Employer)',
+                optCivil: 'Civil Service: Gov, Teachers & Doctors (7% Employee / 11% Gov)',
+                optUniformed: 'Military & Police Service (7% Member / 33% Gov)',
+                lblBasic: 'Basic Salary (ETB):',
+                lblWorkHours: '⚡ Monthly Working Hours (OT Base):',
+                opt208: '26 Working Days / 208 Hours (Mon - Sat)',
+                opt176: '22 Working Days / 176 Hours (Mon - Fri)',
+                opt240: '30 Days / 240 Hours (Standard Monthly)',
+                lblOtHint: '💡 Select your workplace working schedule',
+                lblOt1: '1. Evening Overtime up to 10:00 PM (1.5x):',
+                lblOt2: '2. Night Overtime 10:00 PM to 6:00 AM (1.75x):',
+                lblOt3: '3. Weekly Rest Day Overtime (2.0x):',
+                lblOt4: '4. Public Holiday Overtime (2.5x):',
+                lblTransport: 'Transport / Duty / Other Allowance:',
+                optExempt: 'Tax-Free (Exempt)',
+                optTaxable: 'Taxable Allowance',
+                btnCalculate: 'Calculate Net Salary & OT',
+                resBasicTitle: 'Basic Salary:',
+                resOtTitle: 'Total Overtime Payment:',
+                resAllowTitle: 'Allowance:',
+                resGrossTitle: 'Gross Income:',
+                resTaxTitle: 'Tax Deduction:',
+                resPensionTitle: 'Employee Pension (7%):',
+                resNetTitle: 'Net Salary (Take Home):',
+                btnCopySummary: '📋 Copy Result Summary',
+                btnReset: '🔄 Clear',
+                btnShare: '📤 Share App',
+                payrollHeader: '🏢 Employer Payroll Calculator & Settings',
+                payrollDesc: 'Organizations paying staff can configure organization settings and compute employee & total employer totals.',
+                lblOrgName: '🏛️ Organization / Employer Name:',
+                lblOrgRateSetting: '⚙️ Employer Pension Rate Setting:',
+                optOrgAuto: 'By Employee Sector (11% Private/Civil | 33% Military/Police)',
+                optOrg11: 'Fixed 11% Employer Share (Private / Civil)',
+                optOrg33: 'Fixed 33% Gov/Org Share (Military / Police)',
+                optOrg0: '0% Employer Pension (Extra Pay Only)',
+                lblEmpName: 'Employee Name / Role:',
+                lblEmpSector: 'Employee Sector:',
+                lblEmpBasic: 'Basic Salary (ETB):',
+                lblEmpExtra: 'OT + Allowance Total (Monthly):',
+                btnAddPayroll: '➕ Add Employee to Payroll',
+                prOrgTitle: 'Organization:',
+                prCountTitle: 'Employees:',
+                prGrossTitle: 'Total Gross Pay:',
+                prTaxTitle: 'Total Income Tax:',
+                prEmpPenTitle: 'Total Employee Pension (7%):',
+                prNetTitle: 'Total Net Pay to Staff:',
+                btnCopyPayroll: '📋 Copy Payroll Summary',
+                btnClearPayroll: '🗑️ Clear Payroll List',
+                footerLink: 'Settings & Legal'
+            },
+            om: {
+                topLang: '🌐 Afaan / Language',
+                slogan: 'One System. Every Ethiopian Employee.',
+                badge: '🔥 Labsii 1395/2017 • Pensiyoonii 7% / 11% / 33% (2026)',
+                tabCalc: '💰 Mindaa & OT',
+                tabPayroll: '🏢 Kaffaltii',
+                tabBrackets: '📊 Gibira',
+                tabGuide: '📘 Ibsa',
+                tabSettings: '⚙️ Qindaa\'ina',
+                tabFeedback: '💬 Yaada',
+                adTitle: '💡 Ethio Salary Pro - 2026',
+                adDesc: 'Dhuunfaa, Mootummaa (Barsiisota & Doktoota), Waraana/Poolisii (33%) & Kaffaltii Dhaabbataa',
+                calcHeader: '📊 Shallgessa Mindaa fi OT',
+                lblSector: '🏢 Gosa Dhaabbataa / Pensiyoonii:',
+                optPrivate: 'Dhaabbata Dhuunfaa (7% Hojjetaa / 11% Qacaruu)',
+                optCivil: 'Siiviil Sarviisii: Mootummaa, Barsiisota & Doktoota (7% / 11%)',
+                optUniformed: 'Waraana fi Poolisii (7% Miseensa / 33% Mootummaa)',
+                lblBasic: 'Mindaa Bu\'uuraa (Birrii):',
+                lblWorkHours: '⚡ Sa\'aatii Hojii Ji\'aa (Bu\'uura OT):',
+                opt208: 'Guyyaa Hojii 26 / Sa\'aatii 208 (Wiixata - Sanbata)',
+                opt176: 'Guyyaa Hojii 22 / Sa\'aatii 176 (Wiixata - Jimaata)',
+                opt240: 'Guyyaa 30 / Sa\'aatii 240 (Ji\'aatti)',
+                lblOtHint: '💡 Sagantaa hojii dhaabbata keessanii filadhaa',
+                lblOt1: '1. Sa\'aatii Hojii Booda Hanga Galgala 4:00 (1.5x):',
+                lblOt2: '2. Galgala 4:00 Hanga Ganama 12:00 (1.75x):',
+                lblOt3: '3. Guyyaa Boqonnaa Torbanii (2.0x):',
+                lblOt4: '4. Guyyaa Ayyaana Uummataa (2.5x):',
+                lblTransport: 'Geejjiba / Duty / Durgoo Biroo:',
+                optExempt: 'Gibira irraa Bilisa (Tax-Free)',
+                optTaxable: 'Kan Gibira Kaffalamuuf (Taxable)',
+                btnCalculate: 'Mindaa Qulqulluu fi OT Shallugi',
+                resBasicTitle: 'Mindaa Bu\'uuraa:',
+                resOtTitle: 'Kaffaltii OT Waliigalaa:',
+                resAllowTitle: 'Durgoo:',
+                resGrossTitle: 'Galii Waliigalaa (Gross):',
+                resTaxTitle: 'Gibira Mindaa:',
+                resPensionTitle: 'Pensiyoonii Hojjetaa (7%):',
+                resNetTitle: 'Mindaa Qulqulluu (Net Pay):',
+                btnCopySummary: '📋 Cuunfaa Bu\'aa Garagalchi',
+                btnReset: '🔄 Haqi',
+                btnShare: '📤 Qoodi',
+                payrollHeader: '🏢 Kaffaltii Mindaa Dhaabbataa & Qindaa\'ina',
+                payrollDesc: 'Dhaabbanni hojjettootaaf mindaa kaffalu qindaa\'ina dhaabbataa sirreessee kaffaltii waliigalaa shallaguu danda\'a.',
+                lblOrgName: '🏛️ Maqaa Dhaabbataa:',
+                lblOrgRateSetting: '⚙️ Qindaa\'ina Dhibbeentaa Pensiyoonii Dhaabbataa:',
+                optOrgAuto: 'Akka Gosa Hojjetaatti (11% Dhuunfaa/Siiviil | 33% Waraana/Poolisii)',
+                optOrg11: 'Dhaabbataa 11% (Dhuunfaa / Siiviil)',
+                optOrg33: 'Dhaabbataa 33% (Waraana / Poolisii)',
+                optOrg0: '0% Pensiyoonii Dhaabbataa',
+                lblEmpName: 'Maqaa Hojjetaa / Gahee:',
+                lblEmpSector: 'Gosa Hojjetaa:',
+                lblEmpBasic: 'Mindaa Bu\'uuraa:',
+                lblEmpExtra: 'OT + Durgoo Waliigalaa:',
+                btnAddPayroll: '➕ Hojjetaa Tarree Kaffaltiitti Dabali',
+                prOrgTitle: 'Dhaabbata:',
+                prCountTitle: 'Baay\'ina Hojjettootaa:',
+                prGrossTitle: 'Gross Waliigalaa:',
+                prTaxTitle: 'Gibira Waliigalaa:',
+                prEmpPenTitle: 'Pensiyoonii Hojjetaa (7%):',
+                prNetTitle: 'Net Waliigalaa Hojjettootaaf:',
+                btnCopyPayroll: '📋 Cuunfaa Kaffaltii Garagalchi',
+                btnClearPayroll: '🗑️ Tarree Haqi',
+                footerLink: 'Qindaa\'ina & Seera'
+            },
+            ti: {
+                topLang: '🌐 ቋንቋ / Language',
+                slogan: 'One System. Every Ethiopian Employee.',
+                badge: '🔥 ኣዋጅ 1395/2017 • ጡረታ 7% / 11% / 33% (2026)',
+                tabCalc: '💰 ዓስቢ & OT',
+                tabPayroll: '🏢 ክፍሊት',
+                tabBrackets: '📊 ግብሪ',
+                tabGuide: '📘 መብርሂ',
+                tabSettings: '⚙️ ቅንብር',
+                tabFeedback: '💬 ርእይቶ',
+                adTitle: '💡 Ethio Salary Pro - 2026',
+                adDesc: 'ብሕቲ፣ ሲቪል (መምህራንን ዶክተራትን)፣ ሰራዊት/ፖሊስ (33%) እና ክፍሊት ትካል',
+                calcHeader: '📊 መለኪዒ ዓስቢ እና ኦቨርታይም (OT)',
+                lblSector: '🏢 ዓይነት ዘርፊ / ጡረታ:',
+                optPrivate: 'ትካል ብሕቲ (7% ሰራሕተኛ / 11% ወሃቢ ስራሕ)',
+                optCivil: 'ሲቪል ሰርቪስ: መንግስቲ፣ መምህራንን ዶክተራትን (7% / 11%)',
+                optUniformed: 'ሰራዊት እና ፖሊስ (7% ኣባል / 33% መንግስቲ)',
+                lblBasic: 'መሰረታዊ ዓስቢ (ብቅርሺ):',
+                lblWorkHours: '⚡ ወርሓዊ ሰዓት ስራሕ (መሰረት OT):',
+                opt208: '26 መዓልቲ ስራሕ / 208 ሰዓት (ሰኑይ - ቀዳም)',
+                opt176: '22 መዓልቲ ስራሕ / 176 ሰዓት (ሰኑይ - ዓርቢ)',
+                opt240: '30 መዓልቲ / 240 ሰዓት (ወርሓዊ)',
+                lblOtHint: '💡 መደብ ስራሕ ትካልኩም ምረጹ',
+                lblOt1: '1. ድሕሪ ሰዓት ስራሕ ክሳብ ምሸት 4 ሰዓት (1.5x):',
+                lblOt2: '2. ምሸት 4 ክሳብ ንጉሆ 12 ሰዓት (1.75x):',
+                lblOt3: '3. ሰሙናዊ መዓልቲ ዕረፍቲ (2.0x):',
+                lblOt4: '4. በዓል መንግስቲ (2.5x):',
+                lblTransport: 'መጓዓዝያ / Duty / ካልእ ኣበል:',
+                optExempt: 'ካብ ግብሪ ነጻ (Tax-Free)',
+                optTaxable: 'ግብሪ ዝኽፈሎ (Taxable)',
+                btnCalculate: 'ጽሩይ ዓስቢ እና OT ኣስላ',
+                resBasicTitle: 'መሰረታዊ ዓስቢ:',
+                resOtTitle: 'ጠቕላላ ክፍሊት OT:',
+                resAllowTitle: 'ኣበል:',
+                resGrossTitle: 'ጠቕላላ እቶት (Gross):',
+                resTaxTitle: 'ግብሪ ስራሕ:',
+                resPensionTitle: 'ጡረታ ሰራሕተኛ (7%):',
+                resNetTitle: 'ጽሩይ ዓስቢ (Net Pay):',
+                btnCopySummary: '📋 ጽማቕ ውጽኢት ቅዳሕ',
+                btnReset: '🔄 ኣጽሪ',
+                btnShare: '📤 ኣካፍል',
+                payrollHeader: '🏢 መለኪዒ ክፍሊት ዓስቢ ትካል & ቅንብር',
+                payrollDesc: 'ንሰራሕተኛታት ዓስቢ ዝኸፍል ትካል ቅንብር ብምስትኽኻል ጠቕላላ ክፍሊት ክሕስብ ይኽእል።',
+                lblOrgName: '🏛️ ስም ትካል:',
+                lblOrgRateSetting: '⚙️ ቅንብር መቶኛ ጡረታ ትካል:',
+                optOrgAuto: 'ብዘርፊ ሰራሕተኛ (11% ብሕቲ/ሲቪል | 33% ሰራዊት/ፖሊስ)',
+                optOrg11: 'ቀዋሚ 11% (ብሕቲ / ሲቪል)',
+                optOrg33: 'ቀዋሚ 33% (ሰራዊት / ፖሊስ)',
+                optOrg0: '0% ጡረታ ትካል',
+                lblEmpName: 'ስም ሰራሕተኛ / ስራሕ:',
+                lblEmpSector: 'ዘርፊ ሰራሕተኛ:',
+                lblEmpBasic: 'መሰረታዊ ዓስቢ:',
+                lblEmpExtra: 'OT + ኣበል ድምር:',
+                btnAddPayroll: '➕ ሰራሕተኛ ናብ ዝርዝር ክፍሊት ወስኽ',
+                prOrgTitle: 'ትካል:',
+                prCountTitle: 'ብዝሒ ሰራሕተኛታት:',
+                prGrossTitle: 'ጠቕላላ Gross:',
+                prTaxTitle: 'ጠቕላላ ግብሪ:',
+                prEmpPenTitle: 'ጡረታ ሰራሕተኛ (7%):',
+                prNetTitle: 'ጠቕላላ Net ንሰራሕተኛታት:',
+                btnCopyPayroll: '📋 ጽማቕ ክፍሊት ቅዳሕ',
+                btnClearPayroll: '🗑️ ዝርዝር ኣጽሪ',
+                footerLink: 'ቅንብር & ሕጊ'
+            },
+            so: {
+                topLang: '🌐 Luqadda / Language',
+                slogan: 'One System. Every Ethiopian Employee.',
+                badge: '🔥 Xeerka 1395/2017 • Howlgab 7% / 11% / 33% (2026)',
+                tabCalc: '💰 Mushahar',
+                tabPayroll: '🏢 Mushahar-bixin',
+                tabBrackets: '📊 Canshuur',
+                tabGuide: '📘 Hagaha',
+                tabSettings: '⚙️ Dejinta',
+                tabFeedback: '💬 Faallo',
+                adTitle: '💡 Ethio Salary Pro - 2026',
+                adDesc: 'Gaar loo leeyahay, Dawladda (Macallimiin & Dhakhaatiir), Ciidanka (33%) & Mushahar-bixinta Hay\'adda',
+                calcHeader: '📊 Xisaabiyaha Mushaharka iyo OT',
+                lblSector: '🏢 Qaybta Shaqada / Howlgabka:',
+                optPrivate: 'Hay\'ad Gaar ah (7% Shaqaale / 11% Loo-shaqeeye)',
+                optCivil: 'Adeegga Rayidka: Dawlad, Macallimiin & Dhakhaatiir (7% / 11%)',
+                optUniformed: 'Ciidanka Milateriga iyo Booliska (7% Xubin / 33% Dawlad)',
+                lblBasic: 'Mushaharka Aasaasiga ah:',
+                lblWorkHours: '⚡ Saacadaha Shaqada Bisha (Saldhigga OT):',
+                opt208: '26 Maalmood / 208 Saacadood (Isniin - Sabti)',
+                opt176: '22 Maalmood / 176 Saacadood (Isniin - Jimce)',
+                opt240: '30 Maalmood / 240 Saacadood (Bishii)',
+                lblOtHint: '💡 Dooro jadwalka shaqada ee goobtaada',
+                lblOt1: '1. Saacadaha Dheeraadka ah ilaa 10:00 Fiidnimo (1.5x):',
+                lblOt2: '2. Habeenkii 10:00 Fiidnimo ilaa 6:00 Subaxnimo (1.75x):',
+                lblOt3: '3. Maalinta Nasashada Toddobaadka (2.0x):',
+                lblOt4: '4. Maalinta Ciidda / Fasaxa Guud (2.5x):',
+                lblTransport: 'Gaadiid / Duty / Gunnada Kale:',
+                optExempt: 'Canshuur ka Fudud (Tax-Free)',
+                optTaxable: 'Canshuur Leh (Taxable)',
+                btnCalculate: 'Xisaabi Mushaharka Saafi ah iyo OT',
+                resBasicTitle: 'Mushaharka Aasaasiga ah:',
+                resOtTitle: 'Wadarta Lacagta OT:',
+                resAllowTitle: 'Gunno:',
+                resGrossTitle: 'Dakhliga Guud (Gross):',
+                resTaxTitle: 'Canshuurta Shaqada:',
+                resPensionTitle: 'Howlgabka Shaqaalaha (7%):',
+                resNetTitle: 'Mushaharka Saafi ah (Net Pay):',
+                btnCopySummary: '📋 Koobiyee Soo Koobidda Natiijada',
+                btnReset: '🔄 Nadiifi',
+                btnShare: '📤 La Wadaag',
+                payrollHeader: '🏢 Xisaabiyaha Mushahar-bixinta Hay\'adda & Dejinta',
+                payrollDesc: 'Hay\'adaha bixiya mushaharka shaqaalaha waxay hagaajin karaan dejinta hay\'adda iyo wadarta guud.',
+                lblOrgName: '🏛️ Magaca Hay\'adda:',
+                lblOrgRateSetting: '⚙️ Dejinta Boqolleyda Howlgabka Hay\'adda:',
+                optOrgAuto: 'Sida Qaybta Shaqaalaha (11% Gaar/Rayid | 33% Ciidan)',
+                optOrg11: 'Joogto 11% (Gaar / Rayid)',
+                optOrg33: 'Joogto 33% (Ciidan)',
+                optOrg0: '0% Howlgabka Hay\'adda',
+                lblEmpName: 'Magaca Shaqaalaha / Shaqada:',
+                lblEmpSector: 'Qaybta Shaqaalaha:',
+                lblEmpBasic: 'Mushaharka Aasaasiga ah:',
+                lblEmpExtra: 'OT + Gunno (Bishii):',
+                btnAddPayroll: '➕ Ku Dar Shaqaale Liiska Mushaharka',
+                prOrgTitle: 'Hay\'adda:',
+                prCountTitle: 'Tirada Shaqaalaha:',
+                prGrossTitle: 'Wadarta Gross:',
+                prTaxTitle: 'Wadarta Canshuurta:',
+                prEmpPenTitle: 'Howlgabka Shaqaalaha (7%):',
+                prNetTitle: 'Wadarta Net Shaqaalaha:',
+                btnCopyPayroll: '📋 Koobiyee Soo Koobidda Mushaharka',
+                btnClearPayroll: '🗑️ Nadiifi Liiska',
+                footerLink: 'Dejinta & Sharciga'
+            },
+            aa: {
+                topLang: '🌐 Af / Language',
+                slogan: 'One System. Every Ethiopian Employee.',
+                badge: '🔥 Proclamation 1395/2017 • Pension 7% / 11% / 33% (2026)',
+                tabCalc: '💰 Salary & OT',
+                tabPayroll: '🏢 Payroll',
+                tabBrackets: '📊 Tax & Pension',
+                tabGuide: '📘 Guide',
+                tabSettings: '⚙️ Settings',
+                tabFeedback: '💬 Comments',
+                adTitle: '💡 Ethio Salary Pro - 2026',
+                adDesc: 'Private, Civil Service (Teachers & Doctors), Military/Police (33%) & Employer Payroll',
+                calcHeader: '📊 Salary & Overtime Calculator',
+                lblSector: '🏢 Sector / Pension Category:',
+                optPrivate: 'Private Organization (7% Employee / 11% Employer)',
+                optCivil: 'Civil Service: Gov, Teachers & Doctors (7% Employee / 11% Gov)',
+                optUniformed: 'Military & Police Service (7% Member / 33% Gov)',
+                lblBasic: 'Basic Salary (Birr):',
+                lblWorkHours: '⚡ Monthly Working Hours (OT Base):',
+                opt208: '26 Working Days / 208 Hours (Mon - Sat)',
+                opt176: '22 Working Days / 176 Hours (Mon - Fri)',
+                opt240: '30 Days / 240 Hours (Standard Monthly)',
+                lblOtHint: '💡 Select your workplace working schedule',
+                lblOt1: '1. Evening Overtime up to 10:00 PM (1.5x):',
+                lblOt2: '2. Night Overtime 10:00 PM to 6:00 AM (1.75x):',
+                lblOt3: '3. Weekly Rest Day Overtime (2.0x):',
+                lblOt4: '4. Public Holiday Overtime (2.5x):',
+                lblTransport: 'Transport / Duty / Other Allowance:',
+                optExempt: 'Tax-Free (Exempt)',
+                optTaxable: 'Taxable Allowance',
+                btnCalculate: 'Calculate Net Salary & OT',
+                resBasicTitle: 'Basic Salary:',
+                resOtTitle: 'Total Overtime Payment:',
+                resAllowTitle: 'Allowance:',
+                resGrossTitle: 'Gross Income:',
+                resTaxTitle: 'Tax Deduction:',
+                resPensionTitle: 'Employee Pension (7%):',
+                resNetTitle: 'Net Salary (Take Home):',
+                btnCopySummary: '📋 Copy Result Summary',
+                btnReset: '🔄 Clear',
+                btnShare: '📤 Share App',
+                payrollHeader: '🏢 Employer Payroll Calculator & Settings',
+                payrollDesc: 'Organizations paying staff can configure organization settings and compute employee & total employer totals.',
+                lblOrgName: '🏛️ Organization / Employer Name:',
+                lblOrgRateSetting: '⚙️ Employer Pension Rate Setting:',
+                optOrgAuto: 'By Employee Sector (11% Private/Civil | 33% Military/Police)',
+                optOrg11: 'Fixed 11% Employer Share (Private / Civil)',
+                optOrg33: 'Fixed 33% Gov/Org Share (Military / Police)',
+                optOrg0: '0% Employer Pension (Extra Pay Only)',
+                lblEmpName: 'Employee Name / Role:',
+                lblEmpSector: 'Employee Sector:',
+                lblEmpBasic: 'Basic Salary (Birr):',
+                lblEmpExtra: 'OT + Allowance Total (Monthly):',
+                btnAddPayroll: '➕ Add Employee to Payroll',
+                prOrgTitle: 'Organization:',
+                prCountTitle: 'Employees:',
+                prGrossTitle: 'Total Gross Pay:',
+                prTaxTitle: 'Total Income Tax:',
+                prEmpPenTitle: 'Total Employee Pension (7%):',
+                prNetTitle: 'Total Net Pay to Staff:',
+                btnCopyPayroll: '📋 Copy Payroll Summary',
+                btnClearPayroll: '🗑️ Clear Payroll List',
+                footerLink: 'Settings & Legal'
+            }
+        };
 
         function hideSplash() {
             const splash = document.getElementById('appSplash');
@@ -751,6 +1160,8 @@
             document.getElementById('monthlyHours').value = '208';
             document.getElementById('allowanceType').value = 'exempt';
             document.getElementById('otDetailMode').value = 'show';
+            document.getElementById('orgCustomRate').value = 'auto';
+            document.getElementById('orgName').value = '';
             resetForm();
             clearPayrollList();
             alert('Reset complete.');
@@ -805,7 +1216,8 @@
             return { tax: Math.max(0, (taxableIncome * 0.35) - 2050), rateText: '35%' };
         }
 
-        function getEmployerPensionRate(sector) {
+        function getEmployerPensionRate(sector, overrideSetting = 'auto') {
+            if (overrideSetting !== 'auto') return parseFloat(overrideSetting) || 0;
             return sector === 'uniformed' ? 0.33 : 0.11;
         }
 
@@ -831,7 +1243,7 @@
             const lang = document.getElementById('langSelect').value;
 
             if (basic <= 0) {
-                if (showAlert) alert(lang === 'en' ? 'Please enter a valid basic salary.' : 'እባክዎ ትክክለኛ መሠረታዊ ደመወዝ ያስገቡ።');
+                if (showAlert) alert(lang === 'am' ? 'እባክዎ ትክክለኛ መሠረታዊ ደመወዝ ያስገቡ።' : 'Please enter a valid basic salary.');
                 return;
             }
 
@@ -847,13 +1259,15 @@
             const { tax, rateText } = computeTax(taxableIncome);
 
             const pension = basic * 0.07;
-            const orgRate = getEmployerPensionRate(sector);
+            const orgRate = getEmployerPensionRate(sector, 'auto');
             const employerPension = basic * orgRate;
             const netSalary = grossSalary - tax - pension;
             const unit = getCurrencyUnit(lang);
 
-            document.getElementById('hourlyRateInfo').innerText = `⏱️ ${formatMoney(hourlyRate)}${unit} / hr`;
-            document.getElementById('taxBracketInfo').innerText = `📋 Proc. 1395/2017: ${rateText}`;
+            document.getElementById('hourlyRateInfo').innerText =
+                lang === 'am' ? `⏱️ የ1 ሰዓት ዋጋ: ${formatMoney(hourlyRate)}${unit}` : `⏱️ ${formatMoney(hourlyRate)}${unit} / hr`;
+            document.getElementById('taxBracketInfo').innerText =
+                lang === 'am' ? `📋 የግብር እርከን (አዋጅ 1395/2017): ${rateText}` : `📋 Proc. 1395/2017: ${rateText}`;
 
             const detailBox = document.getElementById('otDetailBox');
             if (detailMode === 'show' && otPayment > 0) {
@@ -917,14 +1331,7 @@
                 return;
             }
             const name = (nameInput.value || '').trim() || `Employee #${payrollEmployees.length + 1}`;
-            const gross = basic + extra;
-            const { tax } = computeTax(gross);
-            const empPension = basic * 0.07;
-            const orgRate = getEmployerPensionRate(sector);
-            const orgPension = basic * orgRate;
-            const net = gross - tax - empPension;
-
-            payrollEmployees.push({ id: Date.now(), name, sector, basic, gross, tax, empPension, orgPension, net });
+            payrollEmployees.push({ id: Date.now(), name, sector, basic, extra });
             nameInput.value = '';
             document.getElementById('empBasic').value = '';
             document.getElementById('empExtra').value = '';
@@ -944,6 +1351,8 @@
         function renderPayroll() {
             const lang = document.getElementById('langSelect').value;
             const unit = getCurrencyUnit(lang);
+            const orgName = (document.getElementById('orgName').value || '').trim() || (lang === 'am' ? 'ያልተገለጸ ተቋም' : 'Organization');
+            const orgOverride = document.getElementById('orgCustomRate').value;
             const listEl = document.getElementById('payrollList');
             const summaryEl = document.getElementById('payrollSummaryBox');
 
@@ -954,17 +1363,27 @@
                 return;
             }
 
-            listEl.innerHTML = payrollEmployees.map(item => `
+            const computedRows = payrollEmployees.map(item => {
+                const gross = item.basic + item.extra;
+                const { tax } = computeTax(gross);
+                const empPension = item.basic * 0.07;
+                const orgRate = getEmployerPensionRate(item.sector, orgOverride);
+                const orgPension = item.basic * orgRate;
+                const net = gross - tax - empPension;
+                return { ...item, gross, tax, empPension, orgPension, net };
+            });
+
+            listEl.innerHTML = computedRows.map(row => `
                 <div class="payroll-item">
                     <div class="payroll-item-top">
-                        <span>${item.name}</span>
-                        <button type="button" class="del-mini" onclick="removePayrollEmployee(${item.id})">✕</button>
+                        <span>${row.name}</span>
+                        <button type="button" class="del-mini" onclick="removePayrollEmployee(${row.id})">✕</button>
                     </div>
-                    <div>Gross: ${formatMoney(item.gross)}${unit} • Tax: -${formatMoney(item.tax)}${unit} • 7%: -${formatMoney(item.empPension)}${unit} • <strong>Net: ${formatMoney(item.net)}${unit}</strong></div>
+                    <div>Gross: ${formatMoney(row.gross)}${unit} • Tax: -${formatMoney(row.tax)}${unit} • 7%: -${formatMoney(row.empPension)}${unit} • <strong>Net: ${formatMoney(row.net)}${unit}</strong></div>
                 </div>
             `).join('');
 
-            const totals = payrollEmployees.reduce((acc, cur) => {
+            const totals = computedRows.reduce((acc, cur) => {
                 acc.gross += cur.gross;
                 acc.tax += cur.tax;
                 acc.empPension += cur.empPension;
@@ -974,15 +1393,20 @@
             }, { gross: 0, tax: 0, empPension: 0, orgPension: 0, net: 0 });
 
             summaryEl.style.display = 'block';
-            document.getElementById('prCount').innerText = String(payrollEmployees.length);
+            document.getElementById('prOrgVal').innerText = orgName;
+            document.getElementById('prCount').innerText = String(computedRows.length);
             document.getElementById('prGross').innerText = formatMoney(totals.gross) + unit;
             document.getElementById('prTax').innerText = '-' + formatMoney(totals.tax) + unit;
             document.getElementById('prEmpPen').innerText = '-' + formatMoney(totals.empPension) + unit;
             document.getElementById('prNet').innerText = formatMoney(totals.net) + unit;
-            document.getElementById('prOrgPenTitle').innerText = `🏢 Total Employer/Gov Pension (11%/33%): ${formatMoney(totals.orgPension)}${unit}`;
+            document.getElementById('prOrgPenTitle').innerText =
+                lang === 'am'
+                    ? `🏢 ጠቅላላ የተቋም/መንግሥት የጡረታ ድርሻ: ${formatMoney(totals.orgPension)}${unit}`
+                    : `🏢 Total Employer/Gov Pension Share: ${formatMoney(totals.orgPension)}${unit}`;
 
             lastPayrollText = [
-                `Ethio Salary Pro - Payroll Summary (${payrollEmployees.length} staff)`,
+                `Ethio Salary Pro - Payroll (${orgName})`,
+                `Employees: ${computedRows.length}`,
                 `Total Gross: ${formatMoney(totals.gross)}${unit}`,
                 `Total Tax: -${formatMoney(totals.tax)}${unit}`,
                 `Total Employee Pension (7%): -${formatMoney(totals.empPension)}${unit}`,
@@ -994,13 +1418,13 @@
         function copySummary() {
             if (!lastSummaryText) return;
             navigator.clipboard?.writeText(lastSummaryText);
-            alert('Summary copied!');
+            alert('Copied!');
         }
 
         function copyPayrollSummary() {
             if (!lastPayrollText) return;
             navigator.clipboard?.writeText(lastPayrollText);
-            alert('Payroll summary copied!');
+            alert('Copied!');
         }
 
         function shareApp() {
@@ -1015,6 +1439,36 @@
             }
         }
 
+        function applyTextsForLanguage(lang) {
+            const t = I18N[lang] || I18N.am;
+            const ids = [
+                ['topLangLabel', 'topLang'], ['siteSlogan', 'slogan'], ['siteBadge', 'badge'],
+                ['btnTabCalc', 'tabCalc'], ['btnTabPayroll', 'tabPayroll'], ['btnTabBrackets', 'tabBrackets'],
+                ['btnTabGuide', 'tabGuide'], ['btnTabSettings', 'tabSettings'], ['btnTabFeedback', 'tabFeedback'],
+                ['adTitleText', 'adTitle'], ['adDescText', 'adDesc'], ['calcHeader', 'calcHeader'],
+                ['lblSector', 'lblSector'], ['optPrivate', 'optPrivate'], ['optCivil', 'optCivil'],
+                ['optUniformed', 'optUniformed'], ['lblBasic', 'lblBasic'], ['lblWorkHours', 'lblWorkHours'],
+                ['opt208', 'opt208'], ['opt176', 'opt176'], ['opt240', 'opt240'], ['lblOtHint', 'lblOtHint'],
+                ['lblOt1', 'lblOt1'], ['lblOt2', 'lblOt2'], ['lblOt3', 'lblOt3'], ['lblOt4', 'lblOt4'],
+                ['lblTransport', 'lblTransport'], ['optExempt', 'optExempt'], ['optTaxable', 'optTaxable'],
+                ['btnCalculate', 'btnCalculate'], ['resBasicTitle', 'resBasicTitle'], ['resOtTitle', 'resOtTitle'],
+                ['resAllowTitle', 'resAllowTitle'], ['resGrossTitle', 'resGrossTitle'], ['resTaxTitle', 'resTaxTitle'],
+                ['resPensionTitle', 'resPensionTitle'], ['resNetTitle', 'resNetTitle'], ['btnCopySummary', 'btnCopySummary'],
+                ['btnReset', 'btnReset'], ['btnShare', 'btnShare'], ['payrollHeader', 'payrollHeader'],
+                ['payrollDesc', 'payrollDesc'], ['lblOrgName', 'lblOrgName'], ['lblOrgRateSetting', 'lblOrgRateSetting'],
+                ['optOrgAuto', 'optOrgAuto'], ['optOrg11', 'optOrg11'], ['optOrg33', 'optOrg33'], ['optOrg0', 'optOrg0'],
+                ['lblEmpName', 'lblEmpName'], ['lblEmpSector', 'lblEmpSector'], ['lblEmpBasic', 'lblEmpBasic'],
+                ['lblEmpExtra', 'lblEmpExtra'], ['btnAddPayroll', 'btnAddPayroll'], ['prOrgTitle', 'prOrgTitle'],
+                ['prCountTitle', 'prCountTitle'], ['prGrossTitle', 'prGrossTitle'], ['prTaxTitle', 'prTaxTitle'],
+                ['prEmpPenTitle', 'prEmpPenTitle'], ['prNetTitle', 'prNetTitle'], ['btnCopyPayroll', 'btnCopyPayroll'],
+                ['btnClearPayroll', 'btnClearPayroll'], ['footerLink', 'footerLink']
+            ];
+            ids.forEach(([elId, key]) => {
+                const el = document.getElementById(elId);
+                if (el && t[key]) el.innerText = t[key];
+            });
+        }
+
         function changeLanguage(userInitiated = false) {
             const lang = document.getElementById('langSelect').value;
             document.documentElement.lang = lang;
@@ -1023,94 +1477,7 @@
                 localStorage.setItem('ethio_salary_lang', lang);
                 updateUrlLangParam(lang);
             }
-
-            if (lang === 'am') {
-                document.getElementById('siteSlogan').innerText = 'One System. Every Ethiopian Employee.';
-                document.getElementById('siteBadge').innerText = '🔥 አዋጅ 1395/2017 • ጡረታ 7% / 11% / 33% (2026)';
-                document.getElementById('calcHeader').innerText = '📊 ደመወዝ እና ኦቨርታይም (OT) ማስያ';
-                document.getElementById('lblSector').innerText = '🏢 የዘርፍ / የጡረታ ዓይነት:';
-                document.getElementById('optPrivate').innerText = 'የግል ድርጅት (7% ሠራተኛ / 11% አሠሪ)';
-                document.getElementById('optCivil').innerText = 'ሲቪል ሰርቪስ: መንግሥት፣ መምህራን እና ዶክተሮች (7% / 11%)';
-                document.getElementById('optUniformed').innerText = 'ወታደራዊ እና ፖሊስ አገልግሎት (7% አባል / 33% መንግሥት)';
-                document.getElementById('lblBasic').innerText = 'መሠረታዊ ደመወዝ (በብር):';
-                document.getElementById('lblWorkHours').innerText = '⚡ ወርሃዊ የሥራ ሰዓት (የOT መሠረት):';
-                document.getElementById('opt208').innerText = '26 የሥራ ቀናት / 208 ሰዓት (ሰኞ - ቅዳሜ)';
-                document.getElementById('opt176').innerText = '22 የሥራ ቀናት / 176 ሰዓት (ሰኞ - አርብ)';
-                document.getElementById('opt240').innerText = '30 ቀናት / 240 ሰዓት (ወርሃዊ)';
-                document.getElementById('lblOt1').innerText = '1. ከመደበኛ ሰዓት በኋላ እስከ ምሽት 4 ሰዓት (1.5x):';
-                document.getElementById('lblOt2').innerText = '2. ምሽት 4 እስከ ንጋት 12 ሰዓት (1.75x):';
-                document.getElementById('lblOt3').innerText = '3. ሳምንታዊ የእረፍት ቀን (2.0x):';
-                document.getElementById('lblOt4').innerText = '4. የሕዝብ በዓል (2.5x):';
-                document.getElementById('lblTransport').innerText = 'ትራንስፖርት / Duty / ሌላ አበል:';
-                document.getElementById('optExempt').innerText = 'ከግብር ነጻ (Tax-Free)';
-                document.getElementById('optTaxable').innerText = 'ግብር የሚከፈልበት (Taxable)';
-                document.getElementById('btnCalculate').innerText = 'የተጣራ ደመወዝ እና OT አስላ';
-                document.getElementById('btnCopySummary').innerText = '📋 የውጤት ማጠቃለያ ኮፒ አድርግ';
-                document.getElementById('btnReset').innerText = '🔄 አጽዳ';
-                document.getElementById('btnShare').innerText = '📤 ሼር ያድርጉ';
-                document.getElementById('btnTabCalc').innerText = '💰 ደመወዝ & OT';
-                document.getElementById('btnTabPayroll').innerText = '🏢 ደመወዝ ክፍያ';
-                document.getElementById('btnTabBrackets').innerText = '📊 ግብር & ጡረታ';
-                document.getElementById('btnTabGuide').innerText = '📘 ማብራሪያ';
-                document.getElementById('btnTabSettings').innerText = '⚙️ ቅንብር & ሕግ';
-                document.getElementById('btnTabFeedback').innerText = '💬 አስተያየት';
-            } else if (lang === 'om') {
-                document.getElementById('siteSlogan').innerText = 'One System. Every Ethiopian Employee.';
-                document.getElementById('siteBadge').innerText = '🔥 Labsii 1395/2017 • Pensiyoonii 7% / 11% / 33% (2026)';
-                document.getElementById('calcHeader').innerText = '📊 Shallgessa Mindaa fi OT';
-                document.getElementById('btnCalculate').innerText = 'Mindaa Qulqulluu Shallugi';
-                document.getElementById('btnTabCalc').innerText = '💰 Mindaa & OT';
-                document.getElementById('btnTabPayroll').innerText = '🏢 Kaffaltii';
-                document.getElementById('btnTabBrackets').innerText = '📊 Gibira';
-                document.getElementById('btnTabGuide').innerText = '📘 Ibsa';
-                document.getElementById('btnTabSettings').innerText = '⚙️ Qindaa\'ina';
-                document.getElementById('btnTabFeedback').innerText = '💬 Yaada';
-            } else if (lang === 'ti') {
-                document.getElementById('siteSlogan').innerText = 'One System. Every Ethiopian Employee.';
-                document.getElementById('siteBadge').innerText = '🔥 ኣዋጅ 1395/2017 • ጡረታ 7% / 11% / 33% (2026)';
-                document.getElementById('calcHeader').innerText = '📊 መለኪዒ ዓስቢ እና ኦቨርታይም';
-                document.getElementById('btnCalculate').innerText = 'ንጹህ ዓስቢ አስላ';
-                document.getElementById('btnTabCalc').innerText = '💰 ዓስቢ & OT';
-                document.getElementById('btnTabPayroll').innerText = '🏢 ክፍሊት';
-                document.getElementById('btnTabBrackets').innerText = '📊 ግብሪ';
-                document.getElementById('btnTabGuide').innerText = '📘 መብርሂ';
-                document.getElementById('btnTabSettings').innerText = '⚙️ ቅንብር';
-                document.getElementById('btnTabFeedback').innerText = '💬 ርእይቶ';
-            } else if (lang === 'so') {
-                document.getElementById('siteSlogan').innerText = 'One System. Every Ethiopian Employee.';
-                document.getElementById('siteBadge').innerText = '🔥 Xeerka 1395/2017 • Howlgab 7% / 11% / 33% (2026)';
-                document.getElementById('calcHeader').innerText = '📊 Xisaabiyaha Mushaharka iyo OT';
-                document.getElementById('btnCalculate').innerText = 'Xisaabi Mushaharka Saafi ah';
-                document.getElementById('btnTabCalc').innerText = '💰 Mushahar';
-                document.getElementById('btnTabPayroll').innerText = '🏢 Mushahar-bixin';
-                document.getElementById('btnTabBrackets').innerText = '📊 Canshuur';
-                document.getElementById('btnTabGuide').innerText = '📘 Hagaha';
-                document.getElementById('btnTabSettings').innerText = '⚙️ Dejinta';
-                document.getElementById('btnTabFeedback').innerText = '💬 Faallo';
-            } else if (lang === 'aa') {
-                document.getElementById('siteSlogan').innerText = 'One System. Every Ethiopian Employee.';
-                document.getElementById('siteBadge').innerText = '🔥 Proclamation 1395/2017 • Pension 7% / 11% / 33% (2026)';
-                document.getElementById('calcHeader').innerText = '📊 Salary & Overtime Calculator';
-                document.getElementById('btnCalculate').innerText = 'Calculate Net Salary & OT';
-                document.getElementById('btnTabCalc').innerText = '💰 Salary & OT';
-                document.getElementById('btnTabPayroll').innerText = '🏢 Payroll';
-                document.getElementById('btnTabBrackets').innerText = '📊 Tax & Pension';
-                document.getElementById('btnTabGuide').innerText = '📘 Guide';
-                document.getElementById('btnTabSettings').innerText = '⚙️ Settings';
-                document.getElementById('btnTabFeedback').innerText = '💬 Comments';
-            } else {
-                document.getElementById('siteSlogan').innerText = 'One System. Every Ethiopian Employee.';
-                document.getElementById('siteBadge').innerText = '🔥 Proclamation 1395/2017 • Pension 7% / 11% / 33% (2026)';
-                document.getElementById('calcHeader').innerText = '📊 Salary & Overtime Calculator';
-                document.getElementById('btnCalculate').innerText = 'Calculate Net Salary & OT';
-                document.getElementById('btnTabCalc').innerText = '💰 Salary & OT';
-                document.getElementById('btnTabPayroll').innerText = '🏢 Payroll';
-                document.getElementById('btnTabBrackets').innerText = '📊 Tax & Pension';
-                document.getElementById('btnTabGuide').innerText = '📘 Guide';
-                document.getElementById('btnTabSettings').innerText = '⚙️ Settings';
-                document.getElementById('btnTabFeedback').innerText = '💬 Comments';
-            }
-
+            applyTextsForLanguage(lang);
             if (document.getElementById('resultCard').style.display === 'block') calculateAll(false);
             if (payrollEmployees.length > 0) renderPayroll();
         }
