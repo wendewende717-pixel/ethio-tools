@@ -338,10 +338,10 @@
     <div id="installPopup" class="install-popup-banner" style="display:none;">
         <div class="info">
             <span class="title" id="bannerTitle">📱 Ethio Salary Pro</span>
-            <span class="desc" id="bannerDesc">Install on your phone for quick access</span>
+            <span class="desc" id="bannerDesc">ለፈጣን መዳረሻ በስልክዎ ላይ ይጫኑ</span>
         </div>
         <div class="action-btns">
-            <button class="install-now" id="installBtn" onclick="installApp()">📥 Install</button>
+            <button class="install-now" id="installBtn" onclick="installApp()">📥 ጫን</button>
             <button class="close-banner" onclick="closeInstallBanner()">✕</button>
         </div>
     </div>
@@ -550,7 +550,7 @@
                 <div class="result-item"><span id="prTaxTitle">ጠቅላላ የሥራ ግብር:</span><strong id="prTax">-0.00</strong></div>
                 <div class="result-item"><span id="prEmpPenTitle">ጠቅላላ የሠራተኛ ጡረታ (7%):</span><strong id="prEmpPen">-0.00</strong></div>
                 <div class="result-item total"><span id="prNetTitle">ለሠራተኞች የሚከፈል ጠቅላላ Net:</span><strong id="prNet">0.00</strong></div>
-                <div class="employer-box"><span id="prOrgPenTitle">🏢 ጠቅላላ የተቋም/መንግሥት ጡረታ ድርሻ: 0.00</span></div>
+                <div class="employer-box"><span id="prOrgPenTitle">🏢 ጠቅላላ የተቋም/መንግሥት የጡረታ ድርሻ: 0.00</span></div>
                 <button type="button" class="copy-summary-btn" id="btnCopyPayroll" onclick="copyPayrollSummary()">📋 የደመወዝ ክፍያ ማጠቃለያ ኮፒ አድርግ</button>
                 <button type="button" class="reset-btn" style="width:100%; margin-top:0.5rem;" id="btnClearPayroll" onclick="clearPayrollList()">🗑️ ዝርዝር አጽዳ</button>
             </div>
@@ -697,6 +697,9 @@
 
         const I18N = {
             am: {
+                bannerTitle: '📱 Ethio Salary Pro',
+                bannerDesc: 'ለፈጣን መዳረሻ በስልክዎ ላይ ይጫኑ',
+                installBtn: '📥 ጫን',
                 topLang: '🌐 ቋንቋ / Language',
                 slogan: 'One System. Every Ethiopian Employee.',
                 badge: '🔥 አዋጅ 1395/2017 • ጡረታ 7% / 11% / 33% (2026)',
@@ -758,9 +761,27 @@
                 prNetTitle: 'ለሠራተኞች የሚከፈል ጠቅላላ Net:',
                 btnCopyPayroll: '📋 የደመወዝ ክፍያ ማጠቃለያ ኮፒ አድርግ',
                 btnClearPayroll: '🗑️ ዝርዝር አጽዳ',
+                settingsHeader: '⚙️ ቅንብር እና ሕጋዊ ማሳሰቢያ',
+                setLangTitle: '🌐 ቋንቋ',
+                setLangDesc: 'አማርኛ፣ English፣ Afaan Oromoo፣ ትግርኛ፣ Af-Soomaali፣ Afar',
+                setOtDetailTitle: '📑 የOT ዝርዝር ማሳያ',
+                setOtDetailDesc: 'የእያንዳንዱን የOT ብዜት ክፍያ አሳይ',
+                optShowDetail: 'ዝርዝር',
+                optHideDetail: 'አጭር',
+                setInstallTitle: '📱 አፑን ጫን (PWA)',
+                setInstallDesc: 'በስልክ ማያ ላይ ጫን',
+                btnSettingsInstall: '📥 ጫን',
+                setResetTitle: '🔄 ሁሉንም ዳግም አስጀምር',
+                setResetDesc: 'ቅንብሮችንና ቁጥሮችን አጽዳ',
+                btnSettingsReset: 'ዳግም',
+                aboutTitle: 'ሕጋዊ ማሳሰቢያ እና ግላዊነት',
+                aboutText: 'Ethio Salary Pro በአዋጅ 1395/2017 እና በኢትዮጵያ የጡረታ ሥርዓት (7% ሠራተኛ፤ 11% የግል/ሲቪል አሠሪ፤ 33% የወታደር/ፖሊስ የመንግሥት ድርሻ) መሠረት መረጃ የሚሰጥ ማስያ ነው። ስሌቶች በራስዎ መሣሪያ ላይ ይከናወናሉ፤ ልዩ የአበል ወይም የአገልግሎት ደንቦችን ከተቋምዎ HR/ፋይናንስ ያረጋግጡ።',
                 footerLink: 'ቅንብር & ሕግ'
             },
             en: {
+                bannerTitle: '📱 Ethio Salary Pro',
+                bannerDesc: 'Install on your phone for quick access',
+                installBtn: '📥 Install',
                 topLang: '🌐 Language / ቋንቋ',
                 slogan: 'One System. Every Ethiopian Employee.',
                 badge: '🔥 Proclamation 1395/2017 • Pension 7% / 11% / 33% (2026)',
@@ -822,9 +843,27 @@
                 prNetTitle: 'Total Net Pay to Staff:',
                 btnCopyPayroll: '📋 Copy Payroll Summary',
                 btnClearPayroll: '🗑️ Clear Payroll List',
+                settingsHeader: '⚙️ Settings & Legal Notice',
+                setLangTitle: '🌐 Language',
+                setLangDesc: 'Amharic, English, Afaan Oromoo, Tigrinya, Somali, Afar',
+                setOtDetailTitle: '📑 OT Breakdown',
+                setOtDetailDesc: 'Show payout per overtime tier',
+                optShowDetail: 'Show',
+                optHideDetail: 'Compact',
+                setInstallTitle: '📱 Install App (PWA)',
+                setInstallDesc: 'Add to home screen',
+                btnSettingsInstall: '📥 Install',
+                setResetTitle: '🔄 Reset All',
+                setResetDesc: 'Reset settings and inputs',
+                btnSettingsReset: 'Reset',
+                aboutTitle: 'Disclaimer & Privacy',
+                aboutText: 'Ethio Salary Pro is an informational calculation tool built around Proclamation 1395/2017 and Ethiopian pension rules (7% employee; 11% private/civil employer; 33% military/police government share). Calculations run locally in your browser. Confirm specialized institutional allowances or service rules with your HR/Finance office.',
                 footerLink: 'Settings & Legal'
             },
             om: {
+                bannerTitle: '📱 Ethio Salary Pro',
+                bannerDesc: 'Makiinatti dhaqqabuuf bilbila keessan irratti fe\'aa',
+                installBtn: '📥 Fe\'i',
                 topLang: '🌐 Afaan / Language',
                 slogan: 'One System. Every Ethiopian Employee.',
                 badge: '🔥 Labsii 1395/2017 • Pensiyoonii 7% / 11% / 33% (2026)',
@@ -886,9 +925,27 @@
                 prNetTitle: 'Net Waliigalaa Hojjettootaaf:',
                 btnCopyPayroll: '📋 Cuunfaa Kaffaltii Garagalchi',
                 btnClearPayroll: '🗑️ Tarree Haqi',
+                settingsHeader: '⚙️ Qindaa\'ina fi Seera',
+                setLangTitle: '🌐 Afaan',
+                setLangDesc: 'Afaan Amaaraa, English, Afaan Oromoo, Tigree, Somaalee, Afar',
+                setOtDetailTitle: '📑 Bal\'ina OT',
+                setOtDetailDesc: 'Kaffaltii gosa OT hundaa agarsiisi',
+                optShowDetail: 'Bal\'inaan',
+                optHideDetail: 'Gabaabinaan',
+                setInstallTitle: '📱 App Fe\'i (PWA)',
+                setInstallDesc: 'Fuula duraa bilbila irratti dabali',
+                btnSettingsInstall: '📥 Fe\'i',
+                setResetTitle: '🔄 Hunda Deebisi',
+                setResetDesc: 'Qindaa\'ina fi lakkoofsota haqi',
+                btnSettingsReset: 'Deebisi',
+                aboutTitle: 'Ibsa Seeraa fi Dhuunfaa',
+                aboutText: 'Ethio Salary Pro meeshaa shallaggii Labsii 1395/2017 fi seera pensiyoonii Itoophiyaa (7% hojjetaa; 11% dhuunfaa/siiviil; 33% waraana/poolisii) irratti hundaa\'edha.',
                 footerLink: 'Qindaa\'ina & Seera'
             },
             ti: {
+                bannerTitle: '📱 Ethio Salary Pro',
+                bannerDesc: 'ቅልጡፍ ንምርካብ ኣብ ስልክኹም ይጫኑ',
+                installBtn: '📥 ጽዓን',
                 topLang: '🌐 ቋንቋ / Language',
                 slogan: 'One System. Every Ethiopian Employee.',
                 badge: '🔥 ኣዋጅ 1395/2017 • ጡረታ 7% / 11% / 33% (2026)',
@@ -950,9 +1007,27 @@
                 prNetTitle: 'ጠቕላላ Net ንሰራሕተኛታት:',
                 btnCopyPayroll: '📋 ጽማቕ ክፍሊት ቅዳሕ',
                 btnClearPayroll: '🗑️ ዝርዝር ኣጽሪ',
+                settingsHeader: '⚙️ ቅንብር እና ሕጋዊ ማሳሰቢያ',
+                setLangTitle: '🌐 ቋንቋ',
+                setLangDesc: 'ትግርኛ፣ አማርኛ፣ English፣ ኦሮምኛ፣ ሶማልኛ፣ ዓፋር',
+                setOtDetailTitle: '📑 ዝርዝር OT',
+                setOtDetailDesc: 'ክፍሊት ነፍሲ ወከፍ ብዜት OT ኣርኢ',
+                optShowDetail: 'ዝርዝር',
+                optHideDetail: 'ሓጺር',
+                setInstallTitle: '📱 ኣፕ ጽዓን (PWA)',
+                setInstallDesc: 'ኣብ ስክሪን ስልኪ ኣቐምጥ',
+                btnSettingsInstall: '📥 ጽዓን',
+                setResetTitle: '🔄 ኩሉ ዳግም ጀምር',
+                setResetDesc: 'ቅንብራትን ቁጽርታትን ኣጽሪ',
+                btnSettingsReset: 'ዳግም',
+                aboutTitle: 'ሕጋዊ መጠንቀቕታ እና ብሕትውና',
+                aboutText: 'Ethio Salary Pro ብኣዋጅ 1395/2017 እና ብሕጊ ጡረታ ኢትዮጵያ (7% ሰራሕተኛ፤ 11% ብሕቲ/ሲቪል፤ 33% ሰራዊት/ፖሊስ) ዝሰርሕ መሕሰቢ እዩ።',
                 footerLink: 'ቅንብር & ሕጊ'
             },
             so: {
+                bannerTitle: '📱 Ethio Salary Pro',
+                bannerDesc: 'Ku rakibo telefoonkaaga si aad dhaqso u hesho',
+                installBtn: '📥 Rakibo',
                 topLang: '🌐 Luqadda / Language',
                 slogan: 'One System. Every Ethiopian Employee.',
                 badge: '🔥 Xeerka 1395/2017 • Howlgab 7% / 11% / 33% (2026)',
@@ -1014,9 +1089,27 @@
                 prNetTitle: 'Wadarta Net Shaqaalaha:',
                 btnCopyPayroll: '📋 Koobiyee Soo Koobidda Mushaharka',
                 btnClearPayroll: '🗑️ Nadiifi Liiska',
+                settingsHeader: '⚙️ Dejinta iyo Ogeysiiska Sharciga',
+                setLangTitle: '🌐 Luqadda',
+                setLangDesc: 'Soomaali, Amxaari, Ingiriisi, Oromo, Tigree, Afar',
+                setOtDetailTitle: '📑 Faahfaahinta OT',
+                setOtDetailDesc: 'Muuji lacagta qayb kasta oo OT ah',
+                optShowDetail: 'Faahfaahin',
+                optHideDetail: 'Kooban',
+                setInstallTitle: '📱 Rakibo App-ka (PWA)',
+                setInstallDesc: 'Ku dar shaashadda hore',
+                btnSettingsInstall: '📥 Rakibo',
+                setResetTitle: '🔄 Dib u Dhig Dhammaan',
+                setResetDesc: 'Nadiifi dejinta iyo tirooyinka',
+                btnSettingsReset: 'Dib u dhig',
+                aboutTitle: 'Ogeysiis iyo Asturnaanta',
+                aboutText: 'Ethio Salary Pro waa xisaabiye ku salaysan Xeerka 1395/2017 iyo xeerarka howlgabka Itoobiya (7% shaqaale; 11% gaar/rayid; 33% ciidan).',
                 footerLink: 'Dejinta & Sharciga'
             },
             aa: {
+                bannerTitle: '📱 Ethio Salary Pro',
+                bannerDesc: 'Install on your phone for quick access',
+                installBtn: '📥 Install',
                 topLang: '🌐 Af / Language',
                 slogan: 'One System. Every Ethiopian Employee.',
                 badge: '🔥 Proclamation 1395/2017 • Pension 7% / 11% / 33% (2026)',
@@ -1078,6 +1171,21 @@
                 prNetTitle: 'Total Net Pay to Staff:',
                 btnCopyPayroll: '📋 Copy Payroll Summary',
                 btnClearPayroll: '🗑️ Clear Payroll List',
+                settingsHeader: '⚙️ Settings & Legal Notice',
+                setLangTitle: '🌐 Language',
+                setLangDesc: 'Afar, Amharic, English, Oromo, Tigrinya, Somali',
+                setOtDetailTitle: '📑 OT Breakdown',
+                setOtDetailDesc: 'Show payout per overtime tier',
+                optShowDetail: 'Show',
+                optHideDetail: 'Compact',
+                setInstallTitle: '📱 Install App (PWA)',
+                setInstallDesc: 'Add to home screen',
+                btnSettingsInstall: '📥 Install',
+                setResetTitle: '🔄 Reset All',
+                setResetDesc: 'Reset settings and inputs',
+                btnSettingsReset: 'Reset',
+                aboutTitle: 'Disclaimer & Privacy',
+                aboutText: 'Ethio Salary Pro is an informational calculation tool built around Proclamation 1395/2017 and Ethiopian pension rules (7% employee; 11% private/civil employer; 33% military/police government share).',
                 footerLink: 'Settings & Legal'
             }
         };
@@ -1442,6 +1550,7 @@
         function applyTextsForLanguage(lang) {
             const t = I18N[lang] || I18N.am;
             const ids = [
+                ['bannerTitle', 'bannerTitle'], ['bannerDesc', 'bannerDesc'], ['installBtn', 'installBtn'],
                 ['topLangLabel', 'topLang'], ['siteSlogan', 'slogan'], ['siteBadge', 'badge'],
                 ['btnTabCalc', 'tabCalc'], ['btnTabPayroll', 'tabPayroll'], ['btnTabBrackets', 'tabBrackets'],
                 ['btnTabGuide', 'tabGuide'], ['btnTabSettings', 'tabSettings'], ['btnTabFeedback', 'tabFeedback'],
@@ -1461,7 +1570,14 @@
                 ['lblEmpExtra', 'lblEmpExtra'], ['btnAddPayroll', 'btnAddPayroll'], ['prOrgTitle', 'prOrgTitle'],
                 ['prCountTitle', 'prCountTitle'], ['prGrossTitle', 'prGrossTitle'], ['prTaxTitle', 'prTaxTitle'],
                 ['prEmpPenTitle', 'prEmpPenTitle'], ['prNetTitle', 'prNetTitle'], ['btnCopyPayroll', 'btnCopyPayroll'],
-                ['btnClearPayroll', 'btnClearPayroll'], ['footerLink', 'footerLink']
+                ['btnClearPayroll', 'btnClearPayroll'], ['settingsHeader', 'settingsHeader'],
+                ['setLangTitle', 'setLangTitle'], ['setLangDesc', 'setLangDesc'],
+                ['setOtDetailTitle', 'setOtDetailTitle'], ['setOtDetailDesc', 'setOtDetailDesc'],
+                ['optShowDetail', 'optShowDetail'], ['optHideDetail', 'optHideDetail'],
+                ['setInstallTitle', 'setInstallTitle'], ['setInstallDesc', 'setInstallDesc'],
+                ['btnSettingsInstall', 'btnSettingsInstall'], ['setResetTitle', 'setResetTitle'],
+                ['setResetDesc', 'setResetDesc'], ['btnSettingsReset', 'btnSettingsReset'],
+                ['aboutTitle', 'aboutTitle'], ['aboutText', 'aboutText'], ['footerLink', 'footerLink']
             ];
             ids.forEach(([elId, key]) => {
                 const el = document.getElementById(elId);
